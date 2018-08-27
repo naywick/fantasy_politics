@@ -10,10 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_27_144200) do
+ActiveRecord::Schema.define(version: 2018_08_27_163636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "league_connections", force: :cascade do |t|
+    t.bigint "league_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["league_id"], name: "index_league_connections_on_league_id"
+    t.index ["user_id"], name: "index_league_connections_on_user_id"
+  end
+
+  create_table "leagues", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_leagues_on_user_id"
+  end
+
+  create_table "political_parties", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_political_parties_on_user_id"
+  end
+
+  create_table "politician_scores", force: :cascade do |t|
+    t.bigint "politician_id"
+    t.integer "mentions"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["politician_id"], name: "index_politician_scores_on_politician_id"
+  end
+
+  create_table "politicians", force: :cascade do |t|
+    t.string "name"
+    t.string "party"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +67,9 @@ ActiveRecord::Schema.define(version: 2018_08_27_144200) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "league_connections", "leagues"
+  add_foreign_key "league_connections", "users"
+  add_foreign_key "leagues", "users"
+  add_foreign_key "political_parties", "users"
+  add_foreign_key "politician_scores", "politicians"
 end
