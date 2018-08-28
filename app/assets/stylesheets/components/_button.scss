@@ -1,0 +1,23 @@
+.home-button {
+  padding: 10px 30px;
+  outline: none;
+  background-color: #DB5461;
+  border: none;
+  border-radius:5px;
+  box-shadow: 0 8px #943942;
+}
+.home-button:hover {
+  text-decoration: none;
+  background-color: #b44550;
+}
+
+.home-button:active {
+  background-color: #b44550;
+  box-shadow: 0 4px #943942;
+  transform: translateY(4px);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
