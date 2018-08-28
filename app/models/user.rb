@@ -7,10 +7,10 @@ class User < ApplicationRecord
   def index
     if params[:query].present?
       sql_query = " \
-        user.title @@ :query \
-        OR movies.syllabus @@ :query \
-        OR directors.first_name @@ :query \
-        OR directors.last_name @@ :query \
+        users.first_name @@ :query \
+        OR users.first_name @@ :query \
+        OR politicians.first_name @@ :query \
+        OR politician.last_name @@ :query \
       "
       @movies = Movie.joins(:director).where(sql_query, query: "%#{params[:query]}%")
     else
