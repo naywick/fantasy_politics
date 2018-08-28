@@ -1,0 +1,61 @@
+body {
+  background-color: $app-gray;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 1px;
+}
+
+h2 {
+  margin-bottom: 30px;
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+}
+input.login-form-input {
+  background-color: $app-gray;
+  color: rgba(255,255,255,1);
+  letter-spacing: 1.5px;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.7);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  box-shadow: none;
+}
+
+input.login-form-input:focus {
+  box-shadow: none;
+  border-bottom: 1px solid rgba(255,255,255,1);
+}
+
+label.login-form-label {
+  font-weight: normal;
+  font-size: 17px;
+}
+
+
+
+.custom-form-group {
+  position: relative;
+  margin-bottom: 30px;
+  height: 80px;
+
+  label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.btn {
+  color: rgba(255,255,255,0.9);
+}
+
+.btn:hover {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+}

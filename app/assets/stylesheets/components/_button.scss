@@ -1,0 +1,23 @@
+.main-button {
+  padding: 10px 30px;
+  outline: none;
+  background-color: #DB5461;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 7px #943942;
+  margin: 25px 0px !important;
+}
+.main-button:hover {
+  background-color: #b44550;
+}
+
+.main-button:active {
+  background-color: #b44550;
+  box-shadow: 0 3px #943942;
+  transform: translateY(4px);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
