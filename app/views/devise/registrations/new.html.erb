@@ -10,14 +10,14 @@
           <%= f.input :username,
                              required: true,
                              autofocus: true,
-                             label: "USERNAME",
+                             label: "Username",
                              label_html: { class: "login-form-label" },
                              input_html: { autocomplete: "username", class: "login-form-input" } %>
         </div>
         <div class="custom-form-group">
           <%= f.input :email,
                     required: true,
-                    label: "EMAIL",
+                    label: "Email",
                     label_html: { class: "login-form-label" },
                     input_html: { autocomplete: "email", class: "login-form-input" }%>
         </div>
@@ -25,14 +25,14 @@
           <%= f.input :password,
                       required: true,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      label: "PASSWORD",
+                      label: "Password",
                       label_html: { class: "login-form-label" },
                       input_html: { autocomplete: "new-password", class: "login-form-input"  } %>
         </div>
         <div class="custom-form-group">
           <%= f.input :password_confirmation,
                       required: true,
-                      label: "CONFIRM PASSWORD",
+                      label: "Confirm password",
                       label_html: { class: "login-form-label" },
                       input_html: { autocomplete: "new-password", class: "login-form-input"  } %>
         </div>
