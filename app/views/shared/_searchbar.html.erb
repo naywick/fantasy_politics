@@ -1,0 +1,8 @@
+<!-- [...] -->
+<%= form_tag movies_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search here"
+  %>
+<% end %>
