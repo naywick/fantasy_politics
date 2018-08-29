@@ -11,6 +11,7 @@
 
       <% if user_signed_in? %>
         <!-- Links when logged in -->
+
           <% if current_user.political_party %>
             <%= link_to 'My Party', political_party_path(current_user.political_party), class: "navbar-wagon-item navbar-wagon-link" %>
           <% else %>
@@ -29,14 +30,14 @@
             <%= image_tag 'logo.png', class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
             <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
               <li>
-                <%= link_to user_path(current_user) do %>
-                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-                <% end %>
+                <%#= link_to user_path(current_user) do %>
+                  <i class="fa fa-user"></i> <%#= t(".profile", default: "Profile") %>
+                <%# end %>
               </li>
               <li>
-                <%= link_to destroy_user_session_path, method: :delete do %>
-                  <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-                <% end %>
+                <%#= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fa fa-sign-out"></i>  <%#= t(".sign_out", default: "Log out") %>
+                <%# end %>
               </li>
             </ul>
           </div>
@@ -58,20 +59,20 @@
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <% if user_signed_in? %>
             <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-                <% end %>
+              <%#= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%#= t(".sign_out", default: "Log out") %>
+                <%# end %>
               </li>
               <li>
-                <%= link_to user_path(current_user) do %>
+                <%#= link_to user_path(current_user) do %>
                   <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-                  <% end %>
+                  <%# end %>
               </li>
           <% else %>
             <li>
-              <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path %>Link tag</li>
+              <%#= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path %>Link tag</li>
             <li>
-              <%= link_to t(".sign_in", default: "Login"), new_user_session_path %> Link tag
+              <%#= link_to t(".sign_in", default: "Login"), new_user_session_path %> Link tag
               </li>
           <% end %>
         </ul>
