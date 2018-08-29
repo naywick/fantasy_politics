@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :league_connections
+  has_many :leagues, through: :league_connections
+
   def index
     if params[:query].present?
       sql_query = " \

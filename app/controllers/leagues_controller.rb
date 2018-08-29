@@ -4,7 +4,19 @@ class LeaguesController < ApplicationController
   end
 
   def create
-    @league = League.new(league_params)
+    league = League.new(league_params)
+    league.user = current_user
+    if league.save
+      league_connection = LeagueConnection.new
+      league_connection.user = current_user
+      league_connection.league = league
+      league_connection.save
+      redirect_to league_path(league)
+    end
+  end
+
+  def show
+    @league = League.find(params[:id])
   end
 
   def update
