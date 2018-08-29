@@ -5,3 +5,19 @@
 .main-button {
   color: rgba(255,255,255,0.9);
 }
+
+.login-button {
+  padding: 6px 12px;
+  box-shadow: none;
+  font-size: 16px;
+}
+
+.login-button:active {
+  background-color: #b44550;
+  box-shadow: none;
+  transform: none;
+}
+
+.home-button {
+  margin-bottom: 50px;
+}

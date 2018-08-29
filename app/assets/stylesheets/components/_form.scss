@@ -14,6 +14,7 @@ input.login-form-input {
   color: rgba(255,255,255,1);
   letter-spacing: 1.5px;
   border-radius: 0;
+  border-bottom: none;
   border-bottom: 1px solid rgba(255,255,255,0.7);
   border-top: none;
   border-left: none;
@@ -31,8 +32,6 @@ label.login-form-label {
   font-size: 15px;
 
 }
-
-
 
 .custom-form-group {
   position: relative;
