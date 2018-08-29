@@ -6,12 +6,14 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
 
+  has_one :political_party
+
   after_create :send_welcome_email
 
   include AlgoliaSearch
 
   algoliasearch do
-    attribute :first_name, :last_name, :email
+    # attribute :first_name, :last_name, :email, :username
   end
 
   # def index

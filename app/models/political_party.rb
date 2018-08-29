@@ -4,6 +4,6 @@ class PoliticalParty < ApplicationRecord
   include AlgoliaSearch
 
   algoliasearch do
-    attribute :name
+
   end
 end

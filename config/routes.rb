@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :leagues do
     resources :league_connections, only: [ :create, :destroy ]
   end
+
+  get '/search_results', to: 'pages#search_results'
+
 end
 
 

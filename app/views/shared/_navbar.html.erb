@@ -11,11 +11,13 @@
 
       <% if user_signed_in? %>
         <!-- Links when logged in -->
-          <%= link_to 'My Party', political_party_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <% if current_user.politician? %>
-        <%= link_to "My League", league_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <% end %>
-        <%= link_to "Leaderboard", politician_politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <% if current_user.political_party %>
+            <%= link_to 'My Party', political_party_path(current_user.political_party), class: "navbar-wagon-item navbar-wagon-link" %>
+          <% else %>
+            <%= link_to 'Create my party', new_political_party_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <% end %>
+          <%# link_to "My Leagues", league_path(current_user.league), class: "navbar-wagon-item navbar-wagon-link" %>
+          <%# link_to "Leaderboard", politician_politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
         <!-- Avatar with dropdown menu -->
         <div class="navbar-wagon-item">
