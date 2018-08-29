@@ -20,6 +20,7 @@ def create
       redirect_to league(@league)
     else
       render :edit
+    end
   end
 
   def destroy

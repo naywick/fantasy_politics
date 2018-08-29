@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   has_one :political_party
+  has_one :league
 
   after_create :send_welcome_email
 
