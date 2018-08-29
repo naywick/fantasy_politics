@@ -1,19 +1,25 @@
-class LeaguesController < ApplicationController
-
-def create
-   @league = current_user.leagues.build(league_params)
-   if @league.save
-     LeagueMailer.creation_confirmation(@league).deliver_now
-     redirect_to league_path(@league)
-   else
-     render :new
-   end
- end
-# def create
-#     @league = League.new(league_params)
-# end
+class LeaguesController < ApplicationControlle
   def index
     @leagues = League.all
+  end
+
+  def create
+    league = League.new(league_params)
+    league.user = current_user
+    if league.save
+      league_connection = LeagueConnection.new
+      league_connection.user = current_user
+      league_connection.league = league
+      league_connection.save
+      LeagueMailer.creation_confirmation(league).deliver_now
+      redirect_to league_path(league)
+    else
+     render :new
+    end
+  end
+
+  def show
+    @league = League.find(params[:id])
   end
   
   def update
@@ -22,6 +28,7 @@ def create
       redirect_to league(@league)
     else
       render :edit
+    end
   end
 
   def destroy

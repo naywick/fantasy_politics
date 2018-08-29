@@ -1,8 +1,9 @@
 class Politician < ApplicationRecord
+  has_one :politicians_score
+
   include AlgoliaSearch
 
   algoliasearch do
-    attribute :first_name, :last_name, :party
-  end
 
+  end
 end
