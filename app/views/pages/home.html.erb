@@ -1,11 +1,12 @@
-<% content_for( :navbar_class, "navbar-home") %>
+
 <div class="banner flexbox-column homepage-container">
   <h1>FANTASY POLITICS</h1>
     <p>Become a political player</p>
     <%= image_tag "skyline_cropped.png", id: "skyline" %>
-    <%#= link_to new_user_registration_path do %>
-      <button type="button" class="main-button" data-toggle="modal" data-target="#myModal">Sign Up</button>
-    <%# end %>
+
+    <%= link_to new_user_registration_path do %>
+      <p class="main-button">Sign Up</p>
+    <% end %>
 </div>
 
 <!-- Modal -->

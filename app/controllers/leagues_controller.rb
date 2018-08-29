@@ -1,4 +1,4 @@
-class LeaguesController < ApplicationController
+class LeaguesController < ApplicationControlle
   def index
     @leagues = League.all
   end
@@ -11,6 +11,7 @@ class LeaguesController < ApplicationController
       league_connection.user = current_user
       league_connection.league = league
       league_connection.save
+      LeagueMailer.creation_confirmation(league).deliver_now
       redirect_to league_path(league)
     else
      render :new
@@ -35,7 +36,7 @@ class LeaguesController < ApplicationController
     @league.destroy
   end
 
-  private
+private
 
   def league_params
     params.require(:league).permit(:name)
