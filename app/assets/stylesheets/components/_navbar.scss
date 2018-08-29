@@ -10,8 +10,8 @@
   justify-content: space-between;
   box-shadow: none;
   .navbar-wagon-link {
-    color: white;
-    font-weight: bolder;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 1.5px;
   }
 }
 
@@ -37,7 +37,6 @@
   width: 35px;
   border-radius: 50%;
 }
-
 /* Right section */
 .navbar-wagon-right {
   display: flex;

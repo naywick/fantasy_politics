@@ -1,17 +1,39 @@
-.modal-dialog {
-  display: flex;
-  justify-content: space-around;
+#myModal {
+  margin-top: 44px;
+  padding: 0;
+  h3 {
+    color: rgba(255,255,255,0.85);
+  }
+}
+
+#myModal2 {
+  margin-top: 120px;
+  h3 {
+    color: rgba(255,255,255,0.85);
+  }
 }
 
 .my-modal-content {
   background-color: $app-gray;
   border-radius: 5px;
-  height: 580px;
+  height: 600px;
   width: 450px;
 }
 
+.my-modal2-content {
+  background-color: $app-gray;
+  border-radius: 5px;
+  height: 390px;
+  width: 450px;
+}
+
+.modal-dialog {
+  display: flex;
+  justify-content: space-around;
+}
+
 .my-modal-title {
-  margin-top: 20px;
+  margin-top: 28px;
 }
 
 .my-modal-body {
@@ -21,18 +43,19 @@
 .my-modal-dialog {
 }
 
-#myModal {
-  margin-top: 50px;
-  padding: 0;
-}
-
 input.login-form-input {
   background-color: $app-gray;
 }
 
 .modal-button {
   box-shadow: none;
-  margin-bottom: 100px;
+  margin-top: 22px;
+}
+
+.modal-button:active {
+  background-color: #b44550;
+  box-shadow: none;
+  transform: none;
 }
 
 .modal-title {

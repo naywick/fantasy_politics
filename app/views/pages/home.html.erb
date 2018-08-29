@@ -1,12 +1,9 @@
 
 <div class="banner flexbox-column homepage-container">
   <h1>FANTASY POLITICS</h1>
-    <p>Become a political player</p>
-    <%= image_tag "skyline_cropped.png", id: "skyline" %>
-
-    <%= link_to new_user_registration_path do %>
-      <p class="main-button">Sign Up</p>
-    <% end %>
+  <p>Become a political player</p>
+  <%= image_tag "skyline_cropped.png", id: "skyline" %>
+  <button type="button" class="main-button home-button" data-toggle="modal" data-target="#myModal">Sign Up</button>
 </div>
 
 <!-- Modal -->
@@ -18,7 +15,7 @@
         <button type="button" class="close cross" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <%= simple_form_for(:user, url: new_user_registration_path) do |f| %>
+        <%= simple_form_for(User.new, as: :user, url: registration_path(:user)) do |f| %>
 
         <div class="form-inputs modal-form-inputs">
           <div class="custom-form-group modal-custom-form-group">
@@ -58,25 +55,6 @@
         <% end %>
 
       </div>
-      <% if false %>
-      <div class="modal-body">
-        <%= simple_form_for(:user, :url => user_session_path) do |f| %>
-          <div class="email-container">
-            <%= f.text_field :email, :class =>"form-control",placeholder: "Email", value:"" %>
-          </div>
-          <div class="password-container">
-            <%= f.password_field :password,:label =>"Password", :class =>"form-control", placeholder:"Password", value:""%>
-          </div>
-          <%= f.submit 'Login', :class =>"form-control" %>
-          <%= f.check_box :remember_me, label: "Remember me", value: "true" %>
-          <%= f.label :remember_me %>
-        <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save</button>
-      </div>
-      <% end %>
     </div>
   </div>
 </div>

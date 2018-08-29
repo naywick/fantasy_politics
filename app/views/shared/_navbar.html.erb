@@ -47,7 +47,8 @@
 
         <!-- Login link (when logged out) -->
         <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%#= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <button class="main-button login-button" data-toggle="modal" data-target="#myModal2">Log In</button>
       <% end %>
     </div>
 
@@ -83,3 +84,48 @@
   </div>
 </div>
 
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered my-modal-dialog" role="document">
+    <div class="modal-content my-modal2-content">
+      <div class="modal-body my-modal-body">
+        <h3 class="modal-title my-modal-title" id="exampleModalLongTitle">Log In</h3>
+        <button type="button" class="close cross" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <%= simple_form_for(:user, as: :user, url: session_path(:user)) do |f| %>
+
+        <div class="form-inputs modal-form-inputs">
+          <div class="custom-form-group modal-custom-form-group">
+            <%= f.input :email,
+                               required: true,
+                               autofocus: true,
+                               label: "Email",
+                               label_html: { class: "login-form-label" },
+                               input_html: { autocomplete: "email", class: "login-form-input" } %>
+          </div>
+          <div class="custom-form-group modal-custom-form-group">
+            <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        label: "Password",
+                        label_html: { class: "login-form-label" },
+                        input_html: { autocomplete: "new-password", class: "login-form-input"  } %>
+          </div>
+        <div class="form-actions flexbox-column">
+          <%= f.button :submit, "Go", class: "main-button modal-button" %>
+        </div>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= content_for :after_js do %>
+  <script>
+    $('#myModal2').on('shown.bs.modal', function () {
+      $('#myInput').trigger('focus')
+    })
+  </script>
+<% end %>
