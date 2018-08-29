@@ -3,6 +3,8 @@
 * ------------------------------------- */
 
 .alert {
+  position: fixed;
+  width: 100vw;
   margin: 0;
   text-align: center;
   background: rgba(0,0,0,0.01);
@@ -20,3 +22,6 @@
   color: white;
   border: 0;
 }
+
+
+
