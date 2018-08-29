@@ -8,7 +8,6 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.1'
 gem 'redis'
-gem 'jquery-rails'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
@@ -20,8 +19,8 @@ gem 'webpacker'
 gem "algoliasearch-rails"
 gem 'jquery-rails'
 gem 'hogan_assets'
-gem 'devise'
 gem "letter_opener", group: :development
+gem 'sweetalert2'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
