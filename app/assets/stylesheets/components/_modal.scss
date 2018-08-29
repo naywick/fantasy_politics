@@ -1,0 +1,63 @@
+.modal-dialog {
+  display: flex;
+  justify-content: space-around;
+}
+
+.my-modal-content {
+  background-color: $app-gray;
+  border-radius: 5px;
+  height: 580px;
+  width: 450px;
+}
+
+.my-modal-title {
+  margin-top: 20px;
+}
+
+.my-modal-body {
+  position: relative;
+}
+
+.my-modal-dialog {
+}
+
+#myModal {
+  margin-top: 50px;
+  padding: 0;
+}
+
+input.login-form-input {
+  background-color: $app-gray;
+}
+
+.modal-button {
+  box-shadow: none;
+  margin-bottom: 100px;
+}
+
+.modal-title {
+  text-align: center;
+}
+
+.modal-form-inputs {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.modal-custom-form-group {
+  height: 72px;
+  margin-bottom: 22px;
+}
+
+.cross {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: white;
+  opacity: 0.4;
+}
+
+.cross:hover {
+  color: rgba(255,255,255,0.2);
+  text-shadow: none;
+}
