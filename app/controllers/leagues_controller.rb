@@ -12,19 +12,22 @@ class LeaguesController < ApplicationController
       league_connection.league = league
       league_connection.save
       redirect_to league_path(league)
+    else
+     render :new
     end
   end
 
   def show
     @league = League.find(params[:id])
   end
-
+  
   def update
     @league = League.find(params[:id])
     if @league.update(league_params)
       redirect_to league(@league)
     else
       render :edit
+    end
   end
 
   def destroy
