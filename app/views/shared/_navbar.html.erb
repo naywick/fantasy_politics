@@ -1,9 +1,9 @@
 <div class="navbar-fixed-top">
-  <div class="navbar-wagon">
+  <div class="navbar-wagon" <%= yield(:navbar_class) %>>
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
       <%= image_tag "logo.png", height: 50 %>
     <% end %>
-
+<div> render</div>
 
 
     <!-- Right Navigation -->
@@ -11,16 +11,23 @@
 
       <% if user_signed_in? %>
         <!-- Links when logged in -->
-          <%#= link_to 'My Party', political_party_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%# if current_user.politician? %>
-        <%#= link_to "My League", league_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%# end %>
-        <%#= link_to "Leaderboard", politician_politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+          <% if current_user.political_party %>
+            <%= link_to 'My Party', political_party_path(current_user.political_party), class: "navbar-wagon-item navbar-wagon-link" %>
+          <% else %>
+            <%= link_to 'Create my party', new_political_party_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <% end %>
+            <% if current_user.league %>
+          <%= link_to "My Leagues", league_path(current_user.league), class: "navbar-wagon-item navbar-wagon-link" %>
+            <% else %>
+            <%= link_to 'Create my league', new_league_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <% end %>
+          <%= link_to "Leaderboard", leagues_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
         <!-- Avatar with dropdown menu -->
         <div class="navbar-wagon-item">
           <div class="dropdown">
-            <%#= cl_image_tag current_user.cl_photo , class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <%= image_tag 'logo.png', class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
             <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
               <li>
                 <%#= link_to user_path(current_user) do %>

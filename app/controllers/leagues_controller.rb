@@ -3,9 +3,16 @@ class LeaguesController < ApplicationController
     @leagues = League.all
   end
 
-  def create
-    @league = League.new(league_params)
-  end
+def create
+   @league = current_user.leagues.build(league_params)
+
+   if @league.save
+     LeagueMailer.creation_confirmation(@league).deliver_now
+     redirect_to league_path(@league)
+   else
+     render :new
+   end
+ end
 
   def update
     @league = League.find(params[:id])
@@ -13,6 +20,7 @@ class LeaguesController < ApplicationController
       redirect_to league(@league)
     else
       render :edit
+    end
   end
 
   def destroy
