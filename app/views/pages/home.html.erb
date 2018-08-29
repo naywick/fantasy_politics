@@ -1,10 +1,93 @@
+
 <h1>TEST </h1>
 <% content_for( :navbar_class, "navbar-home") %>
+
 <div class="banner flexbox-column homepage-container">
   <h1>FANTASY POLITICS</h1>
     <p>Become a political player</p>
     <%= image_tag "skyline_cropped.png", id: "skyline" %>
+
     <%= link_to new_user_registration_path do %>
       <p class="main-button">Sign Up</p>
     <% end %>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered my-modal-dialog" role="document">
+    <div class="modal-content my-modal-content">
+      <div class="modal-body my-modal-body">
+        <h3 class="modal-title my-modal-title" id="exampleModalLongTitle">Sign Up</h3>
+        <button type="button" class="close cross" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <%= simple_form_for(:user, url: new_user_registration_path) do |f| %>
+
+        <div class="form-inputs modal-form-inputs">
+          <div class="custom-form-group modal-custom-form-group">
+            <%= f.input :username,
+                               required: true,
+                               autofocus: true,
+                               label: "Username",
+                               label_html: { class: "login-form-label" },
+                               input_html: { autocomplete: "username", class: "login-form-input" } %>
+          </div>
+          <div class="custom-form-group modal-custom-form-group">
+            <%= f.input :email,
+                      required: true,
+                      label: "Email",
+                      label_html: { class: "login-form-label" },
+                      input_html: { autocomplete: "email", class: "login-form-input" }%>
+          </div>
+          <div class="custom-form-group modal-custom-form-group">
+            <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        label: "Password",
+                        label_html: { class: "login-form-label" },
+                        input_html: { autocomplete: "new-password", class: "login-form-input"  } %>
+          </div>
+          <div class="custom-form-group modal-custom-form-group">
+            <%= f.input :password_confirmation,
+                        required: true,
+                        label: "Confirm password",
+                        label_html: { class: "login-form-label" },
+                        input_html: { autocomplete: "new-password", class: "login-form-input"  } %>
+          </div>
+        <div class="form-actions flexbox-column">
+          <%= f.button :submit, "Submit", class: "main-button modal-button" %>
+        </div>
+        </div>
+        <% end %>
+
+      </div>
+      <% if false %>
+      <div class="modal-body">
+        <%= simple_form_for(:user, :url => user_session_path) do |f| %>
+          <div class="email-container">
+            <%= f.text_field :email, :class =>"form-control",placeholder: "Email", value:"" %>
+          </div>
+          <div class="password-container">
+            <%= f.password_field :password,:label =>"Password", :class =>"form-control", placeholder:"Password", value:""%>
+          </div>
+          <%= f.submit 'Login', :class =>"form-control" %>
+          <%= f.check_box :remember_me, label: "Remember me", value: "true" %>
+          <%= f.label :remember_me %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= content_for :after_js do %>
+  <script>
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').trigger('focus')
+    })
+  </script>
+<% end %>
