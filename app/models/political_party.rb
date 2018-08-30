@@ -7,6 +7,9 @@ class PoliticalParty < ApplicationRecord
   has_many :politicians, through: :political_links
   validates :name, presence: true, uniqueness: true
 
+  has_many :politician_links
+  accepts_nested_attributes_for :politician_links
+
   include AlgoliaSearch
 
   algoliasearch do
