@@ -6,7 +6,8 @@ class PoliticalPartiesController < ApplicationController
   end
 
   def new
-    @political_party = PoliticalParty.new
+    @political_party = PoliticalParty.build
+    @political_party.links.build
     @user = current_user
     authorize @political_party
   end
@@ -25,7 +26,7 @@ class PoliticalPartiesController < ApplicationController
     @political_party.user = current_user
     authorize @political_party
     if @political_party.save
-      redirect_to political_party(@political_party)
+      redirect_to political_party_path(@political_party)
     else
       render :new
     end
