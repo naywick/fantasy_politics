@@ -33,7 +33,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to destroy_user_session_path, method: :delete, class: 'swal-test' do %>
+                <%= link_to destroy_user_session_path, method: :delete, class: '#' do %>
                   <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
                 <% end %>
 
@@ -58,7 +58,7 @@
           <% if user_signed_in? %>
 
             <li>
-              <%= link_to destroy_user_session_path, method: :delete, class: 'swal-test' do %>
+              <%= link_to destroy_user_session_path, method: :delete, class: '#' do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
                 <% end %>
               </li>

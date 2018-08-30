@@ -1,7 +1,20 @@
+
 class LeaguesController < ApplicationController
+  before_action :find_league, only: [:edit, :update, :show, :destroy]
   def index
-    @leagues = League.all
+    @leagues = policy_scope(League).order(created_at: :desc)
   end
+
+  def new
+    @league = League.new
+    @politician = Politician.find(params[:politician_id])
+    authorize @league
+  end
+
+  def edit
+    @politician = Politician.find(params[:politician_id])
+  end
+
 
   def create
     league = League.new(league_params)
@@ -13,17 +26,16 @@ class LeaguesController < ApplicationController
       league_connection.save
       LeagueMailer.creation_confirmation(league).deliver_now
       redirect_to league_path(league)
+      authorize league
     else
      render :new
     end
   end
 
   def show
-    @league = League.find(params[:id])
   end
 
   def update
-    @league = League.find(params[:id])
     if @league.update(league_params)
       redirect_to league(@league)
     else
@@ -32,11 +44,16 @@ class LeaguesController < ApplicationController
   end
 
   def destroy
-    @league = League.find(params[:id])
     @league.destroy
+    @league = policy_scope(League)
   end
 
 private
+
+  def find_league
+   @league = League.find(params[:id])
+   authorize @league
+  end
 
   def league_params
     params.require(:league).permit(:name)
