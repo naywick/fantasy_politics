@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    authorize @user
   end
 
 # create taken care of by devise
