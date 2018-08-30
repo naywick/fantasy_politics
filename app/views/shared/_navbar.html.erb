@@ -16,8 +16,6 @@
           <% else %>
             <%= link_to 'Create my party', new_political_party_path, class: "navbar-wagon-item navbar-wagon-link" %>
           <% end %>
-
-
           <% if current_user.leagues %>
             <%= link_to "My Leagues", leagues_path(current_user.leagues), class: "navbar-wagon-item navbar-wagon-link" %>
           <% else %>

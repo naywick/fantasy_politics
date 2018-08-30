@@ -1,0 +1,24 @@
+<div class="league-container">
+  <div class="league-table">
+    <h1>League Name</h1>
+    <%= @league.name %>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <% @league.political_parties.each do |political_party| %>
+
+          <div class="league-card">
+            <%= political_party.name  %>
+
+          </div>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
