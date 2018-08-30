@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   resources :politicians_scores, only: [:index]
 
   resources :politicians, only: [ :index, :show ] do
-    resources :political_links, only: [ :create, :destroy ]
+    resources :politician_links, only: [ :create, :destroy ]
   end
+  resources :politician_links, only: :new
   resources :leagues do
     resources :league_connections, only: [ :create, :destroy ]
   end

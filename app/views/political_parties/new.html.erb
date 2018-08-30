@@ -1,31 +1,7 @@
 <div class="row homepage-container">
   <div class="col-xs-12 col-sm-4 col-sm-offset-4">
     <h2>Create Your Party</h2>
-
-    <%= simple_form_for @political_party do |f| %>
-      <%= f.error_notification %>
-      <div class="form-inputs">
-        <div class="custom-form-group">
-          <%= f.input :name,
-
-                       required: true,
-                       autofocus: true,
-                       label: "Name",
-                       label_html: { class: "login-form-label" },
-                       input_html: { autocomplete: "username", class: "login-form-input" } %>
-
-
-      </div>
-      <%= f.simple_fields_for :politician_links do |political_link|  %>
-        <%= political_link.association :politician, label_method: ->(politician) {"#{politician.first_name} #{politician.last_name}"}, as: :select %>
-      <% end %>
-
-      <div class="form-actions flexbox-column">
-        <%= f.button :submit, "Submit", class: "main-button" %>
-      </div>
-    <% end %>
-
-
+    <%= render 'form', political_party: @political_party %>
   </div>
 </div>
 
