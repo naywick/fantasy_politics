@@ -8,7 +8,6 @@ class PoliticalPartiesController < ApplicationController
 
   def new
     @political_party = PoliticalParty.new
-    @politician = Politician.find(params[:politician_id])
     @user = current_user
     authorize @political_party
   end
