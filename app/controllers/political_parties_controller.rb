@@ -2,8 +2,7 @@ class PoliticalPartiesController < ApplicationController
   before_action :find_political_party, only: [:edit, :update, :show, :destroy]
 
   def index
-    @political_parties =  current_user.political_parties
-    # @ political_paties = policy_scope(PoliticalParty)
+    @political_parties = policy_scope(PoliticalParty)
   end
 
   def new
@@ -19,6 +18,7 @@ class PoliticalPartiesController < ApplicationController
 
   def show
     @political_party = current_user.political_parties.first
+     authorize @political_party
   end
 
   def create
