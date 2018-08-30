@@ -7,11 +7,12 @@
       <div class="form-inputs">
         <div class="custom-form-group">
           <%= f.input :name,
-                      autofocus: true,
-                      label: "Party name",
-                      label_html: { class: "login-form-label" },
-                      input_html: { class: "login-form-input" } %>
-        </div>
+
+                       required: true,
+                       autofocus: true,
+                       label: "Name",
+                       label_html: { class: "login-form-label" },
+                       input_html: { autocomplete: "username", class: "login-form-input" } %>
       </div>
       <div class="form-actions flexbox-column">
         <%= f.button :submit, "Submit", class: "main-button" %>
