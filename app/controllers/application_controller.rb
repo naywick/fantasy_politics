@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   #pundit authentication ( for more info look app/policies and individual controlers)
   before_action :authenticate_user!
   include Pundit
-
+  # after_action :verify_policy_scoped,
   before_action :configure_permitted_parameters, if: :devise_controller?
 
  # Pundit: white-list approach.

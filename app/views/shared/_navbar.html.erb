@@ -25,7 +25,7 @@
 
 
 
-          <%= link_to "Leaderboard", leagues_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "Leaderboard", politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <!-- Avatar with dropdown menu -->
         <div class="navbar-wagon-item">
           <div class="dropdown">
@@ -70,9 +70,9 @@
           <% if current_user.leagues.any? %>
            <li> <%= link_to "My Leagues", leagues_path(current_user.leagues) %></li>
           <% else %>
-            <%= link_to 'Create my league', new_league_path %>
+            <li><%= link_to 'Create my league', new_league_path %></li>
           <% end %>
-            <li>
+            <li><%= link_to "Leaderboard", politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
               <li><%= link_to destroy_user_session_path, method: :delete, class: '#' do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
                 <% end %>

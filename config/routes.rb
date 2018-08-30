@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :political_parties
   resources :users, only: [:show, :edit, :update]
-  resources :politicians_scores, only: [:index]
+  resources :politician_scores, only: [:index]
 
   resources :politicians, only: [ :index, :show ] do
     resources :political_links, only: [ :create, :destroy ]
