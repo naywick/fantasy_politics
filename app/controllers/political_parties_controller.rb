@@ -7,7 +7,6 @@ class PoliticalPartiesController < ApplicationController
 
   def new
     @political_party = PoliticalParty.new
-    @politician = Politician.find(params[:politician_id])
     @user = current_user
     authorize @political_party
   end
@@ -26,7 +25,7 @@ class PoliticalPartiesController < ApplicationController
     @political_party.user = current_user
     authorize @political_party
     if @political_party.save
-      redirect_to political_party(@political_party)
+      redirect_to political_party_path(@political_party)
     else
       render :new
     end

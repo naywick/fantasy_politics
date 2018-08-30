@@ -11,12 +11,13 @@
       <% if user_signed_in? %>
 
         <!-- Links when logged in -->
-          <% if current_user.political_parties %>
+          <% if current_user.political_parties.any? %>
             <%= link_to 'My Party', political_parties_path, class: "navbar-wagon-item navbar-wagon-link" %>
           <% else %>
             <%= link_to 'Create my party', new_political_party_path, class: "navbar-wagon-item navbar-wagon-link" %>
           <% end %>
-          <% if current_user.leagues %>
+
+          <% if current_user.leagues.any? %>
             <%= link_to "My Leagues", leagues_path(current_user.leagues), class: "navbar-wagon-item navbar-wagon-link" %>
           <% else %>
             <%= link_to 'Create my league', new_league_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -60,9 +61,19 @@
         <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <% if user_signed_in? %>
+          <% if current_user.political_parties.any? %>
+           <li><%= link_to 'My Party', political_parties_path %></li>
+          <% else %>
+            <li><%= link_to 'Create my party', new_political_party_path %></li>
+          <% end %>
 
+          <% if current_user.leagues.any? %>
+           <li> <%= link_to "My Leagues", leagues_path(current_user.leagues) %></li>
+          <% else %>
+            <%= link_to 'Create my league', new_league_path %>
+          <% end %>
             <li>
-              <%= link_to destroy_user_session_path, method: :delete, class: '#' do %>
+              <li><%= link_to destroy_user_session_path, method: :delete, class: '#' do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
                 <% end %>
               </li>
@@ -76,7 +87,6 @@
               <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path %>Link tag</li>
             <li>
               <%= link_to t(".sign_in", default: "Login"), new_user_session_path %> Link tag
-
               </li>
           <% end %>
         </ul>
