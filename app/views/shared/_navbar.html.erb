@@ -11,7 +11,7 @@
       <% if user_signed_in? %>
         <!-- Links when logged in -->
           <% if current_user.political_parties %>
-            <%= link_to 'My Party', political_parties_path(current_user.political_party_ids), class: "navbar-wagon-item navbar-wagon-link" %>
+            <%= link_to 'My Party', political_parties_path, class: "navbar-wagon-item navbar-wagon-link" %>
           <% else %>
             <%= link_to 'Create my party', new_political_party_path, class: "navbar-wagon-item navbar-wagon-link" %>
           <% end %>
