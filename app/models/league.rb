@@ -6,6 +6,7 @@ class League < ApplicationRecord
 
   has_many :user_league_connections
   has_many :users, through: :user_league_connections
+  validates :name, presence: true, uniqueness: true
 
   def creator
     return self.user

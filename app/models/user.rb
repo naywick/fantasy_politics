@@ -11,7 +11,8 @@ class User < ApplicationRecord
 
   has_many :user_league_connections
   has_many :leagues, through: :user_league_connections
-
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
 
   include AlgoliaSearch
 
