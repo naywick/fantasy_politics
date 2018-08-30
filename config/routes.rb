@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
+  get 'play', to: 'pages#play'
   devise_for :users
 
   resources :political_parties
