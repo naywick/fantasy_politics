@@ -6,8 +6,8 @@ class PoliticalPartiesController < ApplicationController
   end
 
   def new
-    @political_party = PoliticalParty.build
-    @political_party.links.build
+    @political_party = PoliticalParty.new
+    @political_party.politician_links.build
     @user = current_user
     authorize @political_party
   end
