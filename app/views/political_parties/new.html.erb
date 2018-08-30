@@ -12,7 +12,12 @@
                        label: "Name",
                        label_html: { class: "login-form-label" },
                        input_html: { autocomplete: "username", class: "login-form-input" } %>
+
+          <%= f.simple_fields_for :political_links do |political_link|  %>
+            <%= political_link.association :politician, as: :select %>
+          <% end %>
       </div>
+
       <div class="form-actions flexbox-column">
         <%= f.button :submit, "Submit", class: "main-button" %>
       </div>
