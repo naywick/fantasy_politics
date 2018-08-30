@@ -1,3 +1,8 @@
-<h1>My political party</h1>
+<div class="row homepage-container">
+  <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+    <h2>My political party</h2>
+    <%= render 'form', political_party: @political_party %>
 
-<%= @political_party.name %>
+    <%= link_to "Add party members", new_politician_link_path %>
+  </div>
+</div>

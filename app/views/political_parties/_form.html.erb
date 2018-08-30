@@ -1,0 +1,16 @@
+<%= simple_form_for political_party do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <div class="custom-form-group">
+      <%= f.input :name,
+                   required: true,
+                   autofocus: true,
+                   label: "Name",
+                   label_html: { class: "login-form-label" },
+                   input_html: { autocomplete: "username", class: "login-form-input" } %>
+    </div>
+  </div>
+  <div class="form-actions flexbox-column">
+    <%= f.button :submit, "Submit", class: "main-button" %>
+  </div>
+<% end %>
