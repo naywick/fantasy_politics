@@ -1,1 +1,30 @@
-<!-- Form for creating new political party -->
+<div class="row homepage-container">
+  <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+    <h2>Create Your Party</h2>
+
+    <%= simple_form_for @political_party do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+        <div class="custom-form-group">
+          <%= f.input :name,
+                             required: true,
+                             autofocus: true,
+                             label: "Username",
+                             label_html: { class: "login-form-label" },
+                             input_html: { autocomplete: "username", class: "login-form-input" } %>
+        </div>
+        <div class="custom-form-group">
+          <%= f.select :politician,
+                    required: true,
+                    label: "Politicians",
+                    label_html: { class: "login-form-label" } %>
+        </div>
+      </div>
+      <div class="form-actions flexbox-column">
+        <%= f.button :submit, "Submit", class: "main-button" %>
+      </div>
+    <% end %>
+
+
+  </div>
+</div>

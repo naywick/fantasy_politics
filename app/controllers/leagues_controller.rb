@@ -1,4 +1,4 @@
-class LeaguesController < ApplicationControlle
+class LeaguesController < ApplicationController
   def index
     @leagues = League.all
   end
@@ -21,7 +21,7 @@ class LeaguesController < ApplicationControlle
   def show
     @league = League.find(params[:id])
   end
-  
+
   def update
     @league = League.find(params[:id])
     if @league.update(league_params)
