@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
-  resources :political_parties
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    resources :political_parties, except: :index
+  end
+
   resources :politicians_scores, only: [:index]
 
   resources :politicians, only: [ :index, :show ] do
