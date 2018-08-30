@@ -9,17 +9,23 @@
     <!-- Right Navigation -->
     <div class="navbar-wagon-right hidden-xs hidden-sm">
       <% if user_signed_in? %>
+
         <!-- Links when logged in -->
           <% if current_user.political_parties %>
             <%= link_to 'My Party', political_parties_path, class: "navbar-wagon-item navbar-wagon-link" %>
           <% else %>
             <%= link_to 'Create my party', new_political_party_path, class: "navbar-wagon-item navbar-wagon-link" %>
           <% end %>
-            <% if current_user.leagues %>
-          <%= link_to "My Leagues", leagues_path(current_user.leagues), class: "navbar-wagon-item navbar-wagon-link" %>
-            <% else %>
+
+
+          <% if current_user.leagues %>
+            <%= link_to "My Leagues", leagues_path(current_user.leagues), class: "navbar-wagon-item navbar-wagon-link" %>
+          <% else %>
             <%= link_to 'Create my league', new_league_path, class: "navbar-wagon-item navbar-wagon-link" %>
           <% end %>
+
+
+
           <%= link_to "Leaderboard", leagues_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <!-- Avatar with dropdown menu -->
         <div class="navbar-wagon-item">
