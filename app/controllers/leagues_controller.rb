@@ -1,4 +1,5 @@
-class LeaguesController < ApplicationControlle
+
+class LeaguesController < ApplicationController
   before_action :find_league, only: [:edit, :update, :show, :destroy]
   def index
     @leagues = policy_scope(League).order(created_at: :desc)

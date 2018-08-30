@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_28_174436) do
+ActiveRecord::Schema.define(version: 2018_08_30_122101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 2018_08_28_174436) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_political_parties_on_user_id"
+  end
+
+  create_table "politician_links", force: :cascade do |t|
+    t.bigint "politician_id"
+    t.bigint "political_party_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["political_party_id"], name: "index_politician_links_on_political_party_id"
+    t.index ["politician_id"], name: "index_politician_links_on_politician_id"
   end
 
   create_table "politician_scores", force: :cascade do |t|
@@ -75,5 +84,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_174436) do
   add_foreign_key "league_connections", "users"
   add_foreign_key "leagues", "users"
   add_foreign_key "political_parties", "users"
+  add_foreign_key "politician_links", "political_parties"
+  add_foreign_key "politician_links", "politicians"
   add_foreign_key "politician_scores", "politicians"
 end
