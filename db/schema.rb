@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 2018_08_30_134945) do
     t.index ["user_id"], name: "index_political_parties_on_user_id"
   end
 
+  create_table "politician_links", force: :cascade do |t|
+    t.bigint "politician_id"
+    t.bigint "political_party_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["political_party_id"], name: "index_politician_links_on_political_party_id"
+    t.index ["politician_id"], name: "index_politician_links_on_politician_id"
+  end
+
   create_table "politician_scores", force: :cascade do |t|
     t.bigint "politician_id"
     t.integer "mentions"
@@ -82,6 +91,8 @@ ActiveRecord::Schema.define(version: 2018_08_30_134945) do
   add_foreign_key "league_connections", "political_parties"
   add_foreign_key "leagues", "users"
   add_foreign_key "political_parties", "users"
+  add_foreign_key "politician_links", "political_parties"
+  add_foreign_key "politician_links", "politicians"
   add_foreign_key "politician_scores", "politicians"
   add_foreign_key "user_league_connections", "leagues"
   add_foreign_key "user_league_connections", "users"

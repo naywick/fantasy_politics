@@ -8,6 +8,7 @@ AlgoliaSearch.configuration = {
   index_name: 'fantasy_politics'
 }
 
+
 // alert timeOut function
   document.addEventListener("DOMContentLoaded", () => {
     const alert = document.querySelector(".alert")
@@ -20,13 +21,18 @@ AlgoliaSearch.configuration = {
   })
 
 
-  // scrit for sweet Alert bos ( add class.swal_test if you want it to be in use)
+  // scrit for sweet Alert bos ( add class.swal_test to HTML element on action if you want it to be in use)
+  // class: 'swal-test' do
 let toDestroy;
 let arrayDestroy = Array.from(document.querySelectorAll('.swal-test'))
 if (arrayDestroy.length > 0) {
   arrayDestroy.forEach( element  => {
-    element.addEventListener("click", (e) => {
-      // toDestroy = arrayDestroy.indexOf(element)
+    element.addEventListener("click", createAlert)
+  })
+}
+
+  function createAlert(e) {
+    var element = e.currentTarget
     e.preventDefault();
     e.stopPropagation();
     testAlert()
@@ -35,34 +41,35 @@ if (arrayDestroy.length > 0) {
     console.log(new_element)
     old_element.parentNode.replaceChild(new_element, old_element);
     toDestroy = new_element
-   });
-  })
-}
+  }
 function testAlert() {
   swal({
     title: 'Are you sure?',
     text: "You won't be able to revert this!",
     type: 'warning',
-    imageUrl: '././images/logo.png',
-    imageWidth: 200,
-    imageHeight: 200,
+    background: '#3F3B3B',
     showCancelButton: true,
-    showCloseButton: true,
     confirmButtonColor: '#67E191',
     cancelButtonColor: '#55DDE0',
     confirmButtonText: 'Yes, do it!'
   }).then((result) => {
     if (result.value) {
 
-      swal(
-        'Deleted!',
-        'Ok hall done for you.',
-        'success'
-      )
-      toDestroy.click()
+      swal({background: '#3F3B3B',
+         title: 'Deleted!',
+        text: 'Ok all done for you.',
+        type: 'success'})
+      window.setTimeout(() => {
+        toDestroy.click()
+      }, 1000)
+    }
+    else {
+      toDestroy.addEventListener('click', createAlert)
     }
   })
 }
+
+// script for ALex's sign up box
 
 
 // search.addWidget(

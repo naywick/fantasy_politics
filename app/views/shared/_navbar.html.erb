@@ -33,7 +33,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to destroy_user_session_path, method: :delete, class: 'swal-test' do %>
+                <%= link_to destroy_user_session_path, method: :delete, class: '#' do %>
                   <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
                 <% end %>
 
@@ -45,8 +45,6 @@
 
       <% else %>
         <!-- Login link (when logged out) -->
-        <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%#= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <button class="main-button login-button" data-toggle="modal" data-target="#myModal2">Log In</button>
       <% end %>
     </div>
@@ -60,7 +58,7 @@
           <% if user_signed_in? %>
 
             <li>
-              <%= link_to destroy_user_session_path, method: :delete, class: 'swal-test' do %>
+              <%= link_to destroy_user_session_path, method: :delete, class: '#' do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
                 <% end %>
               </li>
