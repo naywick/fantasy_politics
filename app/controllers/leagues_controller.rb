@@ -1,13 +1,12 @@
 class LeaguesController < ApplicationController
   before_action :find_league, only: [:edit, :update, :show, :destroy]
-  
+
   def index
     @leagues = policy_scope(League).order(created_at: :desc)
   end
 
   def new
     @league = League.new
-    @politician = Politician.find(params[:politician_id])
     authorize @league
   end
 
@@ -21,8 +20,8 @@ class LeaguesController < ApplicationController
     league.user = current_user
     if league.save
       league_connection = LeagueConnection.new
-      league_connection.user = current_user
       league_connection.league = league
+      league_connection.user = current_user
       league_connection.save
       LeagueMailer.creation_confirmation(league).deliver_now
       redirect_to league_path(league)

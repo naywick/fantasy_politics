@@ -1,18 +1,17 @@
 <div class="row homepage-container">
   <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-    <h2>Create Your Party</h2>
+    <h2>Create Your League</h2>
 
-    <%= simple_form_for @political_party do |f| %>
+    <%= simple_form_for @league do |f| %>
       <%= f.error_notification %>
       <div class="form-inputs">
         <div class="custom-form-group">
           <%= f.input :name,
-
-                       required: true,
-                       autofocus: true,
-                       label: "Name",
-                       label_html: { class: "login-form-label" },
-                       input_html: { autocomplete: "username", class: "login-form-input" } %>
+                      autofocus: true,
+                      label: "League's name",
+                      label_html: { class: "login-form-label" },
+                      input_html: { class: "login-form-input" } %>
+        </div>
       </div>
       <div class="form-actions flexbox-column">
         <%= f.button :submit, "Submit", class: "main-button" %>
@@ -22,4 +21,3 @@
 
   </div>
 </div>
-
