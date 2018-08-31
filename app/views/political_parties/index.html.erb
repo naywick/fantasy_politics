@@ -1,27 +1,27 @@
-<div class="grid">
-  <header>
-    <%= current_user.political_parties.last.name %>
-  </header>
 
-  <aside class="sidebar-left">
-    <!-- Left Sidebar -->
-  </aside>
+<h2><%= current_user.political_parties.last.name %></h2>
 
-  <article>
+<div class="row">
+ <!-- main content here -->
 
-   <!-- main content here -->
-  <% current_user.politicians.each do |politician| %>
+<% current_user.political_parties.last.politicians.each do |politician| %>
+  <div class="card-container col-xs-12 col-sm-6 md-3">
+    <div class="card card<%=politician.id%>">
 
-  <% end %>
-  </article>
-
-  <aside class="sidebar-right">
-    <!-- Right Sidebar -->
-  </aside>
-
-  <footer>
-
-  </footer>
+      <div class="front" style="background-image:  linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.8) 90%), url(<%= cl_image_path politician.cl_photo %>);">
+        <h2 id="first"><%= politician.first_name %></h2>
+        <h2 id="last"><%= politician.last_name %></h2>
+        <%#= link_to political_party_politician_link_path(@political_party, @political_party.politician_links.find {|pl| pl.politician == politician}), method: :delete do %>
+        <!-- <i class="fas fa-minus" id="minus"></i> -->
+        <%# end %>
+      </div>
+      <div class="back">
+        <h2>About</h2>
+        <p>
+          <%= politician.about %>
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>
 </div>
-
-
