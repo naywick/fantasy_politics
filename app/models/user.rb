@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
    devise :database_authenticatable, :registerable,
@@ -19,11 +20,18 @@ class User < ApplicationRecord
     # attribute :first_name, :last_name, :email, :username
 
   end
+# if no photo uploded will display from stock photos
+  def cl_photo
+      if photo?
+        photo
+      else
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Official_portrait_of_Mr_Kenneth_Clarke_crop_2.jpg/1024px-Official_portrait_of_Mr_Kenneth_Clarke_crop_2.jpg'
+    end
+  end
 
 private
 
   def send_welcome_email
     UserMailer.welcome(self).deliver_now
   end
-
 end

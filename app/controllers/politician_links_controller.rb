@@ -17,6 +17,14 @@ class PoliticianLinksController < ApplicationController
     end
   end
 
+  def destroy
+    @political_party = PoliticalParty.find(params[:political_party_id])
+    @politician_link = PoliticianLink.find(params[:id])
+    authorize @politician_link
+    @politician_link.destroy
+    redirect_to new_political_party_politician_link_path(@political_party)
+  end
+
   private
 
   def politician_link_params

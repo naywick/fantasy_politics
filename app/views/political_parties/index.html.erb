@@ -1,6 +1,6 @@
 <div class="grid">
   <header>
-    <h3>Here are you parties <%= current_user.username  %></h3>
+    <%= current_user.political_parties.last.name %>
   </header>
 
   <aside class="sidebar-left">
@@ -8,13 +8,11 @@
   </aside>
 
   <article>
-   <!-- main content here -->
-    <ul>
-    <% @political_parties.each do |political_party| %>
-      <li><%= political_party.name %></li>
-    <% end %>
-    </ul>
 
+   <!-- main content here -->
+  <% current_user.politicians.each do |politician| %>
+
+  <% end %>
   </article>
 
   <aside class="sidebar-right">

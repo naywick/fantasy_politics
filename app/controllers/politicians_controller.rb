@@ -9,4 +9,8 @@ class PoliticiansController < ApplicationController
     authorize @politician
   end
 
+  private
+  def politician_params
+    params.require(:politician).permit(:first_name, :last_name, :party, :photo)
+  end
 end

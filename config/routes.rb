@@ -3,14 +3,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
 
   resources :political_parties do
-    resources :politician_links, only: [:new, :create]
+    resources :politician_links, only: [:new, :create, :destroy]
   end
   resources :users, only: [:show, :edit, :update]
   resources :politicians_scores, only: [:index]
 
-  resources :politicians, only: [ :index, :show ] do
-    resources :politician_links, only: [ :destroy ]
-  end
+  resources :politicians, only: [ :index, :show ]
   # resources :politician_links, only: [:new, :create]
   resources :leagues do
     resources :league_connections, only: [ :create, :destroy ]
