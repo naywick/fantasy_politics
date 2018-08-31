@@ -6,16 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-url = "https://res.cloudinary.com/dodobzdpn/image/upload/v1535714618/Fantasy%20Politics/_102532948_tmay.jpg"
-politician = Politician.new(party: "Conservative", first_name: "Theresa", last_name: "May", about: "Theresa Mary May is a British politician serving as Prime Minister of the United Kingdom and Leader of the Conservative Party since 2016. She served as Home Secretary from 2010 to 2016.")
-politician.remote_photo_url = url
-politician.save!
-
-url = "https://res.cloudinary.com/dodobzdpn/image/upload/v1535714642/Fantasy%20Politics/boris_johnson.jpg"
-politician = Politician.new(party: "Conservative", first_name: "Boris", last_name: "Johnson", about: "Alexander Boris de Pfeffel Johnson, better known as Boris Johnson, is a British politician, popular historian, and journalist. He has been the Member of Parliament for Uxbridge and South Ruislip since 2015.")
-politician.remote_photo_url = url
-politician.save!
-
 url = "https://res.cloudinary.com/dodobzdpn/image/upload/v1535714711/Fantasy%20Politics/Sajid_Javid_MP.jpg"
 politician = Politician.new(party: "Conservative", first_name: "Sajid", last_name: "Javid", about:" Sajid Javid is a British politician of the Conservative Party and former managing director at Deutsche Bank. He was appointed Home Secretary in April 2018. He has been the Member of Parliament for Bromsgrove in Worcestershire since 2010.")
 politician.remote_photo_url = url
@@ -38,6 +28,12 @@ politician.save!
 
 url = "https://res.cloudinary.com/dodobzdpn/image/upload/v1535714790/Fantasy%20Politics/Tom_Watson.jpg"
 politician = Politician.new(party: "Labour", first_name: "Tom", last_name: "Watson", about:"Thomas Anthony Watson is a British Labour Party politician who was elected as Deputy Leader of the Labour Party in September 2015. ")
+politician.remote_photo_url = url
+politician.save!
+
+
+url = "https://res.cloudinary.com/dodobzdpn/image/upload/v1535714642/Fantasy%20Politics/boris_johnson.jpg"
+politician = Politician.new(party: "Conservative", first_name: "Boris", last_name: "Johnson", about: "Alexander Boris de Pfeffel Johnson, better known as Boris Johnson, is a British politician, popular historian, and journalist. He has been the Member of Parliament for Uxbridge and South Ruislip since 2015.")
 politician.remote_photo_url = url
 politician.save!
 
@@ -68,6 +64,11 @@ politician.save!
 
 url = "https://res.cloudinary.com/dodobzdpn/image/upload/v1535714914/Fantasy%20Politics/4627460.jpg"
 politician = Politician.new(party: "SNP", first_name: "Keith", last_name: "Brown", about:"Keith James Brown is a Scottish politician who is currently Depute Leader of the Scottish National Party. He is a former Royal Marines commando and served as Cabinet Secretary for the Economy, Jobs and Fair Work from May 2016 to June 2018.")
+politician.remote_photo_url = url
+politician.save!
+
+url = "https://res.cloudinary.com/dodobzdpn/image/upload/v1535714618/Fantasy%20Politics/_102532948_tmay.jpg"
+politician = Politician.new(party: "Conservative", first_name: "Theresa", last_name: "May", about: "Theresa Mary May is a British politician serving as Prime Minister of the United Kingdom and Leader of the Conservative Party since 2016. She served as Home Secretary from 2010 to 2016.")
 politician.remote_photo_url = url
 politician.save!
 
