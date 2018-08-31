@@ -7,11 +7,14 @@
 }
 
 header,
-aside,
 article,
 footer {
   background: rgba(0,0,0,0.1);
   padding: 1em;
+}
+
+footer{
+  height: 70px;
 }
 
 header, footer {
