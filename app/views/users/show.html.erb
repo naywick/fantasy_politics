@@ -4,7 +4,8 @@
   </header>
 
   <aside class="sidebar-left">
-   <%= current_user.cl_photo %>
+  <div class="user-profile-photo" style= "background-image: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.8) 90%), url(<%= cl_image_path current_user.cl_photo %>);">
+  </div>
   </aside>
 
   <article>
@@ -47,16 +48,12 @@
   </aside>
 
   <footer>
- <p>You have given us this email address:
-           <%= @user.email %>
-         </p>
-         <p>This is what others see about you:</p>
-         <p>
-           <%= @user.username%>
-         </p>
-         <p>Is this still up to date?</p>
-         <p><%= link_to edit_user_path(@user) do  %>
+ <span>You have given us this email address:
+           <%= current_user.email %>
+         </span>
+         <span>Is the info we have still up to date?</span>
+         <p> <%= link_to edit_user_path(@user) do  %>
            <i class="fas fa-pencil-alt change"></i>
-         <% end %></p>
+         <% end %> </p>
   </footer>
 </div>
