@@ -1,0 +1,10 @@
+<% @politicians.each do |politician| %>
+  <%= politician.first_name %> <%= politician.last_name %>
+
+  <%= link_to(political_party_politician_links_path(@political_party, politician_link: {politician_id: politician.id, political_party_id: @political_party.id}), {method: :post}) do %>
+    Add
+  <% end %>
+
+
+  <%#= link_to 'Add', political_party_politician_links_path(@political_party, {politician_link: {politician: politician, political_party: @political_party}}, method: :post) %>
+<% end %>

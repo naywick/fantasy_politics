@@ -3,6 +3,6 @@
     <h2>My political party</h2>
     <%= render 'form', political_party: @political_party %>
 
-    <%= link_to "Add party members", new_politician_link_path %>
+    <%= link_to "Add party members", new_political_party_politician_link_path(@political_party) %>
   </div>
 </div>
