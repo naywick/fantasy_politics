@@ -5,9 +5,8 @@ class PoliticiansController < ApplicationController
   end
 
   def show
-   @politician = Politician.find(param[:id])
+   @politician = Politician.find(params[:id])
     authorize @politician
   end
 
-  end
 end
