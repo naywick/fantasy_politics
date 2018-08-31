@@ -1,5 +1,25 @@
-<h1>My political parties</h1>
+<div class="grid">
+  <header>
+    Here are you parties <%= current_user.username  %>
+  </header>
 
-<% @political_parties.each do |political_party| %>
+  <aside class="sidebar-left">
+    Left Sidebar
+  </aside>
+
+  <article>
+    <% @political_parties.each do |political_party| %>
   <%= political_party.name %>
 <% end %>
+  </article>
+
+  <aside class="sidebar-right">
+    Right Sidebar
+  </aside>
+
+  <footer>
+    Footer
+  </footer>
+</div>
+
+
