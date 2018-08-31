@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+politician = Politician.new(party: "Conservative", first_name: "Theresa", last_name: "May")
+politician.save!
