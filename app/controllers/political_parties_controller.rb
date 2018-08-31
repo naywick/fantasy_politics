@@ -52,6 +52,6 @@ class PoliticalPartiesController < ApplicationController
   end
 
   def political_party_params
-    params.require(:political_party).permit(:name)
+    params.require(:political_party).permit(:name, :photo)
   end
 end
