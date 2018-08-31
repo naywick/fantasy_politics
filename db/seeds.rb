@@ -6,5 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-politician = Politician.new(party: "Conservative", first_name: "Theresa", last_name: "May")
-politician.save!
+Politician.create!(photo: "boris_johnson.jpg", first_name: "Boris", last_name: "Johnson", about: nil)
+Politician.create!(photo: "ed_milliband.jpg", first_name: "Ed", last_name: "Milliband", about: nil)
+Politician.create!(photo: "jeremy_corbyn.jpg", first_name: "Jeremy", last_name: "Corbyn", about: nil)
+Politician.create!(photo: "shami_chakrabarti.jpg", first_name: "Shami", last_name: "Chakrabati", about: nil)
+Politician.create!(photo: "nicola_sturgeon.jpg", first_name: "Nicola", last_name: "Sturegeon", about: nil)
+Politician.create!(photo: "jeremy_hunt.jpg", first_name: "Jeremy", last_name: "Hunt", about: nil)
+

@@ -8,8 +8,10 @@ gem 'puma'
 gem 'rails', '5.2.1'
 gem 'redis'
 gem 'pundit'
-
+gem 'carrierwave', '~> 1.0'
+gem 'cloudinary'
 gem 'pg_search'
+gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'

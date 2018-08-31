@@ -1,1 +1,59 @@
-<h1>INdiviudal profile here</h1>
+<div class="grid">
+  <header>
+    Hello <%= current_user.username  %>
+  </header>
+
+  <aside class="sidebar-left">
+  <div class="user-profile-photo" style= "background-image: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.8) 90%), url(<%= cl_image_path current_user.cl_photo %>);">
+  </div>
+  </aside>
+
+  <article>
+     <div>
+      You've created
+      <%  a = current_user.political_parties.count %>
+      <%= a %>
+      <% if  a <= 1%>
+       party
+      <% else %>
+        parties
+      <% end %>
+      <%  current_user.political_parties.each do |party| %>
+        <ul>
+          <li>
+            <%= party.name %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </article>
+
+  <aside class="sidebar-right">
+   <div> You belong to
+      <%  a = current_user.leagues.count %>
+      <%= a %>
+      <% if  a <= 1%>
+       league
+      <% else %>
+        leagues
+      <% end %>
+      <%  current_user.leagues.each do |league| %>
+        <ul>
+          <li>
+            <%= league.name %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </aside>
+
+  <footer>
+ <span>You have given us this email address:
+           <%= current_user.email %>
+         </span>
+         <span>Is the info we have still up to date?</span>
+         <p> <%= link_to edit_user_path(@user) do  %>
+           <i class="fas fa-pencil-alt change"></i>
+         <% end %> </p>
+  </footer>
+</div>
