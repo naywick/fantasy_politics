@@ -11,4 +11,12 @@ class PoliticalParty < ApplicationRecord
   algoliasearch do
 
   end
+  # if no photo uploded will display from stock photos
+  def cl_photo
+      if photo?
+        photo
+      else
+        'https://pbs.twimg.com/profile_images/854676302317703169/RQw2coJC_400x400.jpg'
+    end
+  end
 end
