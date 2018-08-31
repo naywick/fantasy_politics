@@ -4,18 +4,59 @@
   </header>
 
   <aside class="sidebar-left">
-    <!-- Left Sidebar -->
+   <%= current_user.cl_photo %>
   </aside>
 
   <article>
-    <!-- main content here -->
+     <div>
+      You've created
+      <%  a = current_user.political_parties.count %>
+      <%= a %>
+      <% if  a <= 1%>
+       party
+      <% else %>
+        parties
+      <% end %>
+      <%  current_user.political_parties.each do |party| %>
+        <ul>
+          <li>
+            <%= party.name %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
   </article>
 
   <aside class="sidebar-right">
-    <!-- Right Sidebar -->
+   <div> You belong to
+      <%  a = current_user.leagues.count %>
+      <%= a %>
+      <% if  a <= 1%>
+       league
+      <% else %>
+        leagues
+      <% end %>
+      <%  current_user.leagues.each do |league| %>
+        <ul>
+          <li>
+            <%= league.name %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
   </aside>
 
   <footer>
-    Footer
+ <p>You have given us this email address:
+           <%= @user.email %>
+         </p>
+         <p>This is what others see about you:</p>
+         <p>
+           <%= @user.username%>
+         </p>
+         <p>Is this still up to date?</p>
+         <p><%= link_to edit_user_path(@user) do  %>
+           <i class="fas fa-pencil-alt change"></i>
+         <% end %></p>
   </footer>
 </div>
