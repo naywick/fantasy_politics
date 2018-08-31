@@ -4,17 +4,22 @@
   </header>
 
   <aside class="sidebar-left">
-    Left Sidebar
+    <!-- Left Sidebar -->
   </aside>
 
   <article>
+   main content here
+
+    <ul>
     <% @political_parties.each do |political_party| %>
-  <%= political_party.name %>
-<% end %>
+      <li><%= political_party.name %></li>
+    <% end %>
+    </ul>
+
   </article>
 
   <aside class="sidebar-right">
-    Right Sidebar
+    <!-- Right Sidebar -->
   </aside>
 
   <footer>
