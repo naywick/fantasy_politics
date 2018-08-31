@@ -5,7 +5,7 @@ class User < ApplicationRecord
    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :email, :username, presence: true, uniqueness: true
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   has_many :leagues, through: :league_connections
   has_many :political_parties
