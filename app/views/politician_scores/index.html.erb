@@ -1,0 +1,46 @@
+<div class="grid">
+  <header>
+    Politicians' scores from last week
+  </header>
+
+  <aside class="sidebar-left">
+
+  </aside>
+
+  <%= content_for :chart_js do%>
+    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+    <%= javascript_pack_tag "chart.js" %>
+    <%#= pie_chart PoliticianScore.map { |socre|
+      name: score.politician.first_name, data: politician_score(:mentions).group  %>
+    <%= bar_chart PoliticianScore.group(:politician).sum(:mentions) %>
+  <% end %>
+
+
+
+  <article>
+      <div class="league-table">
+      <% @politician_scores.each do |politician_score| %>
+      <ul>
+           <li>
+            <p><%= politician_score.politician.first_name  %>
+            <%= politician_score.politician.last_name  %>,
+            <%= politician_score.politician.party %></p>
+            <p>Has been mentioned <%= politician_score.mentions %> times last week</p>
+            </li>
+            </ul>
+          <% end %>
+    </div>
+  </article>
+
+  <aside class="sidebar-right">
+
+
+  </aside>
+
+  <footer>
+
+
+  </footer>
+</div>
+
+

@@ -2,6 +2,15 @@
     <div class="row">
       <h2>Choose your members</h2>
 
+      <%= form_tag new_political_party_politician_link_path(@political_party), :id => 'search-bar', method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Search for a politician"
+        %>
+      <% end %>
+
+
       <% @politicians.each do |politician| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card-container ">

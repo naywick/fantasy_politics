@@ -31,6 +31,11 @@ gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'whenever', :require => false
 
+source 'https://rubygems.org' do
+  gem 'chartkick', '~> 1.4', '>= 1.4.1'
+end
+
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
