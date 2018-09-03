@@ -136,3 +136,24 @@
 
 require "nokogiri"
 require "open-uri"
+
+puts 'Cleaning database...'
+Politician.destroy_all
+
+puts 'Creating politicians...'
+
+page = Nokogiri::HTML(open("https://www.theyworkforyou.com/mps/"))
+
+page.css(".people-list__person").each do |mp|
+  full_name = mp.css(".people-list__person__name").text.split
+  first_name = full_name[0]
+  last_name = full_name[1]
+  party = mp.css(".people-list__person__party").text
+  # photo = mp.css(".people-list__person__image").attr("src").value
+  # url = "https://www.theyworkforyou.com#{photo}"
+  politician = Politician.new(first_name: first_name, last_name: last_name, party: party)
+  # politician.remote_photo_url = url
+  politician.save!
+end
+
+puts "Finished!"
