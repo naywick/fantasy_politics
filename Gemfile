@@ -1,5 +1,6 @@
 ruby '2.4.4'
 
+source 'https://rubygems.org'
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
@@ -12,7 +13,6 @@ gem 'carrierwave', '~> 1.0'
 gem 'cloudinary'
 gem 'pg_search'
 
-gem 'dotenv-rails', groups: [:development, :test]
 gem 'news-api'
 
 gem 'autoprefixer-rails'
