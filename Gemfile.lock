@@ -135,6 +135,7 @@ GEM
     msgpack (1.2.4)
     multi_json (1.13.1)
     netrc (0.11.0)
+    news-api (0.0.0)
     nio4r (2.3.1)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
@@ -271,6 +272,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   listen (~> 3.0.5)
+  news-api
   pg (~> 0.21)
   pg_search
   pry-byebug
