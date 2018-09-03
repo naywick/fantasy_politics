@@ -1,0 +1,35 @@
+.grid {
+  display: grid;
+  grid-template-columns: 150px auto 150px;
+  grid-template-rows: auto;
+  grid-gap: 1em;
+
+}
+
+header,
+article,
+footer {
+  background: rgba(0,0,0,0.1);
+  padding: 1em;
+}
+
+footer{
+  height: 70px;
+}
+
+header, footer {
+  grid-column: 1 / 4;
+}
+
+/* Demo Specific Styles */
+body {
+  margin: 0 auto;
+  max-width: 56em;
+  padding: 1em 0;
+}
+
+.grid > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -25,7 +25,13 @@ class ApplicationController < ActionController::Base
   #   flash[:alert] = "You are not authorized to perform this action."
   #   redirect_to(root_path)
   # end
+  def after_sign_in_path_for(resource_or_scope)
+   current_user
+  end
 
+  def after_sign_up_path_for(resource_or_scope)
+   new_political_party_path
+  end
   private
 
     def skip_pundit?

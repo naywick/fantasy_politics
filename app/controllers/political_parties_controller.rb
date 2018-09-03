@@ -7,7 +7,6 @@ class PoliticalPartiesController < ApplicationController
 
   def new
     @political_party = PoliticalParty.new
-    @political_party.politician_links.build
     @user = current_user
     authorize @political_party
   end
@@ -17,7 +16,7 @@ class PoliticalPartiesController < ApplicationController
   end
 
   def show
-    @political_party = current_user.political_parties.first
+    @political_party = PoliticalParty.find(params[:id])
      authorize @political_party
   end
 
@@ -53,6 +52,6 @@ class PoliticalPartiesController < ApplicationController
   end
 
   def political_party_params
-    params.require(:political_party).permit(:name)
+    params.require(:political_party).permit(:name, :photo)
   end
 end

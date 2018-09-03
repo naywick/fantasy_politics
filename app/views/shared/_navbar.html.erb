@@ -1,7 +1,7 @@
 <div class="navbar-fixed-top">
 
   <div class="navbar-wagon">
-    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= link_to new_political_party_path, class: "navbar-wagon-brand" do %>
       <%= image_tag "logo.png", height: 50 %>
     <% end %>
 
@@ -29,8 +29,7 @@
         <!-- Avatar with dropdown menu -->
         <div class="navbar-wagon-item">
           <div class="dropdown">
-
-            <%= image_tag 'logo.png', class: "avatar dropdown-toggle", id: "navbar-wagon-menu", data: { toggle: "dropdown" } %>
+            <%= image_tag current_user.cl_photo , class: "avatar dropdown-toggle", id: "navbar-wagon-menu", data: { toggle: "dropdown" } %>
             <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
               <li>
                 <%= link_to user_path(current_user) do %>

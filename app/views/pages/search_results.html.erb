@@ -1,30 +1,51 @@
-<h1>Here are your results</h1>
-<div class="container">
-  <% @results.each do |type| %>
-    <h3>
-      <% if type["index"] == "PoliticalParty" %>
-        Political Party
-      <% else %>
-        <%= type["index"] %>
+<h1>Here are your search results</h1>
+
+<div class="grid">
+  <header>
+    Here are your search results
+  </header>
+
+  <aside class="sidebar-left">
+    Left Sidebar
+  </aside>
+
+  <article>
+  <div class="container">
+    <% @results.each do |type| %>
+      <h3>
+        <% if type["index"] == "PoliticalParty" %>
+          Political Party
+        <% else %>
+          <%= type["index"] %>
+        <% end %>
+      </h3>
+      <% type["hits"].each do |instance| %>
+
+        <% if type["index"] == 'User' %>
+          <p><%= instance["username"] %></p>
+           <% user = User.find_by(username: instance["username"]) %>
+          <%= link_to user_path(instance["username") do %>
+                    <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+
+                    <% end %>
+        <% elsif type["index"] == 'Politician' %>
+          <p><%= instance["first_name"] %> <%= instance["last_name"] %></p>
+        <% elsif type["index"] == 'PoliticalParty' %>
+          <p><%= instance["name"]%></p>
+        <% elsif type["index"] == 'League' %>
+          <p><%= instance["name"]%></p>
+        <% end %>
+
       <% end %>
-    </h3>
-    <% type["hits"].each do |instance| %>
-
-      <% if type["index"] == 'User' %>
-        <p><%= instance["username"] %></p>
-         <% user = User.find_by(username: instance["username"]) %>
-        <%= link_to user_path(instance["username") do %>
-                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-
-                  <% end %>
-      <% elsif type["index"] == 'Politician' %>
-        <p><%= instance["first_name"] %> <%= instance["last_name"] %></p>
-      <% elsif type["index"] == 'PoliticalParty' %>
-        <p><%= instance["name"]%></p>
-      <% elsif type["index"] == 'League' %>
-        <p><%= instance["name"]%></p>
-      <% end %>
-
     <% end %>
-  <% end %>
+  </div>
+  </article>
+
+  <aside class="sidebar-right">
+    Right Sidebar
+  </aside>
+
+  <footer>
+    Footer
+  </footer>
 </div>
