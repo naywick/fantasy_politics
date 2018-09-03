@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :politician_links, only: [:new, :create, :destroy]
   end
   resources :users, only: [:show, :edit, :update]
-  resources :politicians_scores, only: [:index]
+  resources :politician_scores, only: [:index]
 
   resources :politicians, only: [ :index, :show ]
   # resources :politician_links, only: [:new, :create]

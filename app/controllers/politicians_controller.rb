@@ -1,7 +1,7 @@
 class PoliticiansController < ApplicationController
   def index
     @politicians = Politician.all
-    @politicians_scores = @politicians.each { |politician| politician.politicians_scores }
+    @politicians_scores = @politicians.each { |politician| politician.politician_scores }
   end
 
   def show

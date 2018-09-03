@@ -1,4 +1,5 @@
 GEM
+  remote: https://rubygems.org/
   specs:
     actioncable (5.2.1)
       actionpack (= 5.2.1)
@@ -66,6 +67,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    chartkick (1.5.2)
     chronic (0.10.2)
     cloudinary (1.9.1)
       aws_cf_signer
@@ -272,6 +274,7 @@ DEPENDENCIES
   bootsnap
   bootstrap-sass (~> 3.3)
   carrierwave (~> 1.0)
+  chartkick (~> 1.4, >= 1.4.1)!
   cloudinary
   devise
   dotenv-rails
