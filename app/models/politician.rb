@@ -1,9 +1,14 @@
 class Politician < ApplicationRecord
-  has_one :politicians_score
-  has_many :politician_links
-  has_many :political_parties, through: :politician_links
-  validates :party, :first_name, :last_name, presence: true
+
+  has_one :politician_score
+  has_many :political_links
+  has_many :political_parties, through: :political_links
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :party, presence:true, inclusion: { in: ["Conservative", "Labour", "Green", "DUP", "UKIP", "SNP", "Liberal Democrats"] }
+
   include PgSearch
+
 
   pg_search_scope :search_politicians,
     against: [ :first_name, :last_name ],
