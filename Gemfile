@@ -11,7 +11,6 @@ gem 'pundit'
 gem 'carrierwave', '~> 1.0'
 gem 'cloudinary'
 gem 'pg_search'
-gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
@@ -25,6 +24,8 @@ gem 'jquery-rails'
 gem 'hogan_assets'
 gem "letter_opener", group: :development
 gem 'sweetalert2'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
