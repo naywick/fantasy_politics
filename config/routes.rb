@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   resources :political_parties do
     resources :politician_links, only: [:new, :create, :destroy]
   end
-  
+
   resources :users, only: [:show, :edit, :update] do
     resources :league_connections, only: :index
   end
 
-  resources :politicians_scores, only: [:index]
+  resources :politician_scores, only: [:index]
 
   resources :politicians, only: [ :index, :show ]
   # resources :politician_links, only: [:new, :create]
