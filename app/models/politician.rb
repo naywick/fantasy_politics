@@ -6,10 +6,11 @@ class Politician < ApplicationRecord
   include PgSearch
 
   pg_search_scope :search_politicians,
-    against: [ :first_name, :last_name ],
+    against: [ :first_name, :last_name, :party ],
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+
 
   mount_uploader :photo, PhotoUploader
 
