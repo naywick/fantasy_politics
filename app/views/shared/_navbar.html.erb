@@ -1,7 +1,7 @@
 <div class="navbar-fixed-top">
 
   <div class="navbar-wagon">
-    <%= link_to new_political_party_path, class: "navbar-wagon-brand" do %>
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
       <%= image_tag "logo.png", height: 50 %>
     <% end %>
 
@@ -11,21 +11,16 @@
       <% if user_signed_in? %>
 
         <!-- Links when logged in -->
-          <% if current_user.political_parties.any? %>
-            <%= link_to 'My Party', political_parties_path, class: "navbar-wagon-item navbar-wagon-link" %>
-          <% else %>
-            <%= link_to 'Create my party', new_political_party_path, class: "navbar-wagon-item navbar-wagon-link" %>
-          <% end %>
+        <% if current_user.political_parties.any? %>
+          <%= link_to 'My Parties', political_parties_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <% else %>
+          <%= link_to 'Create my party', new_political_party_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <% end %>
 
-          <% if current_user.leagues.any? %>
-            <%= link_to "My Leagues", leagues_path(current_user.leagues), class: "navbar-wagon-item navbar-wagon-link" %>
-          <% else %>
-            <%= link_to 'Create my league', new_league_path, class: "navbar-wagon-item navbar-wagon-link" %>
-          <% end %>
+        <%= link_to "My Leagues", leagues_path(current_user.leagues), class: "navbar-wagon-item navbar-wagon-link" %>
 
+        <%= link_to 'All Leagues', leagues_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-
-          <%= link_to "Leaderboard", leagues_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <!-- Avatar with dropdown menu -->
         <div class="navbar-wagon-item">
           <div class="dropdown">
@@ -61,7 +56,7 @@
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <% if user_signed_in? %>
           <% if current_user.political_parties.any? %>
-           <li><%= link_to 'My Party', political_parties_path %></li>
+           <li><%= link_to 'My Parties', political_parties_path %></li>
           <% else %>
             <li><%= link_to 'Create my party', new_political_party_path %></li>
           <% end %>

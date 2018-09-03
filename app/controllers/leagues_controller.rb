@@ -16,16 +16,16 @@ class LeaguesController < ApplicationController
 
 
   def create
-    league = League.new(league_params)
-    league.user = current_user
-    if league.save
-      league_connection = LeagueConnection.new
-      league_connection.league = league
-      league_connection.user = current_user
-      league_connection.save
-      LeagueMailer.creation_confirmation(league).deliver_now
-      redirect_to league_path(league)
-      authorize league
+    @league = League.new(league_params)
+    @league.user = current_user
+    authorize @league
+    if @league.save
+      @league_connection = LeagueConnection.new
+      @league_connection.league = @league
+      # league_connection.user = current_user
+      @league_connection.save
+      # LeagueMailer.creation_confirmation(@league).deliver_now
+      redirect_to league_path(@league)
     else
      render :new
     end

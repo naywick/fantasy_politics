@@ -1,11 +1,11 @@
-class LeaguePolicy < ApplicationPolicy
+class LeagueConnectionPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
   def create?
-    return false
+    return true
   end
 
   def show?
@@ -13,11 +13,12 @@ class LeaguePolicy < ApplicationPolicy
   end
 
   def update?
-    return false
+    record_owner?
   end
 
   def destroy?
-    return false
+    record_owner?
+
   end
 
   private
