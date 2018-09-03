@@ -1,4 +1,3 @@
-<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 <div class="grid">
   <header>
     Politicians' scores from last week
@@ -6,15 +5,20 @@
 
   <aside class="sidebar-left">
 
-
   </aside>
-    <%= pie_chart PoliticianScore.group(:mentions).count, adapter: "chartjs" %>
 
-<%#= line_chart @politician_scores.map { |score|
-    {name: score.politician, data: score.group(:mentions) }
-} %>
+  <%= content_for :chart_js do%>
+    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+    <%= javascript_pack_tag "chart.js" %>
+    <%#= pie_chart PoliticianScore.map { |socre|
+      name: score.politician.first_name, data: politician_score(:mentions).group  %>
+    <%= bar_chart PoliticianScore.group(:politician).sum(:mentions) %>
+  <% end %>
+
+
+
   <article>
-    <div class="league-table">
+      <div class="league-table">
       <% @politician_scores.each do |politician_score| %>
       <ul>
            <li>

@@ -15,12 +15,12 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%#= yield :charts_js %> <!-- Rails here -->
+
+    <%= yield :chart_js %>
 
     <div class="standard-container">
       <%= yield %>
     </div>
-
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
 
