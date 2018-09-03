@@ -6,6 +6,66 @@
 # #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 # #   Character.create(name: 'Luke', movie: movies.first)
 
+
+# scores seed
+# score = PoliticianScore.create( politician_id: "1", mentions: "243")
+
+# score = PoliticianScore.create( politician_id: "2", mentions: "2")
+# score = PoliticianScore.create( politician_id: "3", mentions: "201")
+# score = PoliticianScore.create( politician_id: "4", mentions: "200")
+# score = PoliticianScore.create( politician_id: "5", mentions: "90")
+# score = PoliticianScore.create( politician_id: "7", mentions: "67")
+# score = PoliticianScore.create( politician_id: "6", mentions: "100")
+# score = PoliticianScore.create( politician_id: "8", mentions: "187")
+# score = PoliticianScore.create( politician_id: "9", mentions: "122")
+# score = PoliticianScore.create( politician_id: "10", mentions: "28")
+# score = PoliticianScore.create( politician_id: "11", mentions: "333")
+# score = PoliticianScore.create( politician_id: "12", mentions: "0")
+# score = PoliticianScore.create( politician_id: "13", mentions: "120")
+# score = PoliticianScore.create( politician_id: "14", mentions: "67")
+# score = PoliticianScore.create( politician_id: "15", mentions: "87")
+# score = PoliticianScore.create( politician_id: "16", mentions: "453")
+# score = PoliticianScore.create( politician_id: "17", mentions: "5")
+# score = PoliticianScore.create( politician_id: "18", mentions: "434")
+# score = PoliticianScore.create( politician_id: "19", mentions: "43")
+# score = PoliticianScore.create( politician_id: "20", mentions: "39")
+# score = PoliticianScore.create( politician_id: "21", mentions: "24")
+# score = PoliticianScore.create( politician_id: "22", mentions: "23")
+
+
+
+# Real SEED from they work for you
+
+# require "nokogiri"
+# require "open-uri"
+
+# puts 'Cleaning database...'
+# Politician.destroy_all
+
+# puts 'Creating politicians...'
+
+# page = Nokogiri::HTML(open("https://www.theyworkforyou.com/mps/"))
+
+# page.css(".people-list__person").each do |mp|
+#   full_name = mp.css(".people-list__person__name").text.split
+#   first_name = full_name[0]
+#   last_name = full_name[1]
+#   party = mp.css(".people-list__person__party").text
+#   # photo = mp.css(".people-list__person__image").attr("src").value
+#   # url = "https://www.theyworkforyou.com#{photo}"
+#   politician = Politician.new(first_name: first_name, last_name: last_name, party: party)
+#   # politician.remote_photo_url = url
+#   politician.save!
+# end
+
+# puts "Finished!"
+
+# PoliticianScore.destroy_all
+# # Po.destroy_all
+# Politician.destroy_all
+
+# # photos seed for pre-demo day
+
 # url = "https://res.cloudinary.com/dodobzdpn/image/upload/v1535714711/Fantasy%20Politics/Sajid_Javid_MP.jpg"
 # politician = Politician.new(party: "Conservative", first_name: "Sajid", last_name: "Javid", about:" Sajid Javid is a British politician of the Conservative Party and former managing director at Deutsche Bank. He was appointed Home Secretary in April 2018. He has been the Member of Parliament for Bromsgrove in Worcestershire since 2010.")
 # politician.remote_photo_url = url
@@ -134,26 +194,20 @@
 
 
 
-require "nokogiri"
-require "open-uri"
 
-puts 'Cleaning database...'
-Politician.destroy_all
+# politicians = Politician.all
 
-puts 'Creating politicians...'
 
-page = Nokogiri::HTML(open("https://www.theyworkforyou.com/mps/"))
+# politicians.each do |politician|
 
-page.css(".people-list__person").each do |mp|
-  full_name = mp.css(".people-list__person__name").text.split
-  first_name = full_name[0]
-  last_name = full_name[1]
-  party = mp.css(".people-list__person__party").text
-  # photo = mp.css(".people-list__person__image").attr("src").value
-  # url = "https://www.theyworkforyou.com#{photo}"
-  politician = Politician.new(first_name: first_name, last_name: last_name, party: party)
-  # politician.remote_photo_url = url
-  politician.save!
-end
+#       url = "https://newsapi.org/v2/everything?"\
+#         "q=#{politician.name}&"\
+#         "from=#{Date.today - 1}&"\
+#         "sortBy=popularity&"\
+#         "apiKey=#{ENV["NEWS_API_KEY"]}"
+#       req = open(url)
+#       response_body = JSON.parse(req.read)
+#       p response_body["totalResults"]
+#       PoliticianScore.create(mentions: response_body["totalResults"], politician: politician)
 
-puts "Finished!"
+# end
