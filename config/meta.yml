@@ -1,0 +1,5 @@
+meta_product_name: "Fantasy Politics"
+meta_title: "Fantasy Politics | Be a political player"
+meta_description: "Think you could do a better job than Theresa May? Build your cabinet here."
+meta_image: "skyline_cropper.png"                       # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
