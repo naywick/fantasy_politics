@@ -2,7 +2,7 @@
   <div class="col-xs-12 col-sm-4 col-sm-offset-4">
     <h2>Create Your League</h2>
 
-    <%= simple_form_for @league do |f| %>
+    <%= simple_form_for @league, url: leagues_path do |f| %>
       <%= f.error_notification %>
       <div class="form-inputs">
         <div class="custom-form-group">

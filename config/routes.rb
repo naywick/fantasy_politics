@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :politicians, only: [ :index, :show ]
   # resources :politician_links, only: [:new, :create]
   resources :leagues do
-    resources :league_connections, only: [ :create, :destroy ]
+    resources :league_connections, only: [ :new, :create, :destroy ]
   end
 
   get '/search_results', to: 'pages#search_results'
