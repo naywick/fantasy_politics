@@ -13,11 +13,11 @@
 
     <h3>Add party to league</h3>
     <% current_user.political_parties.each do |political_party| %>
-        <%= link_to league_league_connections_path(political_party: political_party, league_id: @league), {method: :post} do %>
-          <div class="league-card">
-              <%= political_party.name  %>
-          </div>
-        <% end %>
+      <%= link_to league_league_connections_path(political_party: political_party, league_id: @league), {method: :post} do %>
+        <div class="league-card">
+            <%= political_party.name  %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
