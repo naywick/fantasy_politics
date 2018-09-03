@@ -1,3 +1,4 @@
+<h2>Parties created by you</h2>
 <% current_user.political_parties.each do |party| %>
   <%= link_to political_party_path(party) do %>
     <h3><%= party.name %></h3>
