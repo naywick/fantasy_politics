@@ -1,7 +1,11 @@
 class PoliticianLinksController < ApplicationController
   def new
     @politician_link = PoliticianLink.new
-    @politicians = Politician.all
+    if params[:query].blank?
+      @politicians = Politician.all
+    else
+      @politicians = Politician.search_politicians(params[:query])
+    end
     @political_party = PoliticalParty.find(params[:political_party_id])
     authorize @politician_link
   end
