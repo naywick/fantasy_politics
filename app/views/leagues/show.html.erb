@@ -3,16 +3,11 @@
     <h1><%= @league.name %></h1>
     <h3>Add party to league</h3>
     <% current_user.political_parties.each do |political_party| %>
+        <%= link_to league_league_connections_path(political_party: political_party, league_id: @league), {method: :post} do %>
       <div class="league-card">
-        <%= political_party.name  %>
+          <%= political_party.name  %>
       </div>
-      <%= link_to(political_party_politician_links_path(@political_party, politician_link: {politician_id: politician.id, political_party_id: @political_party.id}), {method: :post}) do %>
-        <% if politician.party == "Green" %>
-          <i class="fas fa-plus add" id="caroline-add"></i>
-        <% else %>
-          <i class="fas fa-plus add"></i>
         <% end %>
-      <% end %>
     <% end %>
   </div>
 </div>

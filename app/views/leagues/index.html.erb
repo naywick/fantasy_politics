@@ -1,1 +1,8 @@
 <!-- List of all the leagues of all the users -->
+<h2>All Leagues</h2>
+<% @leagues.each do |league| %>
+  <%= link_to league_path(league) do %>
+    <h3><%= league.name %></h3>
+  <% end %>
+  <p>Created by <%= league.user.username %></p>
+<% end %>
