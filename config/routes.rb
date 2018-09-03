@@ -5,13 +5,16 @@ Rails.application.routes.draw do
   resources :political_parties do
     resources :politician_links, only: [:new, :create, :destroy]
   end
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    resources :league_connections, only: :index
+  end
+
   resources :politicians_scores, only: [:index]
 
   resources :politicians, only: [ :index, :show ]
   # resources :politician_links, only: [:new, :create]
   resources :leagues do
-    resources :league_connections, only: [ :new, :create, :destroy ]
+    resources :league_connections, only: [:new, :create, :destroy ]
   end
 
   get '/search_results', to: 'pages#search_results'

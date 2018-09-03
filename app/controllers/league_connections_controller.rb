@@ -5,7 +5,7 @@ class LeagueConnectionsController < ApplicationController
 
   def new
     @league_connection = LeagueConnection.new
-    @political_party = PoliticalParty.find(params[:political_party_id].to_i)
+    @political_party = PoliticalParty.find(params[:political_party].to_i)
     @league = League.find(params[:league_id].to_i)
     # authorize @league
     authorize @league_connection
@@ -15,7 +15,7 @@ class LeagueConnectionsController < ApplicationController
     @league = League.find(params[:league_id].to_i)
     authorize @league
     if @league.users.length < 8
-      @league_connection = LeagueConnection.new(league_connection_params)
+      @league_connection = LeagueConnection.new(league_id: @league.id, political_party_id: PoliticalParty.find(params[:political_party].to_i).id)
       if @league_connection.save
         redirect_to leagues_path
       else
@@ -27,6 +27,6 @@ class LeagueConnectionsController < ApplicationController
   private
 
   def league_connection_params
-    params.permit(:league_id, :political_party)
+    params.permit(:league_id, :political_party_id)
   end
 end
