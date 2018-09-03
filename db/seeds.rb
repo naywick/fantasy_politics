@@ -60,9 +60,11 @@
 
 # puts "Finished!"
 
+# PoliticianScore.destroy_all
+# # Po.destroy_all
+# Politician.destroy_all
 
-
-# photos seed for pre-demo day
+# # photos seed for pre-demo day
 
 # url = "https://res.cloudinary.com/dodobzdpn/image/upload/v1535714711/Fantasy%20Politics/Sajid_Javid_MP.jpg"
 # politician = Politician.new(party: "Conservative", first_name: "Sajid", last_name: "Javid", about:" Sajid Javid is a British politician of the Conservative Party and former managing director at Deutsche Bank. He was appointed Home Secretary in April 2018. He has been the Member of Parliament for Bromsgrove in Worcestershire since 2010.")
@@ -192,3 +194,20 @@
 
 
 
+
+# politicians = Politician.all
+
+
+# politicians.each do |politician|
+
+#       url = "https://newsapi.org/v2/everything?"\
+#         "q=#{politician.name}&"\
+#         "from=#{Date.today - 1}&"\
+#         "sortBy=popularity&"\
+#         "apiKey=#{ENV["NEWS_API_KEY"]}"
+#       req = open(url)
+#       response_body = JSON.parse(req.read)
+#       p response_body["totalResults"]
+#       PoliticianScore.create(mentions: response_body["totalResults"], politician: politician)
+
+# end
