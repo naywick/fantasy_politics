@@ -11,6 +11,7 @@ gem 'pundit'
 gem 'carrierwave', '~> 1.0'
 gem 'cloudinary'
 gem 'pg_search'
+
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'news-api'
 
@@ -26,6 +27,9 @@ gem 'jquery-rails'
 gem 'hogan_assets'
 gem "letter_opener", group: :development
 gem 'sweetalert2'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+gem 'whenever', :require => false
 
 group :development do
   gem 'web-console', '>= 3.3.0'

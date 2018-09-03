@@ -16,6 +16,11 @@ Rails.application.routes.draw do
 
   get '/search_results', to: 'pages#search_results'
 
+  require "sidekiq/web"
+    authenticate :user, lambda { |u| u.admin } do
+      mount Sidekiq::Web => '/sidekiq'
+    end
+
 end
 
 
