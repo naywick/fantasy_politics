@@ -1,7 +1,7 @@
 <div class="navbar-fixed-top">
 
   <div class="navbar-wagon">
-    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= link_to new_political_party_path, class: "navbar-wagon-brand" do %>
       <%= image_tag "logo.png", height: 50 %>
     <% end %>
 
@@ -69,7 +69,7 @@
           <% if current_user.leagues.any? %>
            <li> <%= link_to "My Leagues", leagues_path(current_user.leagues) %></li>
           <% else %>
-            <%= link_to 'Create my league', new_league_path %>
+            <li><%= link_to 'Create my league', new_league_path %></li>
           <% end %>
             <li>
               <li><%= link_to destroy_user_session_path, method: :delete, class: '#' do %>
