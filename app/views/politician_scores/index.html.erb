@@ -4,22 +4,9 @@
   </header>
 
   <aside class="sidebar-left">
-
-  </aside>
-
-  <%= content_for :chart_js do%>
-    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
-    <%= javascript_pack_tag "chart.js" %>
-    <%#= pie_chart PoliticianScore.map { |socre|
-      name: score.politician.first_name, data: politician_score(:mentions).group  %>
-    <%= bar_chart PoliticianScore.group(:politician).sum(:mentions) %>
-  <% end %>
-
-
-
-  <article>
-      <div class="league-table">
+   <div class="league-table">
       <% @politician_scores.each do |politician_score| %>
+      <% if politician_score.mentions > 0 %>
       <ul>
            <li>
             <p><%= politician_score.politician.first_name  %>
@@ -28,8 +15,22 @@
             <p>Has been mentioned <%= politician_score.mentions %> times last week</p>
             </li>
             </ul>
+            <% end %>
           <% end %>
     </div>
+  </aside>
+
+
+  <article>
+   <%= content_for :chart_js do%>
+    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+    <%= javascript_pack_tag "chart.js" %>
+    <div>
+    <%#= pie_chart PoliticianScore.map { |socre|
+      name: score.politician.first_name, data: politician_score(:mentions).group  %>
+    <%= line_chart PoliticianScore.all.map {|ps|  [ps.politician.name, ps.mentions]} %>
+    </div>
+  <% end %>
   </article>
 
   <aside class="sidebar-right">
