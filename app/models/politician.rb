@@ -4,6 +4,7 @@ class Politician < ApplicationRecord
   has_many :politician_links
   has_many :political_parties, through: :politician_links
   validates :party, :first_name, :last_name, presence: true
+  
   validates :rank, presence: true, inclusion: { in: RANKS }
   include PgSearch
 

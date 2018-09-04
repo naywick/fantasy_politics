@@ -1,74 +1,38 @@
-
 <h2>My politicial parties</h2>
 
 <% current_user.political_parties.each do |party| %>
   <%= link_to political_party_path(party) do %>
-  <div class="grid3">
-  <aside class="sidebar-left3">
+<div>
+    <aside class="sidebar-left3">
+    </aside>
 
-  </aside>
-
-  <article>
-    <div class="grid-container">
-      <div class="grid-container-left">
-        <p>
-          <%= party.name %>
-        </p>
-        <p> this party has
-          <%= party.politicians.count %>
-          members
-        </p>
-      </div>
-      <div class="grid-container-right">
-        <p class="score">
-          SCORE
-        </p>
-        <p class="score-number">
-          <%= party.score %>
-        </p>
-      </div>
-    </div>
-  </article>
-  <aside class="sidebar-right3">
-  <p>
-
-  </p>
-  </aside>
-</div>
-  <% end %>
-  <% end %>
-
-
-
-<h2>Parties created by you</h2>
-<% current_user.political_parties.each do |party| %>
-  <%= link_to political_party_path(party) do %>
-    <h3><%= party.name %></h3>
-  <% end %>
-
-  <div class="row">
-   <!-- main content here -->
-
-  <% party.politicians.each do |politician| %>
-    <div class="card-container col-xs-12 col-sm-6 md-3">
-      <div class="card card<%=politician.id%>">
-
-        <div class="front" style="background-image:  linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.8) 90%), url(<%= cl_image_path politician.cl_photo %>);">
-          <h2 id="first"><%= politician.first_name %></h2>
-          <h2 id="last"><%= politician.last_name %></h2>
-          <%#= link_to political_party_politician_link_path(@political_party, @political_party.politician_links.find {|pl| pl.politician == politician}), method: :delete do %>
-          <!-- <i class="fas fa-minus" id="minus"></i> -->
-          <%# end %>
+    <article>
+      <div class="grid-container">
+        <div>
+          <p class="party-members">
+            <%= party.name.upcase %>
+          </p>
+          <p class="party-members-count">
+            <%= party.politicians.count %>
+            party members
+          </p>
         </div>
-        <div class="back">
-          <h2>About</h2>
-          <p>
-            <%= politician.about %>
+        <div>
+          <p class="score">
+            SCORE
+          </p>
+          <p class="score-number">
+            <%= party.score %>
           </p>
         </div>
       </div>
-    </div>
-  <% end %>
-  </div>
+    </article>
+    <aside class="sidebar-right3">
+      <p>
+      </p>
+    </aside>
+</div>
 <% end %>
-  <%= link_to "Add party", new_political_party_path %>
+<% end %>
+
+  <%= link_to "Add a new party", new_political_party_path, class: 'main-button modal-button'%>
