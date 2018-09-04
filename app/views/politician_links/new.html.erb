@@ -26,7 +26,7 @@
               <% else %>
                 <div class="front" style="background-color: #949396">
               <% end %>
-                  <%= image_path politician.photo %>
+                  <%= image_tag politician.photo %>
                   <h2 id="first"><%= politician.first_name %></h2>
                   <h2 id="last"><%= politician.last_name %></h2>
                   <%= pl = @political_party.politician_links.find {|pl| pl.politician == politician} %>

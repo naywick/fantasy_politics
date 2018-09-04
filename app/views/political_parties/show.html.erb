@@ -1,28 +1,43 @@
 <div class="container">
 
-<h2>Party Name</h2>
+<h1 class="party-header"><%= @political_party.name %></h1>
 
   <div class="container">
     <!-- Upper container -->
     LINK TO EDIT PARTY IN TOP RIGHT HERE ########
     <div class="party-statistics">
       <div class="party-numbers">
-        <h3>Score</h3>
+        <h4>Score</h4>
+        <p>42</p>
       </div>
       <div class="party-numbers">
-        <h3>Members</h3>
+        <h4>Members</h4>
+        <p>8</p>
       </div>
       <div class="party-leagues">
-        <h3>Leagues</h3>
+        <h4>Leagues</h4>
+        <ul class="party-leagues">
+          <li>League 1</li>
+          <li>League 2</li>
+          <li>League 3</li>
+        </ul>
       </div>
     </div>
 
     <!-- Lower container -->
-    <div class="party-lower-container">
-      <div class="card">
-        <!-- Politician rank, avatar, name and current score. -->
+    <h4>Politicians</h4>
+    <% @political_party.politicians.each do |politician| %>
+      <div class="party-politicians">
+        <div class="party-politician-card">
+          <div class="politician-rank">
+            <p>1</p>
+          <div class="politician-avatar" style="background-image: url(<%= cl_image_path politician.photo %>);"></div>
+          </div>
+          <div class="politician-name"><%= politician.name %></div>
+          <div class="politician-score">Will be politician.score</div>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 
 </div>
