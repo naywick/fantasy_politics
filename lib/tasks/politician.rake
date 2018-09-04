@@ -10,11 +10,11 @@ namespace :politician do
             "q=#{politician.name}&"\
             "from=#{Date.today}&"\
             "sortBy=popularity&"\
-            "apiKey=a504309863774f46a04e56b35653d6e5"
+            "apiKey=#{ENV['NEWS_API_KEY']}"
 
       req = open(url)
       response_body = JSON.parse(req.read)
-      # PoliticianScore.create!()
+      PoliticianScore.create!(mentions: response_body["totalResults"], politician: politician)
     end
   end
 
