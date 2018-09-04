@@ -1,0 +1,14 @@
+<h2>Your Leagues</h2>
+<% current_user.political_parties.each do |party| %>
+  <% unless party.league_connections == [] %>
+    <h3><%= party.name %>'s leagues</h3>
+    <% party.league_connections.each do |connection| %>
+      <%= link_to league_path(connection.league) do %>
+        <h3><%= connection.league.name %></h3>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+<%= link_to new_league_path do %>
+  <p>Create your own league</p>
+<% end %>

@@ -19,3 +19,4 @@ namespace :politician do
   end
 
 end
+

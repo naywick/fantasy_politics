@@ -13,47 +13,50 @@
       You've created
       <%  a = current_user.political_parties.count %>
       <%= a %>
-      <% if  a <= 1%>
-       party
-      <% else %>
-        parties
-      <% end %>
+        <% if  a <= 1%>
+         party.
+        <% else %>
+          parties.
+        <% end %>
       <%  current_user.political_parties.each do |party| %>
-        <ul>
-          <li>
-            <%= party.name %>
-          </li>
-        </ul>
+        <p>
+          <%= link_to political_party_path(party) do %>
+          <%= party.name %>
+          <% end %>
+        </p>
+      <% end %>
+      <% current_user.political_parties.each do |party| %>
+        <% unless party.league_connections == [] %>
+        <p>And you belong to
+          <% a = party.league_connections.count  %>
+          <%= a %>
+          <% if  a <= 1%>
+           league.
+          <% else %>
+            leagues.
+          <% end %>
+        </p>
+          <% party.league_connections.each do |connection| %>
+            <%= link_to league_path(connection.league) do %>
+              <p><%= connection.league.name %></p>
+            <% end %>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
   </article>
 
   <aside class="sidebar-right">
-   <div> You belong to
-      <%  a = current_user.leagues.count %>
-      <%= a %>
-      <% if  a <= 1%>
-       league
-      <% else %>
-        leagues
-      <% end %>
-      <%  current_user.leagues.each do |league| %>
-        <ul>
-          <li>
-            <%= league.name %>
-          </li>
-        </ul>
-      <% end %>
-    </div>
+    <p>Your email address:
+      <%= current_user.email %>
+    </p>
   </aside>
 
   <footer>
- <span>You have given us this email address:
-           <%= current_user.email %>
-         </span>
-         <span>Is the info we have still up to date?</span>
-         <p> <%= link_to edit_user_path(@user) do  %>
-           <i class="fas fa-pencil-alt change"></i>
-         <% end %> </p>
+    <p>Is the info we have still up to date?
+      <%= link_to edit_user_path(@user) do  %>
+      <i class="fas fa-pencil-alt change"> </i>
+      <% end %>
+    </p>
   </footer>
 </div>

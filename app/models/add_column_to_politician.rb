@@ -1,0 +1,2 @@
+class AddColumnToPolitician < ApplicationRecord
+end

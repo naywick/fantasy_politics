@@ -1,13 +1,23 @@
-  <div class="container">
-    <div class="league-table">
-      <h1><%= @league.name %></h1>
-      <% @league.political_parties.each do |political_party| %>
-        <%= link_to '#' do %>
-          <div class="league-card">
-            <%= political_party.name  %>
-          </div>
-          <% end %>
+<div class="container">
+  <div class="league-table">
+    <h1><%= @league.name %></h1>
+    <% unless @league.political_parties == [] %>
+      <h2 style="text-align: left;">Rankings</h2>
+      <% @league.political_parties.each do |party| %>
+        <%= link_to political_party_path(party) do %>
+          <h3><%= party.name %> </h3>
+        <% end %>
+        <p><%= party.user.username %></p>
       <% end %>
-    </div>
-  </div>
+    <% end %>
 
+    <h3>Add party to league</h3>
+    <% current_user.political_parties.each do |political_party| %>
+      <%= link_to league_league_connections_path(political_party: political_party, league_id: @league), {method: :post} do %>
+        <div class="league-card">
+            <%= political_party.name  %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

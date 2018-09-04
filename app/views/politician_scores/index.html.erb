@@ -1,0 +1,46 @@
+<%= content_for :chart_js do%>
+  <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+  <%= javascript_pack_tag "chart.js" %>
+<% end %>
+
+
+<h2>Politicians' scores</h2>
+
+ <div class="container">
+    <%= bar_chart PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map {|ps|  [ps.politician.name, ps.mentions]} %>
+  </div>
+<!-- <div class="grid">
+  <aside class="sidebar-left">
+   <div class="league-table">
+      <%# @politician_scores.each do |politician_score| %>
+        <%# if politician_score.mentions > 0 %>
+          <ul>
+            <li>
+              <p>
+                <%#= politician_score.politician.first_name %>
+                <%#= politician_score.politician.last_name %>,
+                <%#= politician_score.politician.party %>
+              </p>
+              <p>Has been mentioned <%#= politician_score.mentions %> times last week</p>
+            </li>
+          </ul>
+        <%# end %>
+      <%# end %>
+    </div>
+  </aside>
+
+  <article>
+
+  </article>
+
+  <aside class="sidebar-right">
+
+
+  </aside>
+
+  <footer>
+
+  </footer>
+</div> -->
+
+
