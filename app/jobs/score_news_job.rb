@@ -22,3 +22,5 @@ end
 
 # rake politician:get_scores to run - deploy in hiroku
 # heroku addons:create rediscloud
+a = ScoreNewsJob.new
+a.perform
