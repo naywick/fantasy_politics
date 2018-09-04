@@ -3,8 +3,6 @@
   grid-template-columns: 150px auto 150px;
   grid-template-rows: auto;
   grid-gap: 1em;
-
-
 }
 
 header,
@@ -66,18 +64,20 @@ body {
   padding: 10px;
   margin: 10px;
 }
+
 .score{
   color: #DB5461;
   font-size: 18px;
   line-height: 19px;
   font-weight: lighter;
 }
+
 .score-number{
   font-size: 50px;
   line-height: 51px;
   font-weight: lighter;
-
 }
+
 .party-members{
   text-align: left;
   color: #DB5461;
@@ -85,12 +85,20 @@ body {
   line-height: 19px;
   font-weight: lighter;
 }
+
 .party-members:hover{
   color: #C4C4C4;
 }
+
 .party-members-count{
   text-align: left;
   font-weight: lighter;
   line-height: 51px;
-  }
+}
+
+  .parties-count{
+    text-align: right;
+    color: #C4C4C4;
+    font-weight: lighter;
+}
 
