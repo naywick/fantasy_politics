@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :leagues do
     resources :league_connections, only: [:new, :create, :destroy ]
   end
-
+  get '/news_items', to: 'news_items#index'
   get '/search_results', to: 'pages#search_results'
 
   require "sidekiq/web"

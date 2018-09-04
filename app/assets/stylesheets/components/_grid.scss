@@ -37,3 +37,42 @@ body {
   justify-content: center;
   background: rgba(0,0,0,0.03);
 }
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 300px auto auto;
+  grid-template-rows: auto;
+  grid-gap: 1em;
+
+}
+
+header,
+article,
+footer {
+  background: rgba(0,0,0,0.03);
+  padding: 1em;
+  border-radius: 8px;
+}
+
+
+footer{
+  height: 70px;
+}
+
+header, footer {
+  grid-column: 1 / 4;
+}
+
+/* Demo Specific Styles */
+body {
+  margin: 0 auto;
+  max-width: 56em;
+  padding: 1em 0;
+}
+
+.grid2 > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.03);
+}
