@@ -1,0 +1,45 @@
+
+
+  <div class="grid2">
+    <header>
+      <h2>News for our top 10 politicians</h2>
+    </header>
+
+    <aside class="sidebar-left2">
+      <div class="container">
+        <% top_politicians = [] %>
+        <% PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map do |ps| %>
+          <% top_politicians << ps.politician.name  %>
+        <% end %>
+        <% counter = 0 %>
+        <% top_politicians.first(10).each do |politician| %>
+          <p><%counter +=1 %>
+            <%= counter %>.
+          <%= politician %></p>
+        <% end %>
+      </div>
+    </aside>
+
+    <article>
+      <div class="news_container" id="news_items">
+        <%#= get_news_bbc %>
+
+      </div>
+
+
+    </article>
+
+    <aside class="sidebar-right2">
+      <div class="twitter_container">
+       <a class="twitter-timeline" data-width="220" data-height="350" data-dnt="true" data-link-color="#E36488" href="https://twitter.com/FantasyPolitic1?ref_src=twsrc%5Etfw">Tweets by FantasyPolitic1</a>
+    </div>
+
+    </aside>
+
+    <footer>
+      <p><a href="https://twitter.com/FantasyPolitic1?ref_src=twsrc%5Etfw" class="btn button-primary" target="blank" data-show-count="false"><i class="fab fa-twitter"></i>Follow @FantasyPolitic1</a>
+    </footer>
+  </div>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script>!function(d,s,id){const js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

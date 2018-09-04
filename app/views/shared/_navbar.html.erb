@@ -2,7 +2,7 @@
 
   <div class="navbar-wagon">
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <%= image_tag "logo.png", height: 50 %>
+      <%= image_tag "squarewhite.png", height: 50 %>
     <% end %>
 
 
@@ -21,7 +21,10 @@
 
         <%= link_to 'All Leagues', leagues_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-          <%#= link_to "Politicians' Scores", politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Politicians' Scores", politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+        <%= link_to "News", news_items_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
         <!-- Avatar with dropdown menu -->
         <div class="navbar-wagon-item">
           <div class="dropdown">
@@ -56,27 +59,34 @@
         <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <% if user_signed_in? %>
-          <% if current_user.political_parties.any? %>
-           <li><%= link_to 'My Parties', political_parties_path %></li>
-          <% else %>
-            <li><%= link_to 'Create my party', new_political_party_path %></li>
-          <% end %>
+            <% if current_user.political_parties.any? %>
+             <li><%= link_to 'My Parties', political_parties_path %></li>
+            <% else %>
+              <li><%= link_to 'Create my party', new_political_party_path %></li>
+            <% end %>
 
-          <% if current_user.leagues.any? %>
-           <li> <%= link_to "My Leagues", leagues_path(current_user.leagues) %></li>
-          <% else %>
-            <li><%= link_to 'Create my league', new_league_path %></li>
-          <% end %>
+            <% if current_user.leagues.any? %>
+             <li> <%= link_to "My Leagues", leagues_path(current_user.leagues) %></li>
+            <% else %>
+              <li><%= link_to 'Create my league', new_league_path %></li>
+            <% end %>
+
             <li>
-              <li><%= link_to destroy_user_session_path, method: :delete, class: '#' do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to user_path(current_user) do %>
-                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-                  <% end %>
-              </li>
+              <%= link_to "Politicians' Scores", politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            </li>
+            <li>
+              <%= link_to "News", news_items_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            </li>
+            <li>
+              <%= link_to user_path(current_user) do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
+            </li>
+            <li><%= link_to destroy_user_session_path, method: :delete, class: '#' do %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+            </li>
+
           <% else %>
             <li>
               <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path %>Link tag</li>
