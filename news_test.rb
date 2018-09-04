@@ -2,7 +2,7 @@
 # # require 'openssl'
 # # OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
-# newsapi = News.new("a504309863774f46a04e56b35653d6e5")
+# newsapi = News.new("")
 
 # p newsapi
 # all_articles = newsapi.get_everything(q: 'Theresa May')
@@ -18,7 +18,7 @@ url = 'https://newsapi.org/v2/everything?'\
       'q=Apple&'\
       'from=2018-09-03&'\
       'sortBy=popularity&'\
-      'apiKey=a504309863774f46a04e56b35653d6e5'
+      'apiKey='
 
 req = open(url)
 
@@ -44,7 +44,7 @@ p response_body["totalResults"]
 #       'q=Theresa May&'\
 #       'from=2018-09-03&'\
 #       # 'sortBy=popularity&'\
-#       'apiKey=a504309863774f46a04e56b35653d6e5'
+#       'apiKey='
 
 # # uri = URI.parse(url)
 # # https = Net::HTTP.new(uri.host, uri.port)
@@ -62,7 +62,7 @@ p response_body["totalResults"]
 
 # require "net/http"
 
-# # url = "https://newsapi.org/v2/everything?q=TheresaMay&from=2018-09-03&apiKey=a504309863774f46a04e56b35653d6e5"
+# # url = "https://newsapi.org/v2/everything?q=TheresaMay&from=2018-09-03&apiKey="
 
 # url = "https://newsapi.org/v2/everything?q=bitcoin"
 
@@ -70,7 +70,7 @@ p response_body["totalResults"]
 # args = {include_entities: 0, include_rts: 0, screen_name: 'johndoe', count: 2, trim_user: 1}
 # uri.query = URI.encode_www_form(args)
 # http = Net::HTTP.new(uri.host, uri.port)
-# http['x-api-key'] = '2b8144f9b4024a8696491232187b14c4'
+# http['x-api-key'] = ''
 # http.use_ssl = true
 
 # request = Net::HTTP::Get.new(uri.request_uri)
