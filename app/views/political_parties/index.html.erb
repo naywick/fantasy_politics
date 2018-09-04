@@ -1,3 +1,45 @@
+
+<h2>My politicial parties</h2>
+
+<% current_user.political_parties.each do |party| %>
+  <%= link_to political_party_path(party) do %>
+  <div class="grid3">
+  <aside class="sidebar-left3">
+
+  </aside>
+
+  <article>
+    <div class="grid-container">
+      <div class="grid-container-left">
+        <p>
+          <%= party.name %>
+        </p>
+        <p> this party has
+          <%= party.politicians.count %>
+          members
+        </p>
+      </div>
+      <div class="grid-container-right">
+        <p class="score">
+          SCORE
+        </p>
+        <p class="score-number">
+          <%= party.score %>
+        </p>
+      </div>
+    </div>
+  </article>
+  <aside class="sidebar-right3">
+  <p>
+
+  </p>
+  </aside>
+</div>
+  <% end %>
+  <% end %>
+
+
+
 <h2>Parties created by you</h2>
 <% current_user.political_parties.each do |party| %>
   <%= link_to political_party_path(party) do %>

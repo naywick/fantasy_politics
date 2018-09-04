@@ -7,8 +7,15 @@
 <h2>Politicians' scores</h2>
 
  <div class="container">
-    <%= bar_chart PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map {|ps|  [ps.politician.name, ps.mentions]} %>
-  </div>
+  <%= bar_chart PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map {|ps|  [ps.politician.name, ps.mentions]} %>
+</div>
+
+<ul>
+  <% @politicians.each do |politician| %>
+
+  <li><%= politician.score %></li>
+  <% end %>
+</ul>
 <!-- <div class="grid">
   <aside class="sidebar-left">
    <div class="league-table">
