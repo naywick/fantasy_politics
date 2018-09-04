@@ -52,22 +52,24 @@
   background-size: cover;
   #first {
   position: absolute;
-  bottom: 16px;
+  bottom: 10px;
   padding: 16px;
   }
   #last {
     position: absolute;
-    bottom: -20px;
+    bottom: -26px;
     padding: 16px;
   }
   h2 {
     color: white;
     font-size: 32px;
   }
-  .politican-image {
+  .politician-image {
+    background-size: cover;
     position: relative;
     bottom: 35px;
-    height: 200px;
+    height: 220px;
+    width: 180px;
     box-shadow: 0px 1.5px 4px rgba(0,0,0,0.15);
     border-radius: 2px;
   }
