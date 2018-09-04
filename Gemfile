@@ -3,6 +3,7 @@ ruby '2.4.4'
 source 'https://rubygems.org'
 gem 'bootsnap', require: false
 gem 'devise'
+gem 'devise_invitable', '~> 1.7.0'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
@@ -30,6 +31,7 @@ gem 'sweetalert2'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'whenever', :require => false
+
 
 source 'https://rubygems.org' do
   gem 'chartkick', '~> 1.4', '>= 1.4.1'
