@@ -25,6 +25,15 @@ class Politician < ApplicationRecord
      end
   end
 
+  def score
+    sum = 0
+    return sum if politician_scores.empty?
+    politician_scores.each do |ps|
+      sum += ps.mentions_score
+    end
+    return sum / politician_scores.count
+  end
+
   def name
     "#{first_name} #{last_name}"
   end
