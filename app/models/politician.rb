@@ -7,8 +7,6 @@ class Politician < ApplicationRecord
   validates :rank, presence: true, inclusion: { in: RANKS }
   include PgSearch
 
-  attr_reader :rank
-
   pg_search_scope :search_politicians,
     against: [ :first_name, :last_name, :party ],
     using: {
