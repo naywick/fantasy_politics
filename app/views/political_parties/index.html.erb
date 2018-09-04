@@ -1,5 +1,3 @@
-
-
 <h2>My politicial parties</h2>
 
 <% current_user.political_parties.each do |party| %>
@@ -12,7 +10,7 @@
       <div class="grid-container">
         <div>
           <p class="party-members">
-            <%= party.name %>
+            <%= party.name.upcase %>
           </p>
           <p class="party-members-count">
             <%= party.politicians.count %>
@@ -36,5 +34,5 @@
 </div>
 <% end %>
 <% end %>
-    <button class="main-button modal-button">Add a new party<% link_to new_political_party_path %>
-    </button>
+
+  <%= link_to "Add a new party", new_political_party_path, class: 'main-button modal-button'%>
