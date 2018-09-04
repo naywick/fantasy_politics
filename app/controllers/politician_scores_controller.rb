@@ -8,9 +8,9 @@ class PoliticianScoresController < ApplicationController
     #  authorize @politician_scores
     @scores = []
     @politicians = Politician.all
-    @politicians.each do |politician|
-      @scores << {name: politician.name, score: PoliticianScore.new(mentions, politician).score }
-    end
+    # @politicians.each do |politician|
+    #   @scores << {name: politician.name, score: PoliticianScore.new(mentions, politician).score }
+    # end
 
   end
 

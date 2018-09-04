@@ -8,15 +8,18 @@
           <h3><%= party.name %> </h3>
         <% end %>
         <p><%= party.user.username %></p>
+        <p>score: <%= party.score %></p>
       <% end %>
     <% end %>
 
     <h3>Add party to league</h3>
     <% current_user.political_parties.each do |political_party| %>
-      <%= link_to league_league_connections_path(political_party: political_party, league_id: @league), {method: :post} do %>
-        <div class="league-card">
-            <%= political_party.name  %>
-        </div>
+      <% if !@league.political_parties.include?(political_party) %>
+        <%= link_to league_league_connections_path(political_party: political_party, league_id: @league), {method: :post} do %>
+          <div class="league-card">
+              <%= political_party.name  %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>

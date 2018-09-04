@@ -1,7 +1,7 @@
   <div class="cards-body">
     <div class="row">
       <h2>Choose your members</h2>
-
+      <%= link_to @political_party.name, political_party_path(@political_party) %>
       <%= form_tag new_political_party_politician_link_path(@political_party), :id => 'search-bar', method: :get do %>
         <%= text_field_tag :query,
           params[:query],
@@ -29,8 +29,9 @@
                   <%= image_path politician.photo %>
                   <h2 id="first"><%= politician.first_name %></h2>
                   <h2 id="last"><%= politician.last_name %></h2>
+                  <%= pl = @political_party.politician_links.find {|pl| pl.politician == politician} %>
                   <% if @current_user.political_parties.last.politicians.include? politician %>
-                    <%= link_to  political_party_politician_link_path(@political_party, @political_party.politician_links.find {|pl| pl.politician == politician}), method: :delete do %>
+                    <%= link_to  political_party_politician_link_path(@political_party, pl), method: :delete do %>
                       <i class="fas fa-minus minus"></i>
                     <% end %>
                   <% else %>
