@@ -10,16 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_04_085147) do
+ActiveRecord::Schema.define(version: 2018_09_04_132445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "add_column_to_politicians", force: :cascade do |t|
-    t.string "rank"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "league_connections", force: :cascade do |t|
     t.bigint "league_id"
@@ -72,6 +66,7 @@ ActiveRecord::Schema.define(version: 2018_09_04_085147) do
     t.text "about"
     t.string "first_name"
     t.string "last_name"
+    t.string "rank"
   end
 
   create_table "user_league_connections", force: :cascade do |t|

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :leagues do
     resources :league_connections, only: [:new, :create, :destroy ]
   end
+   get '/politician_scores', to: 'politician_scores#index'
   get '/news_items', to: 'news_items#index'
   get '/search_results', to: 'pages#search_results'
 

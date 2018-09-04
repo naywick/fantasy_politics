@@ -6,8 +6,6 @@ class Politician < ApplicationRecord
   # validates :rank, presence: true, inclusion: { in: ["Party Leader", "Cabinet", "Shadow Cabinet", "Backbencher", "Other"] }
   include PgSearch
 
-  attr_reader :rank
-
   pg_search_scope :search_politicians,
     against: [ :first_name, :last_name, :party ],
     using: {
@@ -23,6 +21,15 @@ class Politician < ApplicationRecord
       else
        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb0kZ2CA6D46RXZVJ3dvJPusC66fBq1uENE8jN3q8golJ73Ayd'
      end
+  end
+
+  def score
+    sum = 0
+    return sum if politician_scores.empty?
+    politician_scores.each do |ps|
+      sum += ps.mentions_score
+    end
+    return sum / politician_scores.count
   end
 
   def name
