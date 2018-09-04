@@ -1,11 +1,31 @@
-<h2>Your Leagues</h2>
-<% current_user.leagues.each do |league| %>
+<h2>My league</h2>
 
-  <%= link_to league_path(league) do %>
-    <h3><%= league.name %></h3>
-  <% end %>
+  <% current_user.leagues.each do |league| %>
+    <%= link_to league_path(league) do %>
+      <div>
+        <aside class="sidebar-left3">
+        </aside>
 
-<% end %>
-<%= link_to new_league_path do %>
-  <p>Create your own league</p>
-<% end %>
+        <article class="league-box">
+          <div class="grid-container">
+            <div>
+              <p class="party-members">
+                <%= league.name %>
+              </p>
+              <p class="party-members-count">
+                <%= league.political_parties.count %>
+                parties on the league
+              </p>
+            </div>
+          </div>
+        </article>
+
+    </div>
+    <% end %>
+    <% end %>
+
+   <button class="main-button modal-button">
+      <%= link_to new_league_path do %>
+        <p>Create your own league</p>
+      <% end %>
+    </button>

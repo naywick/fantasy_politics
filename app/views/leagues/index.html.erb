@@ -1,8 +1,40 @@
 <!-- List of all the leagues of all the users -->
-<h2>All Leagues</h2>
+<!-- <h2>All Leagues</h2>
 <% @leagues.each do |league| %>
   <%= link_to league_path(league) do %>
     <h3><%= league.name %></h3>
   <% end %>
   <p>Created by <%= league.user.username %></p>
-<% end %>
+<% end %> -->
+
+
+<h2>All league</h2>
+
+  <% @leagues.each do |league| %>
+  <%= link_to league_path(league) do %>
+      <div>
+        <aside class="sidebar-left3">
+        </aside>
+
+        <article class="league-box">
+          <div class="grid-container">
+            <div>
+              <p class="party-members">
+                <%= league.name %>
+              </p>
+              <p class="party-members-count">
+                Created by <%= league.user.username %>
+              </p>
+            </div>
+          </div>
+        </article>
+
+    </div>
+    <% end %>
+    <% end %>
+
+   <button class="main-button modal-button">
+      <%= link_to new_league_path do %>
+        <p>Add a new league</p>
+      <% end %>
+    </button>
