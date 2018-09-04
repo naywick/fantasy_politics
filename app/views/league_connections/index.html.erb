@@ -1,11 +1,24 @@
-<h2>Your Leagues</h2>
-<% current_user.leagues.each do |league| %>
+<div class="container">
 
-  <%= link_to league_path(league) do %>
-    <h3><%= league.name %></h3>
-  <% end %>
+  <div class="row">
+    <h2>Your Leagues</h2>
+  </div>
 
-<% end %>
-<%= link_to new_league_path do %>
-  <p>Create your own league</p>
-<% end %>
+  <div class="row">
+    <div class="col-md-10">
+     <% current_user.leagues.each do |league| %>
+      <%= link_to league_path(league) do %>
+        <h3><%= league.name %></h3>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="name">
+    <div class="col-md-10">
+      <%= link_to new_league_path do %>
+        <p>Create your own league</p>
+      <% end %>
+    </div>
+  </div>
+</div>
