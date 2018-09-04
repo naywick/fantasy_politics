@@ -10,9 +10,12 @@ Rails.application.routes.draw do
     resources :league_connections, only: :index
   end
 
-  resources :politician_scores, only: [:index]
 
-  resources :politicians, only: [ :index, :show ]
+
+  resources :politicians, only: [ :index, :show ]  do
+    resources :politician_scores, only: [:index]
+  end
+
   # resources :politician_links, only: [:new, :create]
   resources :leagues do
     resources :league_connections, only: [:new, :create, :destroy ]
