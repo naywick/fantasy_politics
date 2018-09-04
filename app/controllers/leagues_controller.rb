@@ -10,9 +10,9 @@ class LeaguesController < ApplicationController
     authorize @league
   end
 
-  def edit
-    @politician = Politician.find(params[:politician_id])
-  end
+  # def edit
+  #   @politician = Politician.find(params[:politician_id])
+  # end
 
 
   def create
@@ -34,18 +34,18 @@ class LeaguesController < ApplicationController
   def show
   end
 
-  def update
-    if @league.update(league_params)
-      redirect_to league(@league)
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   if @league.update(league_params)
+  #     redirect_to league(@league)
+  #   else
+  #     render :edit
+  #   end
+  # end
 
-  def destroy
-    @league.destroy
-    @league = policy_scope(League)
-  end
+  # def destroy
+  #   @league.destroy
+  #   @league = policy_scope(League)
+  # end
 
 private
 

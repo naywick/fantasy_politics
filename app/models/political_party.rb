@@ -19,4 +19,12 @@ class PoliticalParty < ApplicationRecord
         'https://pbs.twimg.com/profile_images/854676302317703169/RQw2coJC_400x400.jpg'
     end
   end
+
+  def score
+    sum = 0
+    politicians.each do |p|
+      sum += p.score
+    end
+    return sum
+  end
 end
