@@ -19,14 +19,18 @@
                 <div class="front" style="background-color: #d14253">
               <% elsif politician.party == "Conservative" %>
                 <div class="front" style="background-color: #3c508c">
-              <% elsif politician.party == "Liberal Democrat" %>
-                <div class="front" style="background-color: #e5d352">
+              <% elsif politician.party == "Lib Dem" %>
+                <div class="front" style="background-color: #ef9240">
+              <% elsif politician.party == "SNP" %>
+                <div class="front" style="background-color: #fff263">
+              <% elsif politician.party == "UKIP" %>
+                <div class="front" style="background-color: #88498f">
               <% elsif politician.party == "Green" %>
                 <div class="front" style="background-color: #5db166">
               <% else %>
                 <div class="front" style="background-color: #949396">
               <% end %>
-                  <%= image_path politician.photo %>
+                  <div class="politician-image" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 90%), url(<%= cl_image_path politician.cl_photo %>);"></div>
                   <h2 id="first"><%= politician.first_name %></h2>
                   <h2 id="last"><%= politician.last_name %></h2>
                   <%= pl = @political_party.politician_links.find {|pl| pl.politician == politician} %>
@@ -47,7 +51,7 @@
                 <div class="back">
                   <h2>About</h2>
                   <p>
-                    Member of the <%= politician.party %> Party
+                    <%= politician.about %>
                   </p>
                 </div>
             </div>
