@@ -1,17 +1,17 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">All leagues</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My leagues</a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <h2>All leagues</h2>
+    <h3>Leagues created by you and other users.</h3>
       <div class="button-padding">
-         <%= link_to "Create your own league", new_league_path, class: 'main-button modal-button'%>
+         <%= link_to "Add a league", new_league_path, class: 'main-button modal-button'%>
       </div>
         <% @leagues.each do |league| %>
           <%= link_to league_path(league) do %>
@@ -49,7 +49,7 @@
         <% end %>
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <h2>Leagues my parties belong to</h2>
+    <h3>Leagues your parties belong to</h3>
 
       <% current_user.leagues.each do |league| %>
         <%= link_to league_path(league) do %>
