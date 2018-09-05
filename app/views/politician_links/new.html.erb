@@ -50,8 +50,9 @@
                     <h2 class="first"><%= politician.first_name %></h2>
                     <h2 class="last"><%= politician.last_name %></h2>
                   <% end %>
-                  <% pl = @political_party.politician_links.find {|pl| pl.politician == politician} %>
-                  <% if @current_user.political_parties.last.politicians.include? politician %>
+                  <% pl = @political_party.politician_links.find {|pl| pl.politician_id == politician.id} %>
+                  <%# if @current_user.political_parties.last.politicians.include? politician %>
+                  <% if @political_party.politicians.include? politician %>
                     <%= link_to  political_party_politician_link_path(@political_party, pl), method: :delete do %>
                       <i class="fas fa-minus minus"></i>
                     <% end %>
