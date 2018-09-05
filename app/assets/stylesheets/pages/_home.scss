@@ -31,8 +31,12 @@
 }
 
 #search-bar {
-  width: 30%;
+  width: 50%;
   text-align:center;
-  color:black;
+  color:white;
   margin: 0 auto;
+    .form-control {
+    background-color:#292929;
+    color:#d5d5d5;
+  }
 }
