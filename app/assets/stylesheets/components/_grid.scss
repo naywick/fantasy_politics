@@ -21,6 +21,8 @@ footer {
   background: rgba(0,0,0,0.1);
   padding: 1em;
   border-radius: 8px;
+    left: 0%;
+    top: -1%;
 }
 
 footer{
@@ -59,7 +61,7 @@ body {
 header,
 article,
 footer {
-  background: rgba(0,0,0,0.01);
+  background: rgba(0,0,0,0);
   padding: 1em;
   border-radius: 8px;
   word-wrap: break-word;
