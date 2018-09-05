@@ -6,18 +6,20 @@
     <h4>Members</h4>
     <p><%= @league.political_parties.count %></p>
   </div>
-  <div class="league-leader">
-    <h4>Founder</h4>
-    <div class="leader-details">
-      <div>
-        <p class="party-title"><%= @league.political_parties.first.name %></p>
-        <p class="league-user"><%= @league.political_parties.first.user.username %></p>
-      </div>
-      <div class="leader-score">
-        <p><%= @league.political_parties.first.score %></p>
+  <% if @league.political_parties.nil? %>
+    <div class="league-leader">
+      <h4>Founder</h4>
+      <div class="leader-details">
+        <div>
+          <p class="party-title"><%= @league.political_parties.first.name %></p>
+          <p class="league-user"><%= @league.political_parties.first.user.username %></p>
+        </div>
+        <div class="leader-score">
+          <p><%= @league.political_parties.first.score %></p>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
 
 
