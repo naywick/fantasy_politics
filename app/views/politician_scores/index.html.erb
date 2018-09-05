@@ -30,14 +30,14 @@
    <div class="container">
      <p><strong>Top ten politicians:</strong></p>
      <% top_politicians = [] %>
-     <% PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map do |ps| %>
-       <% top_politicians << ps.politician.name  %>
+     <% Politician.all.sort_by{|i| -i.score}.each do |politician| %>
+       <% top_politicians << politician  %>
      <% end %>
      <% counter = 0 %>
      <% top_politicians.first(10).each do |politician| %>
-       <p><%counter +=1 %>
-         <%= counter %>.
-       <%= politician %></p>
+      <p><%counter +=1 %>
+        <%= counter %>.
+      <%= politician.name %>: <%= politician.score %> points</p>
      <% end %>
    </div>
   </div>
