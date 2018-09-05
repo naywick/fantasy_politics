@@ -1,3 +1,58 @@
+<div class="container">
+
+<h1 class="party-header"><%= @political_party.name %></h1>
+
+  <div class="container">
+    <!-- Upper container -->
+    LINK TO EDIT PARTY IN TOP RIGHT HERE ########
+    <div class="party-statistics">
+      <div class="party-numbers">
+        <h4>Score</h4>
+        <p>42</p>
+      </div>
+      <div class="party-numbers">
+        <h4>Members</h4>
+        <p>8</p>
+      </div>
+      <div class="party-leagues">
+        <h4>Leagues</h4>
+        <ul class="party-leagues">
+          <li>League 1</li>
+          <li>League 2</li>
+          <li>League 3</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Lower container -->
+    <h4>Politicians</h4>
+    <% @political_party.politicians.each do |politician| %>
+      <div class="party-politicians">
+        <div class="party-politician-card">
+          <div class="politician-rank">
+            <p>1</p>
+          <div class="politician-avatar" style="background-image: url(<%= cl_image_path politician.photo %>);"></div>
+          </div>
+          <div class="politician-name"><%= politician.name %></div>
+          <div class="politician-score">Will be politician.score</div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- #################### Old view ########################## -->
+
+<% if false %>
 <div class="homepage-container">
     <h2><%= @political_party.name %></h2>
     <div class="row">
@@ -5,7 +60,7 @@
       <div class="card-container col-xs-12 col-sm-6 md-3">
         <div class="card card<%=politician.id%>">
 
-          <div class="front" style="background-image:  linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.8) 90%), url(<%= cl_image_path politician.cl_photo %>);">
+          <div class="front" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.8) 90%), url(<%= cl_image_path politician.cl_photo %>);">
             <h2 id="first"><%= politician.first_name %></h2>
             <h2 id="last"><%= politician.last_name %></h2>
             <%#= link_to political_party_politician_link_path(@political_party, @political_party.politician_links.find {|pl| pl.politician == politician}), method: :delete do %>
@@ -26,3 +81,4 @@
       <%= link_to "Add party members", new_political_party_politician_link_path(@political_party) %>
     <% end %>
 </div>
+<% end %>

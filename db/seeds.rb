@@ -1,3 +1,4 @@
+
 # # This file should contain all the record creation needed to seed the database with its default values.
 # # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 # #
@@ -92,7 +93,6 @@ url = "https://res.cloudinary.com/dodobzdpn/image/upload/v1535714790/Fantasy%20P
 politician = Politician.new(rank: "Shadow Cabinet", party: "Labour", first_name: "Tom", last_name: "Watson", about:"Thomas Anthony Watson is a British Labour Party politician who was elected as Deputy Leader of the Labour Party in September 2015. ")
 politician.remote_photo_url = url
 politician.save!
-
 
 url = "https://res.cloudinary.com/dodobzdpn/image/upload/v1535714642/Fantasy%20Politics/boris_johnson.jpg"
 politician = Politician.new(rank: "Backbencher", party: "Conservative", first_name: "Boris", last_name: "Johnson", about: "Alexander Boris de Pfeffel Johnson, better known as Boris Johnson, is a British politician, popular historian, and journalist. He has been the Member of Parliament for Uxbridge and South Ruislip since 2015.")
@@ -195,21 +195,3 @@ politician.remote_photo_url = url
 politician.save!
 
 
-
-
-# politicians = Politician.all
-
-
-# politicians.each do |politician|
-
-#       url = "https://newsapi.org/v2/everything?"\
-#         "q=#{politician.name}&"\
-#         "from=#{Date.today - 1}&"\
-#         "sortBy=popularity&"\
-#         "apiKey=#{ENV["NEWS_API_KEY"]}"
-#       req = open(url)
-#       response_body = JSON.parse(req.read)
-#       p response_body["totalResults"]
-#       PoliticianScore.create(mentions: response_body["totalResults"], politician: politician)
-
-# end

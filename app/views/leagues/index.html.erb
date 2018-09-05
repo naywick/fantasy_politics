@@ -1,17 +1,8 @@
-<!-- List of all the leagues of all the users -->
-<!-- <h2>All Leagues</h2>
-<% @leagues.each do |league| %>
-  <%= link_to league_path(league) do %>
-    <h3><%= league.name %></h3>
-  <% end %>
-  <p>Created by <%= league.user.username %></p>
-<% end %> -->
 
-
-<h2>All league</h2>
+<h2>All leagues</h2>
 
   <% @leagues.each do |league| %>
-  <%= link_to league_path(league) do %>
+    <%= link_to league_path(league) do %>
       <div>
         <aside class="sidebar-left3">
         </aside>
@@ -26,15 +17,24 @@
                 Created by <%= league.user.username %>
               </p>
             </div>
+            <div>
+              <p class="parties-count">
+              It has
+                <%= league.political_parties.count %>
+                <% if league.political_parties.count == 1 %>
+                  party
+                <% else %>
+                  parties
+                <% end %>
+              </p>
+              <p class="score-number">
+              </p>
+            </div>
           </div>
         </article>
-
-    </div>
+     </div>
     <% end %>
-    <% end %>
-
-   <button class="main-button modal-button">
-      <%= link_to new_league_path do %>
-        <p>Add a new league</p>
-      <% end %>
-    </button>
+  <% end %>
+<div class="button-padding">
+   <%= link_to "Create your own league", new_league_path, class: 'main-button modal-button'%>
+</div>
