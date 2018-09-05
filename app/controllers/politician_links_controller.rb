@@ -7,6 +7,7 @@ class PoliticianLinksController < ApplicationController
       @politicians = Politician.search_politicians(params[:query])
     end
     @political_party = PoliticalParty.find(params[:political_party_id])
+    @num_of_politicians = @political_party.politicians.count
     authorize @politician_link
   end
 

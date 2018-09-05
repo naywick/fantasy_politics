@@ -91,26 +91,36 @@ margin-bottom: 10px;
 }
 
 /* The alert message box */
-.alert {
-    padding: 20px;
-    background-color: #f44336; /* Red */
-    color: white;
-    margin-bottom: 15px;
+.alert-party {
+  display: flex;
+  justify-content: center;
+  padding: 25px 0;
+  // margin-top: 75px;
+  position: fixed;
+  left: 0;
+  top: 70px;
+  z-index: 9999;
+  color: white;
+  width: 100vw;
+  font-weight: lighter;
+  background: rgba(0,0,0,0);
+  text-align: center;
+  border-radius: 0;
+  border: 0;
+  background-color: #DB5461;
+  p {
+    margin: 0;
+  }
+}
+.alert-info {
+  background: rgba(0,0,0,0);
+  color: white;
+  border: 0;
+}
+.alert-warning {
+  background: rgba(0,0,0,0);
+  text-align: center;
+  color: white;
+  border: 0;
 }
 
-/* The close button */
-.closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-/* When moving the mouse over the close button */
-.closebtn:hover {
-    color: black;
-}
