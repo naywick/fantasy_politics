@@ -50,7 +50,9 @@
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <h3>Leagues your parties belong to</h3>
-
+      <div class="button-padding">
+      <%= link_to "Add a league", new_league_path, class: 'main-button modal-button'%>
+      </div>
       <% current_user.leagues.each do |league| %>
         <%= link_to league_path(league) do %>
       <div>
@@ -81,7 +83,6 @@
       </div>
       <% end %>
       <% end %>
-      <%= link_to "Create your own league", new_league_path, class: 'main-button modal-button'%>
   </div>
 </div>
 
