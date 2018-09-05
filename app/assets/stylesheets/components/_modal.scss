@@ -15,11 +15,16 @@
 
 .my-modal-content {
   background-color: $app-gray;
-  border-radius: 5px;
-  height: 600px;
+  border-radius: 10px;
+  height: 670px;
   width: 450px;
 }
 
+#user_photo{
+  opacity: 0.3;
+  display: flex;
+  font-weight: lighter;
+}
 .my-modal2-content {
   background-color: $app-gray;
   border-radius: 5px;
@@ -49,7 +54,7 @@ input.login-form-input {
 
 .modal-button {
   box-shadow: none;
-  margin-top: 22px;
+  margin-top: 10px;
 }
 
 .modal-button:active {
