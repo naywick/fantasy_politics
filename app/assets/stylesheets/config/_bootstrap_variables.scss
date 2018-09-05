@@ -40,6 +40,10 @@ $border-radius-small: 8px;
   color: $red;
 }
 
+.nav-item{
+  background-color: rgba(0,0,0,0.01);
+}
+
 .was-validated .form-control:invalid,
 .form-control.is-invalid,
 .was-validated .custom-select:invalid,
