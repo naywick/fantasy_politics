@@ -1,5 +1,5 @@
 class PoliticalPartiesController < ApplicationController
-  before_action :find_political_party, only: [:edit, :update, :show, :destroy]
+  before_action :find_political_party, only: :show
 
   def index
     @political_parties = policy_scope(PoliticalParty)
@@ -9,10 +9,6 @@ class PoliticalPartiesController < ApplicationController
     @political_party = PoliticalParty.new
     @user = current_user
     authorize @political_party
-  end
-
-  def edit
-
   end
 
   def show
@@ -29,19 +25,6 @@ class PoliticalPartiesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def update
-    if @political_party.update(political_party_params)
-      redirect_to political_party(@political_party)
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @political_party.destroy
-    @political_party = policy_scope(PoliticalParty)
   end
 
   private

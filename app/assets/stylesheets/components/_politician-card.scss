@@ -51,13 +51,13 @@
 .front {
   background-size: cover;
   #first {
-  position: absolute;
-  bottom: 10px;
-  padding: 16px;
+    position: absolute;
+    bottom: -5px;
+    padding: 16px;
   }
   #last {
     position: absolute;
-    bottom: -26px;
+    bottom: -36px;
     padding: 16px;
   }
   h2 {
@@ -67,11 +67,11 @@
   .politician-image {
     background-size: cover;
     position: relative;
-    bottom: 35px;
-    height: 220px;
-    width: 180px;
-    box-shadow: 0px 1.5px 4px rgba(0,0,0,0.15);
-    border-radius: 2px;
+    top: -40px;
+    height: 270px;
+    width: 100vw;
+    box-shadow: 0px 1.5px 4px rgba(0,0,0,0.2);
+    border-radius: 6px 6px 0 0;
   }
 }
 

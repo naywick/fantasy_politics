@@ -17,13 +17,11 @@
           <%= link_to 'Create my party', new_political_party_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <% end %>
 
-        <%= link_to "My Leagues", user_league_connections_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "My Leagues", my_leagues_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
         <%= link_to 'All Leagues', leagues_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-        <%#= link_to "Politicians' Scores", politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
-        <%= link_to "News", news_items_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Politicians' Scores", politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
         <!-- Avatar with dropdown menu -->
         <div class="navbar-wagon-item">
@@ -70,12 +68,8 @@
             <% else %>
               <li><%= link_to 'Create my league', new_league_path %></li>
             <% end %>
-
             <li>
-              <%#= link_to "Politicians' Scores", politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %>
-            </li>
-            <li>
-              <%= link_to "News", news_items_path, class: "navbar-wagon-item navbar-wagon-link" %>
+              <%= link_to "Politicians' Scores", politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %>
             </li>
             <li>
               <%= link_to user_path(current_user) do %>

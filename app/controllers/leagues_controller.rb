@@ -10,10 +10,10 @@ class LeaguesController < ApplicationController
     authorize @league
   end
 
-  # def edit
-  #   @politician = Politician.find(params[:politician_id])
-  # end
-
+  def my_leagues
+    @leagues = current_user.political_parties.map(&:leagues)
+    authorize(@leagues.first)
+  end
 
   def create
     @league = League.new(league_params)
@@ -34,7 +34,32 @@ class LeaguesController < ApplicationController
   def show
   end
 
-  # def update
+  private
+
+  def find_league
+   @league = League.find(params[:id])
+   authorize @league
+  end
+
+  def league_params
+    params.require(:league).permit(:name)
+  end
+end
+
+
+
+
+
+
+
+
+  # def edit
+  #   @politician = Politician.find(params[:politician_id])
+  # end
+
+
+
+    # def update
   #   if @league.update(league_params)
   #     redirect_to league(@league)
   #   else
@@ -46,15 +71,3 @@ class LeaguesController < ApplicationController
   #   @league.destroy
   #   @league = policy_scope(League)
   # end
-
-private
-
-  def find_league
-   @league = League.find(params[:id])
-   authorize @league
-  end
-
-  def league_params
-    params.require(:league).permit(:name)
-  end
-end
