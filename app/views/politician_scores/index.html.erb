@@ -3,27 +3,48 @@
   <%= javascript_pack_tag "chart.js" %>
 <% end %>
 
-<h2>Politicians' scores</h2>
 
-<div class="scores-container">
-  <div class="container">
-    <p><strong>Top 10 by number of mentions:</strong></p>
-    <% top_politicians = [] %>
-    <% PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map do |ps| %>
-      <% top_politicians << ps.politician.name  %>
-    <% end %>
-    <% counter = 0 %>
-    <% top_politicians.first(10).each do |politician| %>
-      <p><%counter +=1 %>
-        <%= counter %>.
-      <%= politician %></p>
-    <% end %>
+
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item active">
+    <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Publicity</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Scores</a>
+  </li>
+</ul>
+
+<h3>Politicians' scores</h3>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade active in" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="container">
+      <p>Media activity over the past 24hours</p>
+      <%= bar_chart PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map {|ps|  [ps.politician.name, ps.mentions]} %>
+    </div>
   </div>
-
-  <div class="container">
-    <%= bar_chart PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map {|ps|  [ps.politician.name, ps.mentions]} %>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+   <div class="container">
+     <p><strong>Top ten politicians:</strong></p>
+     <% top_politicians = [] %>
+     <% PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map do |ps| %>
+       <% top_politicians << ps.politician.name  %>
+     <% end %>
+     <% counter = 0 %>
+     <% top_politicians.first(10).each do |politician| %>
+       <p><%counter +=1 %>
+         <%= counter %>.
+       <%= politician %></p>
+     <% end %>
+   </div>
   </div>
 </div>
+
+
+
+
 
 <!--
 <ul>
