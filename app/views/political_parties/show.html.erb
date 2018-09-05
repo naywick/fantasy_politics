@@ -31,11 +31,11 @@
     <!-- Lower container -->
     <h4>Politicians</h4>
      <%= link_to "Edit Politicians", new_political_party_politician_link_path(@political_party) %>
-    <% @political_party.politicians.each do |politician| %>
+    <% @political_party.politicians.sort_by{|i| -i.score}.each_with_index do |politician, index| %>
       <div class="party-politicians">
         <div class="party-politician-card">
           <div class="politician-rank">
-            <p>1</p>
+            <%= index + 1 %>
           <div class="politician-avatar" style="background-image: url(<%= cl_image_path politician.photo %>);"></div>
           </div>
           <div class="politician-name"><%= politician.name %></div>

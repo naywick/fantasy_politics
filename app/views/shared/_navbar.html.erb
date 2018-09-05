@@ -5,21 +5,20 @@
       <%= image_tag "squarewhite.png", height: 50 %>
     <% end %>
 
-
     <!-- Right Navigation -->
     <div class="navbar-wagon-right hidden-xs hidden-sm">
       <% if user_signed_in? %>
 
         <!-- Links when logged in -->
         <% if current_user.political_parties.any? %>
-          <%= link_to 'My Parties', political_parties_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to 'My Parties', political_parties_path, class: "navbar-wagon-item navbar-wagon-link #{'active' if params[:controller] == 'political_parties'}" %>
         <% else %>
-          <%= link_to 'Create my party', new_political_party_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to 'Create my party', new_political_party_path, class: "navbar-wagon-item navbar-wagon-link #{'active' if params[:controller] == 'political_parties'}" %>
         <% end %>
 
-        <%= link_to 'Leagues', leagues_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to 'Leagues', leagues_path, class: "navbar-wagon-item navbar-wagon-link #{'active' if params[:controller] == 'leagues'}" %>
 
-        <%= link_to "Politicians' Scores", politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Politicians' Scores", politician_scores_path, class: "navbar-wagon-item navbar-wagon-link #{'active' if params[:controller] == 'politician_scores'}" %>
 
         <!-- Avatar with dropdown menu -->
         <div class="navbar-wagon-item">
