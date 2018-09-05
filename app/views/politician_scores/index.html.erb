@@ -3,19 +3,35 @@
   <%= javascript_pack_tag "chart.js" %>
 <% end %>
 
-
 <h2>Politicians' scores</h2>
 
- <div class="container">
-  <%= bar_chart PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map {|ps|  [ps.politician.name, ps.mentions]} %>
+<div class="scores-container">
+  <div class="container">
+    <p><strong>Top 10 by number of mentions:</strong></p>
+    <% top_politicians = [] %>
+    <% PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map do |ps| %>
+      <% top_politicians << ps.politician.name  %>
+    <% end %>
+    <% counter = 0 %>
+    <% top_politicians.first(10).each do |politician| %>
+      <p><%counter +=1 %>
+        <%= counter %>.
+      <%= politician %></p>
+    <% end %>
+  </div>
+
+  <div class="container">
+    <%= bar_chart PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map {|ps|  [ps.politician.name, ps.mentions]} %>
+  </div>
 </div>
 
+<!--
 <ul>
-  <% @politicians.each do |politician| %>
+  <%# @politicians.each do |politician| %>
 
-  <li><%= politician.score %></li>
-  <% end %>
-</ul>
+  <li><%#= politician.score %></li>
+  <%# end %>
+</ul> -->
 <!-- <div class="grid">
   <aside class="sidebar-left">
    <div class="league-table">
