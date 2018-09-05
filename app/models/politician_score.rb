@@ -49,3 +49,20 @@ class PoliticianScore < ApplicationRecord
     end
   end
 end
+
+
+
+
+####################
+
+# @politician = Politician.find(params[:id])
+
+# # @politician.politician_scores.each do |politician_score|
+# #   politician_score.score
+# # end
+
+# @politician.politician_scores.map(&:score).reduce(:+)
+
+# # @politician.politician_scores.map do |politician_score|
+# #   politician_score.score
+# # end
