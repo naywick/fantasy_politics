@@ -5,10 +5,14 @@
   border: none;
   border-radius: 4px;
   box-shadow: 0 7px #943942;
+  transition: .3s;
   // margin: 25px 0px !important;
 }
 .main-button:hover {
   background-color: #b44550;
+  color: white;
+  // box-shadow: 0 2px #943942;
+
 }
 
 .main-button:active {
@@ -29,4 +33,7 @@ a:hover {
 .party-league-button {
   min-width: 197px;
   max-width: 200px;
+  a:hover {
+    color: white;
+  }
 }
