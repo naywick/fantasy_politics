@@ -1,0 +1,48 @@
+<% current_user.political_parties.each do |political_party| %>
+  <% political_party.leagues.each do |league| %>
+    <%= league.name %>
+  <% end %>
+<% end %>
+
+
+
+
+
+<!--  -->
+
+
+<% if false %>
+  <h2>Leagues my parties belong to</h2>
+
+  <% current_user.leagues.each do |league| %>
+    <%= link_to league_path(league) do %>
+  <div>
+      <aside class="sidebar-left3">
+      </aside>
+
+      <article>
+        <div class="grid-container">
+          <div>
+            <p class="party-members">
+              <%= league.name.upcase %>
+            </p>
+            <p class="party-members-count">It has
+              <%= league.political_parties.count %>
+              <% if league.political_parties.count == 1 %>
+                party
+              <% else %>
+                parties
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </article>
+      <aside class="sidebar-right3">
+        <p>
+        </p>
+      </aside>
+  </div>
+  <% end %>
+  <% end %>
+   <%= link_to "Create your own league", new_league_path, class: 'main-button modal-button'%>
+<% end %>
