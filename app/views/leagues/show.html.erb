@@ -19,17 +19,16 @@
         </div>
       </div>
     </div>
-  <% end %>
 </div>
 
     <!-- Lower container -->
 <h4>Parties</h4>
-<% @league.political_parties.sort_by{|i| -i.score}.each_with_index do |party, index| %>
+  <% @league.political_parties.sort_by{|i| -i.score}.each_with_index do |party, index| %>
     <div class="league-parties">
       <div class="league-party-card">
         <div class="party-rank">
           <%= index + 1 %>
-        <div class="user-avatar" style="background-image: url(<%= cl_image_path current_user.cl_photo %>);"></div>
+        <div class="user-avatar" style="background-image: url(<%= cl_image_path party.user.cl_photo %>);"></div>
         </div>
         <div class="party-name">
           <div>
@@ -40,14 +39,17 @@
         <div class="party-score"><%= party.score %></div>
       </div>
     </div>
+  <% end %>
 <% end %>
 
 <h4>Add party to league</h4>
 <% current_user.political_parties.each do |political_party| %>
-  <%= link_to league_league_connections_path(political_party: political_party, league_id: @league), {method: :post} do %>
-    <div class="league-card">
-        <%= political_party.name  %>
-    </div>
+  <% unless @league.political_parties.include? political_party %>
+    <%= link_to league_league_connections_path(political_party: political_party, league_id: @league), {method: :post} do %>
+      <div class="league-card">
+          <%= political_party.name  %>
+      </div>
+    <% end %>
   <% end %>
 <% end %>
 </div>
