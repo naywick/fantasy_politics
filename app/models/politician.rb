@@ -4,7 +4,7 @@ class Politician < ApplicationRecord
   has_many :politician_links
   has_many :political_parties, through: :politician_links
   validates :party, :first_name, :last_name, presence: true
-  
+
   validates :rank, presence: true, inclusion: { in: RANKS }
   include PgSearch
 
@@ -29,7 +29,7 @@ class Politician < ApplicationRecord
     sum = 0
     return sum if politician_scores.empty?
     politician_scores.each do |ps|
-      sum += ps.mentions_score
+      sum += ps.score
     end
     return sum / politician_scores.count
   end

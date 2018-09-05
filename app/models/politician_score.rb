@@ -7,8 +7,6 @@ class PoliticianScore < ApplicationRecord
     mentions_score * rank_calculator
   end
 
-  private
-
   def mentions_score
     if mentions <= 100
       return 1
@@ -34,8 +32,10 @@ class PoliticianScore < ApplicationRecord
       return 11
     end
   end
+  private
 
-  def rank_score
+
+  def rank_calculator
     if politician.rank == "Party Leader"
       return 1
     elsif politician.rank == "Cabinet"

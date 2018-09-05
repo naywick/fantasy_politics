@@ -1,0 +1,99 @@
+.league-header {
+  color: $app-red;
+}
+
+.league-statistics {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.league-numbers {
+  flex: 0 0 24%;
+  background-color: #3E3E3E;
+  text-align: center;
+  h4 {
+  color: white;
+  font-weight: lighter;
+  }
+  p {
+  font-size: 56px;
+  color: $app-red;
+  margin: none;
+  }
+}
+
+.league-leader {
+  flex: 0 0 74.5%;
+  background-color: #3E3E3E;
+  text-align: center;
+}
+
+.leader-details {
+  display: flex;
+  justify-content: space-around;
+}
+
+.leader-score {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  color: $app-red;
+}
+
+.party-score {
+  min-width: 100px;
+  color: $app-red;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.league-parties {
+  background-color: #3E3E3E;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.league-party-card {
+  background-color: #3E3E3E;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.party-rank {
+  display: flex;
+  padding-right: 5px;
+  min-width: 150px;
+  size: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.party-name {
+  flex-grow: 1;
+  // background-color: red;
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  margin: 15px;
+  background-size: cover;
+}
+
+.league-user {
+  opacity: 0.5;
+}
+
+.party-title {
+  margin-top: 11px;
+  margin-bottom: 0px;
+}
