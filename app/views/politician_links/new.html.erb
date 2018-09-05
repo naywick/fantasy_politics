@@ -1,7 +1,7 @@
   <div class="cards-body">
     <div class="row">
-      <h2>Choose your members</h2>
-      <%= link_to @political_party.name, political_party_path(@political_party) %>
+      <h2>Choose your members for  <%= link_to @political_party.name, political_party_path(@political_party) %></h2>
+
       <%= form_tag new_political_party_politician_link_path(@political_party), :id => 'search-bar', method: :get do %>
         <%= text_field_tag :query,
           params[:query],
@@ -10,6 +10,10 @@
         %>
       <% end %>
 
+          <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            Alert
+          </div>
 
       <% @politicians.each do |politician| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
@@ -42,7 +46,7 @@
                       <i class="fas fa-minus minus"></i>
                     <% end %>
                   <% else %>
-                    <%= link_to(political_party_politician_links_path(@political_party, politician_link: {politician_id: politician.id, political_party_id: @political_party.id}), {method: :post}) do %>
+                    <%= link_to(political_party_politician_links_path(@political_party, politician_link: {politician_id: politician.id, political_party_id: @political_party.id}), method: :post) do %>
                       <% if politician.party == "Green" %>
                         <i class="fas fa-plus add" id="caroline-add"></i>
                       <% else %>
