@@ -10,10 +10,12 @@
         %>
       <% end %>
 
-          <div class="alert">
+          <% if @num_of_politicians >= 8 %>
+          <div class="alert-party">
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            Alert
+            <p>Your Party is Full!</p>
           </div>
+          <% end %>
 
       <% @politicians.each do |politician| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
