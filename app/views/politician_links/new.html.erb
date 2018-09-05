@@ -32,7 +32,7 @@
               <% elsif politician.party == "Lib Dem" %>
                 <div class="front" style="background-color: #ef9240">
               <% elsif politician.party == "SNP" %>
-                <div class="front" style="background-color: #fff263">
+                <div class="front" style="background-color: #f2f274">
               <% elsif politician.party == "UKIP" %>
                 <div class="front" style="background-color: #88498f">
               <% elsif politician.party == "Green" %>
@@ -43,9 +43,13 @@
                   <% politician.cl_photo %>
 
                   <div class="politician-image" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 90%), url(<%= cl_image_path politician.cl_photo %>);"></div>
-
-                  <h2 id="first"><%= politician.first_name %></h2>
-                  <h2 id="last"><%= politician.last_name %></h2>
+                  <% if politician.party == "SNP" %>
+                    <h2 class="first snp"><%= politician.first_name %></h2>
+                    <h2 class="last snp"><%= politician.last_name %></h2>
+                  <% else %>
+                    <h2 class="first"><%= politician.first_name %></h2>
+                    <h2 class="last"><%= politician.last_name %></h2>
+                  <% end %>
                   <% pl = @political_party.politician_links.find {|pl| pl.politician == politician} %>
                   <% if @current_user.political_parties.last.politicians.include? politician %>
                     <%= link_to  political_party_politician_link_path(@political_party, pl), method: :delete do %>

@@ -6,23 +6,25 @@
     <h4>Members</h4>
     <p><%= @league.political_parties.count %></p>
   </div>
-  <% unless @league.political_parties.nil? %>
+  <% unless @league.political_parties.first.nil? %>
     <div class="league-leader">
-      <h4>Founder</h4>
-      <div class="leader-details">
-        <div>
-          <p class="party-title"><%= @league.political_parties.first.name %></p>
-          <p class="league-user"><%= @league.political_parties.first.user.username %></p>
+        <h4>Founding Party</h4>
+        <div class="leader-details">
+          <div>
+            <p class="party-title"><%= link_to @league.political_parties.first.name, political_party_path(@league.political_parties.first) %></p>
+            <p class="league-user"><%= @league.political_parties.first.user.username %></p>
+          </div>
+          <div class="leader-score">
+            <p><%= @league.political_parties.first.score %></p>
+          </div>
         </div>
-        <div class="leader-score">
-          <p><%= @league.political_parties.first.score %></p>
-        </div>
-      </div>
     </div>
+  <% end %>
 </div>
 
     <!-- Lower container -->
-<h4>Parties</h4>
+<% unless @league.political_parties.first.nil? %>
+  <h4>Parties</h4>
   <% @league.political_parties.sort_by{|i| -i.score}.each_with_index do |party, index| %>
     <div class="league-parties">
       <div class="league-party-card">
@@ -32,8 +34,8 @@
         </div>
         <div class="party-name">
           <div>
-          <p class="party-title"><%= party.name %></p>
-          <p class="league-user"><%= party.user.username %></p>
+            <p class="party-title"><%= link_to party.name, political_party_path(party) %></p>
+            <p class="league-user"><%= party.user.username %></p>
           </div>
         </div>
         <div class="party-score"><%= party.score %></div>
@@ -41,7 +43,6 @@
     </div>
   <% end %>
 <% end %>
-
 <h4>Add party to league</h4>
 <% current_user.political_parties.each do |political_party| %>
   <% unless @league.political_parties.include? political_party %>

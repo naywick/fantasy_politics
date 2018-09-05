@@ -50,15 +50,18 @@
 
 .front {
   background-size: cover;
-  #first {
+  .first {
     position: absolute;
     bottom: -5px;
     padding: 16px;
   }
-  #last {
+  .last {
     position: absolute;
     bottom: -36px;
     padding: 16px;
+  }
+  .snp {
+    color: rgba(0,0,0,0.7);
   }
   h2 {
     color: white;
