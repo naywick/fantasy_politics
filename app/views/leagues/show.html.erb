@@ -1,4 +1,3 @@
-<div class="container">
 
 <h1 class="league-header"><%= @league.name %></h1>
     <!-- Upper container -->
@@ -80,21 +79,17 @@
           </div>
       </div>
     <% end %>
+
   </div>
 </div>
 
+<!-- Lower container -->
 
-
-
-<% unless @league.political_parties == [] %>
-  <h2 style="text-align: left;">Rankings</h2>
-  <% @league.political_parties.each do |party| %>
-    <%= link_to political_party_path(party) do %>
-      <h3><%= party.name %> </h3>
-    <% end %>
-    <p><%= party.user.username %></p>
-  <% end %>
+<h4>Political parties in that league</h4>
+<% @league.political_parties.each do |political_party| %>
+  <p><%= political_party.name %></p>
 <% end %>
 
 
-<% end %>
+
+
