@@ -2,6 +2,13 @@ class PoliticianScore < ApplicationRecord
   belongs_to :politician
   validates :mentions, presence: true
 
+
+  def score
+    mentions_score * rank_calculator
+  end
+
+  private
+
   def mentions_score
     if mentions <= 100
       return 1
@@ -41,8 +48,21 @@ class PoliticianScore < ApplicationRecord
       return 5
     end
   end
-
-  def score
-    mentions_score * rank_calculator
-  end
 end
+
+
+
+
+####################
+
+# @politician = Politician.find(params[:id])
+
+# # @politician.politician_scores.each do |politician_score|
+# #   politician_score.score
+# # end
+
+# @politician.politician_scores.map(&:score).reduce(:+)
+
+# # @politician.politician_scores.map do |politician_score|
+# #   politician_score.score
+# # end

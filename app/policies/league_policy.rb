@@ -20,6 +20,10 @@ class LeaguePolicy < ApplicationPolicy
     record_owner?
   end
 
+  def my_leagues?
+    true
+  end
+
   private
 
   def record_owner?

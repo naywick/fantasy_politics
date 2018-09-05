@@ -1,6 +1,8 @@
 
 <h2>All leagues</h2>
-
+<div class="button-padding">
+   <%= link_to "Create your own league", new_league_path, class: 'main-button modal-button'%>
+</div>
   <% @leagues.each do |league| %>
     <%= link_to league_path(league) do %>
       <div>
@@ -35,6 +37,4 @@
      </div>
     <% end %>
   <% end %>
-<div class="button-padding">
-   <%= link_to "Create your own league", new_league_path, class: 'main-button modal-button'%>
-</div>
+

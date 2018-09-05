@@ -1,7 +1,21 @@
-<h2>Leagues my parties belong to</h2>
+<% current_user.political_parties.each do |political_party| %>
+  <% political_party.leagues.each do |league| %>
+    <%= league.name %>
+  <% end %>
+<% end %>
 
-<% current_user.leagues.each do |league| %>
-  <%= link_to league_path(league) do %>
+
+
+
+
+<!--  -->
+
+
+<% if false %>
+  <h2>Leagues my parties belong to</h2>
+
+  <% current_user.leagues.each do |league| %>
+    <%= link_to league_path(league) do %>
   <div>
       <aside class="sidebar-left3">
       </aside>
@@ -28,9 +42,7 @@
         </p>
       </aside>
   </div>
+  <% end %>
+  <% end %>
+   <%= link_to "Create your own league", new_league_path, class: 'main-button modal-button'%>
 <% end %>
-<% end %>
-<div class="button-padding">
- <%= link_to "Create your own league", new_league_path, class: 'main-button modal-button'%>
- </div>
-

@@ -11,11 +11,16 @@ class PoliticianLinksController < ApplicationController
   end
 
   def create
+    # raise
     @political_party = PoliticalParty.find(params[:political_party_id])
     @politician_link = PoliticianLink.new(politician_link_params)
     authorize @politician_link
     if @politician_link.save
       redirect_to new_political_party_politician_link_path(@political_party)
+      # respond_to do |format|
+      #   format.html
+      #   format.js
+      # end
     else
       render :new
     end
