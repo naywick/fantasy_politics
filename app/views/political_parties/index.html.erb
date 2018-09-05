@@ -1,5 +1,8 @@
 <h2>My politicial parties</h2>
 
+<div class="button-padding">
+  <%= link_to "Add a new party", new_political_party_path, class: 'main-button modal-button'%>
+  </div>
 <% current_user.political_parties.each do |party| %>
   <%= link_to political_party_path(party) do %>
 <div>
