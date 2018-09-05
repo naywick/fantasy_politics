@@ -5,10 +5,15 @@
   }
 }
 
-// .container {
-//   margin-left: 200px;
-//   margin-right: 200px;
-// }
+.text-padding{
+  padding: 25px;
+  text-align: center;
+}
+
+.leagues-container {
+  display: center;
+
+}
 .grid {
   display: grid;
   grid-template-columns: 150px auto 150px;
