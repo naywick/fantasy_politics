@@ -17,9 +17,7 @@
           <%= link_to 'Create my party', new_political_party_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <% end %>
 
-        <%= link_to "My Leagues", my_leagues_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
-        <%= link_to 'All Leagues', leagues_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to 'Leagues', leagues_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
         <%= link_to "Politicians' Scores", politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
@@ -62,12 +60,7 @@
             <% else %>
               <li><%= link_to 'Create my party', new_political_party_path %></li>
             <% end %>
-
-            <% if current_user.leagues.any? %>
-             <li> <%= link_to "My Leagues", leagues_path(current_user.leagues) %></li>
-            <% else %>
-              <li><%= link_to 'Create my league', new_league_path %></li>
-            <% end %>
+             <li> <%= link_to "Leagues", leagues_path(current_user.leagues) %></li>
             <li>
               <%= link_to "Politicians' Scores", politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %>
             </li>

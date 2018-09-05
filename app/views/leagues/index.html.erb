@@ -1,39 +1,91 @@
-<h2>All leagues</h2>
-<div class="button-padding">
-   <%= link_to "Create your own league", new_league_path, class: 'main-button modal-button'%>
-</div>
-  <% @leagues.each do |league| %>
-    <%= link_to league_path(league) do %>
-      <div>
-        <aside class="sidebar-left3">
-        </aside>
 
-        <article class="league-box">
-          <div class="grid-container">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item active">
+    <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">All leagues</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My leagues</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade active in" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <h3>Leagues created by you and other users.</h3>
+      <div class="button-padding">
+         <%= link_to "Add a league", new_league_path, class: 'main-button modal-button'%>
+      </div>
+        <% @leagues.each do |league| %>
+          <%= link_to league_path(league) do %>
             <div>
-              <p class="party-members">
-                <%= league.name %>
-              </p>
-              <p class="party-members-count">
-                Created by <%= league.user.username %>
-              </p>
+              <aside class="sidebar-left3">
+              </aside>
+
+              <article class="league-box">
+                <div class="grid-container">
+                  <div>
+                    <p class="party-members">
+                      <%= league.name %>
+                    </p>
+                    <p class="party-members-count">
+                      Created by <%= league.user.username %>
+                    </p>
+                  </div>
+                  <div>
+                    <p class="parties-count">
+                    It has
+                      <%= league.political_parties.count %>
+                      <% if league.political_parties.count == 1 %>
+                        party
+                      <% else %>
+                        parties
+                      <% end %>
+                    </p>
+                    <p class="score-number">
+                    </p>
+                  </div>
+                </div>
+              </article>
+           </div>
+          <% end %>
+        <% end %>
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <h3>Leagues your parties belong to</h3>
+      <div class="button-padding">
+      <%= link_to "Add a league", new_league_path, class: 'main-button modal-button'%>
+      </div>
+      <% current_user.leagues.each do |league| %>
+        <%= link_to league_path(league) do %>
+      <div>
+          <aside class="sidebar-left3">
+          </aside>
+
+          <article>
+            <div class="grid-container">
+              <div>
+                <p class="party-members">
+                  <%= league.name.upcase %>
+                </p>
+                <p class="party-members-count">It has
+                  <%= league.political_parties.count %>
+                  <% if league.political_parties.count == 1 %>
+                    party
+                  <% else %>
+                    parties
+                  <% end %>
+                </p>
+              </div>
             </div>
-            <div>
-              <p class="parties-count">
-              It has
-                <%= league.political_parties.count %>
-                <% if league.political_parties.count == 1 %>
-                  party
-                <% else %>
-                  parties
-                <% end %>
-              </p>
-              <p class="score-number">
-              </p>
-            </div>
-          </div>
-        </article>
-     </div>
-    <% end %>
-  <% end %>
+          </article>
+          <aside class="sidebar-right3">
+            <p>
+            </p>
+          </aside>
+      </div>
+      <% end %>
+      <% end %>
+  </div>
+</div>
+
+
+
 
