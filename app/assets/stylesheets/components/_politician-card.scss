@@ -34,6 +34,8 @@
   }
   .back {
     transform: rotateY(-180deg);
+    overflow: hidden;
+    word-wrap: break-word;
   }
   &.flipped {
     transform: rotateY(-180deg);
@@ -54,6 +56,7 @@
     position: absolute;
     bottom: -5px;
     padding: 16px;
+
   }
   .last {
     position: absolute;

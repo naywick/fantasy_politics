@@ -17,7 +17,7 @@ AlgoliaSearch.configuration = {
         alert.style.display = 'none';
       }
 
-    }, 4000);
+    }, 3500);
   })
 
 
