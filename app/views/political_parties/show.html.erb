@@ -13,10 +13,13 @@
       </div>
       <div class="party-leagues">
         <h4>Leagues</h4>
-        <div class="party-leagues">
+
             <% if @political_party.leagues == [] %>
-                <%= link_to "Create a league", new_league_path, class: "main-button party-league-button" %>
-                <%= link_to "Join a league", leagues_path, class: "main-button party-league-button" %>
+              <p>No leagues yet 😢</p>
+            <div class="button-flex">
+              <%= link_to "Create a league", new_league_path, class: "main-button party-league-button" %>
+              <%= link_to "Join a league", leagues_path, class: "main-button party-league-button" %>
+            </div>
             <% else %>
             <ul>
             <% @political_party.leagues.each do |league| %>
@@ -24,7 +27,6 @@
             </ul>
             <% end %>
           <% end %>
-        </div>
       </div>
     </div>
 
