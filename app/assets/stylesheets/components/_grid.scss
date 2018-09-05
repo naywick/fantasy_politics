@@ -1,10 +1,18 @@
 .grid {
   display: grid;
-  grid-template-columns: 150px auto 150px;
+  grid-template-columns: auto auto auto;
   grid-template-rows: auto;
   grid-gap: 1em;
-
-
+}
+.cover-background{
+  min-height: 200px;
+  min-width: 150px;
+  background-size: cover;
+  word-wrap: break-word;
+}
+header{
+  font-weight: lighter;
+  text-align: center;
 }
 
 header,
@@ -14,7 +22,6 @@ footer {
   padding: 1em;
   border-radius: 8px;
 }
-
 
 footer{
   height: 70px;
@@ -31,11 +38,42 @@ body {
   padding: 1em 0;
 }
 
+.allign-left{
+  text-align: left;
+  font-weight: lighter;
+  line-height:28px;
+}
+
 .grid > * {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.03);
+  justify-content: space-between;
+  background: rgba(0,0,0,0.01);
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto;
+  grid-gap: 1em;
+header,
+article,
+footer {
+  background: rgba(0,0,0,0.01);
+  padding: 1em;
+  border-radius: 8px;
+  word-wrap: break-word;
+}
+header{
+  text-align: center;
+}
+}
+
+.grid3 > * {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0,0,0,0.001);
 }
 
 .grid2 {
@@ -46,14 +84,12 @@ body {
 
 }
 
-
 .grid2 > * {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.04);
+  background: rgba(0,0,0,0.01);
 }
-
 
 .grid-container{
   display: flex;
@@ -66,18 +102,20 @@ body {
   padding: 10px;
   margin: 10px;
 }
+
 .score{
   color: #DB5461;
   font-size: 18px;
   line-height: 19px;
   font-weight: lighter;
 }
+
 .score-number{
   font-size: 50px;
   line-height: 51px;
   font-weight: lighter;
-
 }
+
 .party-members{
   text-align: left;
   color: #DB5461;
@@ -85,12 +123,20 @@ body {
   line-height: 19px;
   font-weight: lighter;
 }
+
 .party-members:hover{
   color: #C4C4C4;
 }
+
 .party-members-count{
   text-align: left;
   font-weight: lighter;
   line-height: 51px;
-  }
+}
+
+.parties-count{
+  text-align: right;
+  color: #C4C4C4;
+  font-weight: lighter;
+}
 

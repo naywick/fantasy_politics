@@ -1,6 +1,6 @@
-<div class="grid">
+<div class="grid3">
   <header>
-    Hello <%= current_user.username  %>
+    <h2>Hello <%= current_user.username.capitalize%></h2>
   </header>
 
   <aside class="sidebar-left">
@@ -9,7 +9,7 @@
   </aside>
 
   <article>
-     <div>
+     <div class="allign-left">
       You've created
       <%  a = current_user.political_parties.count %>
       <%= a %>
@@ -27,7 +27,7 @@
       <% end %>
       <% current_user.political_parties.each do |party| %>
         <% unless party.league_connections == [] %>
-        <p>And you belong to
+        <p>You belong to
           <% a = party.league_connections.count  %>
           <%= a %>
           <% if  a <= 1%>
@@ -47,9 +47,11 @@
   </article>
 
   <aside class="sidebar-right">
-    <p>Your email address:
-      <%= current_user.email %>
+    <div class="cover-background">
+    <p>Your email address:</p>
+      <p><%= current_user.email %>
     </p>
+    </div>
   </aside>
 
   <footer>
