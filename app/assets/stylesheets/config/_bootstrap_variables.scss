@@ -30,6 +30,24 @@ $border-radius-base:  8px;
 $border-radius-large: 8px;
 $border-radius-small: 8px;
 
+// tabs styling
+// $navbar-default-color: rgba(0,0,0,0.01);
+
+
+// .tab-content{
+//     padding:5px
+// }
+// .nav-tabs > li > a{
+//   background-color: rgba(0,0,0,0.01);
+// }
+// .nav-link > a:hover{
+//     color: #F06543;
+//     background-color: #342633;
+// }
+
+// .nav-tabs > li > .active{
+//   background-color: red;
+// }
 
 // Patch to make simple_form compatible with bootstrap 3
 .invalid-feedback {
@@ -39,6 +57,9 @@ $border-radius-small: 8px;
   font-size: 80%;
   color: $red;
 }
+
+
+
 
 .was-validated .form-control:invalid,
 .form-control.is-invalid,
