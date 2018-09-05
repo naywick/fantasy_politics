@@ -6,7 +6,7 @@
     <h4>Members</h4>
     <p><%= @league.political_parties.count %></p>
   </div>
-  <% if @league.political_parties.nil? %>
+  <% unless @league.political_parties.nil? %>
     <div class="league-leader">
       <h4>Founder</h4>
       <div class="leader-details">
@@ -41,8 +41,6 @@
       </div>
     </div>
 <% end %>
-
-
 
 <h4>Add party to league</h4>
 <% current_user.political_parties.each do |political_party| %>
