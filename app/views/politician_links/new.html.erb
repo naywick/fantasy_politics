@@ -35,7 +35,7 @@
 
                   <h2 id="first"><%= politician.first_name %></h2>
                   <h2 id="last"><%= politician.last_name %></h2>
-                  <%= pl = @political_party.politician_links.find {|pl| pl.politician == politician} %>
+                  <% pl = @political_party.politician_links.find {|pl| pl.politician == politician} %>
                   <% if @current_user.political_parties.last.politicians.include? politician %>
                     <%= link_to  political_party_politician_link_path(@political_party, pl), method: :delete do %>
                       <i class="fas fa-minus minus"></i>
@@ -62,5 +62,3 @@
       <% end %>
     </div>
   </div>
-
-<!-- <div class="front" style="background-image:  linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.8) 90%), url(<%#= cl_image_path politician.cl_photo %>);"> -->

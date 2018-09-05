@@ -1,4 +1,60 @@
 <div class="container">
+
+<h1 class="party-header"><%= @league.name %></h1>
+
+  <div class="container">
+    <!-- Upper container -->
+    <div class="party-statistics">
+      <div class="party-numbers">
+        <h4>Members</h4>
+        <p><%= @league.political_parties.count %></p>
+      </div>
+      <div class="league-leader">
+        <h4>Leagues</h4>
+        <ul class="party-leagues">
+          <li>League 1</li>
+          <li>League 2</li>
+          <li>League 3</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Lower container -->
+<% if false %>
+    <h4>Politicians</h4>
+    <% @political_party.politicians.each do |politician| %>
+      <div class="party-politicians">
+        <div class="party-politician-card">
+          <div class="politician-rank">
+            <p>1</p>
+          <div class="politician-avatar" style="background-image: url(<%= cl_image_path politician.photo %>);"></div>
+          </div>
+          <div class="politician-name"><%= politician.name %></div>
+          <div class="politician-score">Will be politician.score</div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<h3>Add party to league</h3>
+<% current_user.political_parties.each do |political_party| %>
+  <%= link_to league_league_connections_path(political_party: political_party, league_id: @league), {method: :post} do %>
+    <div class="league-card">
+        <%= political_party.name  %>
+    </div>
+  <% end %>
+<% end %>
+
+</div>
+
+
+
+
+
+
+
+<% if false %>
+<div class="container">
   <h1><%= @league.name %></h1>
   <div class="table">
     <div class="table-row">
@@ -20,7 +76,9 @@
   </div>
 </div>
 
-<% if false %>
+
+
+
 <% unless @league.political_parties == [] %>
   <h2 style="text-align: left;">Rankings</h2>
   <% @league.political_parties.each do |party| %>
@@ -28,15 +86,6 @@
       <h3><%= party.name %> </h3>
     <% end %>
     <p><%= party.user.username %></p>
-  <% end %>
-<% end %>
-
-<h3>Add party to league</h3>
-<% current_user.political_parties.each do |political_party| %>
-  <%= link_to league_league_connections_path(political_party: political_party, league_id: @league), {method: :post} do %>
-    <div class="league-card">
-        <%= political_party.name  %>
-    </div>
   <% end %>
 <% end %>
 
