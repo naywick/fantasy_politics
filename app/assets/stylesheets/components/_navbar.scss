@@ -56,6 +56,10 @@
   color: #616668;
   font-size: 14px;
 }
+
+.navbar-wagon-link.active {
+  border-bottom: 3px solid red;
+}
 .navbar-wagon-link:hover {
   color: #B24652;
   text-decoration: none;
