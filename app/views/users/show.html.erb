@@ -11,13 +11,13 @@
   <div class="item3">
     <div class="allign-left">
       <p>You've created
-      <%  a = current_user.political_parties.count %>
-      <%= a %>
-        <% if  a <= 1%>
-         party.
+        <%  a = current_user.political_parties.count %>
+        <% if  a == 1 %>
+         <%= a %> party.
         <% else %>
-          parties.
-        <% end %></p>
+          <%= a %> parties.
+        <% end %>
+      </p>
         <% counter = 0 %>
       <%  current_user.political_parties.each do |party| %>
         <p>
@@ -32,11 +32,11 @@
         <% unless party.league_connections == [] %>
         <p>You belong to
           <% a = party.league_connections.count  %>
-          <%= a %>
-          <% if  a <= 1%>
-           league.
+
+          <% if  a == 1%>
+           <%= a %> league.
           <% else %>
-            leagues.
+            <%= a %> leagues.
           <% end %>
         </p>
           <% party.league_connections.each do |connection| %>
