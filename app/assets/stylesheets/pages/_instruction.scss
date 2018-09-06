@@ -1,0 +1,42 @@
+.instruction-container{
+display: flex;
+justify-content: space-around;
+}
+.first-div{
+  min-width: 300px;
+  padding: 10px;
+}
+.second-div{
+  min-width: 200px;
+  padding: 10px;
+  font-weight: lighter;
+}
+.text-allign-center{
+text-align: center;
+font-weight: lighter;
+color: #DB5461;
+font-size: 24px;
+}
+.text-blue{
+  text-align: center;
+font-weight: lighter;
+color: #DB5461;
+}
+.labour{
+color: #d14253;
+}
+.conservative{
+color: #3c508c;
+}
+.lib-dem{
+color: #ef9240;
+}
+.snp{
+color: #f2f274;
+}
+.ukip{
+color: #88498f;
+}
+.greens{
+color: #5db166;
+}
