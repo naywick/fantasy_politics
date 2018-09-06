@@ -44,11 +44,25 @@ $border-radius-small: 8px;
 //     color: #F06543;
 //     background-color: #342633;
 // }
+.nav-tabs{
+ font-weight: lighter;
+}
+.nav-tabs > li.active > a{
+  background-color: #3E3E3E !important;
+  color: #E5E5E5 !important;
+  border: none !important;
+}
 
-// .nav-tabs > li > .active{
-//   background-color: red;
-// }
+.nav-tabs > li > a:hover {
+  background-color: #4C4747 !important;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: white !important;
+  color: #DB5461 !important;
+  // font-weight: lighter;
 
+}
 // Patch to make simple_form compatible with bootstrap 3
 .invalid-feedback {
   display: none;
