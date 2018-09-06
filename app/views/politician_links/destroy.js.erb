@@ -1,2 +1,13 @@
-console.log("ajax")
 document.getElementById("politician<%= @politician_id %>").innerHTML = "<%= j render 'politician.html.erb', politician: @politician, political_party: @political_party %>"
+
+$('.politician-image').on('click', function (event) {
+  console.log(event.currentTarget)
+  let className = event.currentTarget.parentNode.parentNode.className.split(" ")[1]
+  $(`.${className}`).toggleClass('flipped');
+});
+
+$('.back').on('click', function (event) {
+  console.log(event.currentTarget.parentNode)
+  let className = event.currentTarget.parentNode.className.split(" ")[1]
+  $(`.${className}`).toggleClass('flipped');
+});
