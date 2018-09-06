@@ -30,9 +30,17 @@
   justify-content: space-around;
   align-items: center;
   p {
-    font-size: 14px;
+    font-size: px;
     opacity: .6;
     margin-bottom: 20px;
+  }
+  ul {
+    list-style: none;
+    text-align: left;
+    margin-left: 20px;
+    li {
+      margin-bottom: 5px;
+    }
   }
 }
 
@@ -44,18 +52,18 @@
 }
 
 .party-politicians {
-background-color: #3E3E3E;
-padding-left: 35px;
-padding-right: 35px;
+  background-color: #3E3E3E;
+  padding-left: 35px;
+  padding-right: 35px;
 }
 
 .party-politician-card {
-background-color: #3E3E3E;
-display: flex;
-justify-content: space-between;
-margin-top: 10px;
-margin-bottom: 10px;
-// align-content: center;
+  background-color: #3E3E3E;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  // align-content: center;
 }
 
 .politician-rank {
@@ -97,9 +105,6 @@ margin-bottom: 10px;
   padding: none;
 }
 
-.league-leader {
-
-}
 
 /* The alert message box */
 .alert-party {

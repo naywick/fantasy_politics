@@ -22,10 +22,10 @@
             </div>
             <% else %>
             <ul>
-            <% @political_party.leagues.each do |league| %>
-            <%= link_to league.name, league_path(league) %>
+              <% @political_party.leagues.each do |league| %>
+                <li><%= link_to league.name, league_path(league) %></li>
+              <% end %>
             </ul>
-            <% end %>
           <% end %>
       </div>
     </div>
