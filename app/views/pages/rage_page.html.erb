@@ -6,8 +6,9 @@ It should be more efficient, wall collisions are greatly improved, and it has a 
 
 -->
 
-<canvas class="rage" id="canvas" ></canvas>
-<span class="rage">Drag with your mouse, right-click to slice.</span>
+<span class="rage allign-left">Drag with your mouse, right-click to slice.</span>
+<canvas class="rage" id="canvas" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.1)), url(<%= image_path "skyline_cropped.png" %>);"></canvas>
+
 <div class="rage">
 </div>
 
@@ -34,10 +35,10 @@ let bounce = 0.5
 let canvas = document.getElementById('canvas')
 let ctx = canvas.getContext('2d')
 
-canvas.width = Math.min(650, window.innerWidth)
-canvas.height = 500
+canvas.width = Math.min(1000, window.innerWidth)
+canvas.height = 600
 
-ctx.strokeStyle = '#555'
+ctx.strokeStyle = '#55DDE0'
 
 let mouse = {
   cut: 8,
@@ -248,7 +249,7 @@ function zeroG() {
 ;(function update (time) {
   ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-  cloth.update(0.016)
+  cloth.update(0.042)
 
   window.requestAnimFrame(update)
 })(0)
