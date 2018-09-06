@@ -1,6 +1,51 @@
 #myModalRules {
   padding: 0;
+  margin-top: 32px;
   h3 {
     color: rgba(255,255,255,0.85);
   }
+}
+
+.modal-party {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-parties {
+  margin: 24px 70px;
+}
+
+.modal-rules {
+  margin: 0px 40px 40px 40px;
+  font-size: 17px;
+  text-align: justify;
+}
+
+.my-rules-modal-content {
+  background-color: $app-gray;
+  border-radius: 5px;
+  height: 600px;
+  width: 450px;
+}
+
+.modal-bold {
+  color: $app-red;
+}
+
+#modal-rules-button {
+  margin-left: 132px;
+}
+
+#info-button-new {
+  box-shadow: none;
+}
+
+.info-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.new-party-header {
+  margin-bottom: 5px;
 }
