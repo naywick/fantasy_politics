@@ -12,8 +12,6 @@ class PoliticianLinksController < ApplicationController
   end
 
   def create
-    # puts params
-      # binding.pry
     @politician_id = params[:politician_link][:politician_id]
     @politician = Politician.find(@politician_id.to_i)
 
@@ -33,8 +31,6 @@ class PoliticianLinksController < ApplicationController
   end
 
   def destroy
-    # binding.pry
-
     @politician_id = params[:politician]
     @politician = Politician.find(@politician_id.to_i)
 
