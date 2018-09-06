@@ -1,5 +1,3 @@
-
-
 <h1 class="party-header"><%= @political_party.name %></h1>
     <!-- Upper container -->
     <div class="party-statistics">
@@ -32,7 +30,9 @@
 
     <!-- Lower container -->
     <h4>Politicians</h4>
-     <%= link_to "Edit Politicians", new_political_party_politician_link_path(@political_party) %>
+    <% if current_user.political_parties.include? @political_party %>
+      <%= link_to "Edit", new_political_party_politician_link_path(@political_party) %>
+    <% end %>
     <% @political_party.politicians.sort_by{|i| -i.score}.each_with_index do |politician, index| %>
       <div class="party-politicians">
         <div class="party-politician-card">

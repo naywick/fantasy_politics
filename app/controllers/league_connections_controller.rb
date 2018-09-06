@@ -7,7 +7,7 @@ class LeagueConnectionsController < ApplicationController
       @league_connection = LeagueConnection.new(league_id: @league.id, political_party_id: PoliticalParty.find(params[:political_party].to_i).id)
       if @league_connection.save
         UserLeagueConnection.create(league: @league, user: current_user)
-        redirect_to leagues_path
+        redirect_to league_path(@league)
       else
         render :new
       end
