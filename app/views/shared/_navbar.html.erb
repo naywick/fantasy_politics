@@ -20,6 +20,8 @@
 
         <%= link_to "Politicians' Scores", politician_scores_path, class: "navbar-wagon-item navbar-wagon-link #{'active' if params[:controller] == 'politician_scores'}" %>
 
+        <%= link_to 'Rage Page', rage_page_path, class: "navbar-wagon-item navbar-wagon-link #{'active' if params[:action] == 'rage_page'}" %>
+
         <!-- Avatar with dropdown menu -->
         <div class="navbar-wagon-item">
           <div class="dropdown">
