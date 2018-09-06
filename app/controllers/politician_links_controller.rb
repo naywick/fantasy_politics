@@ -12,27 +12,42 @@ class PoliticianLinksController < ApplicationController
   end
 
   def create
+    # puts params
+      # binding.pry
+    @politician_id = params[:politician_link][:politician_id]
+    @politician = Politician.find(@politician_id.to_i)
+
     @political_party = PoliticalParty.find(params[:political_party_id])
     @politician_link = PoliticianLink.new(politician_link_params)
     authorize @politician_link
     @num_of_politicians = @political_party.politicians.count
     if @politician_link.save
-      redirect_to new_political_party_politician_link_path(@political_party)
-      # respond_to do |format|
-      #   format.html
-      #   format.js
-      # end
+      # redirect_to new_political_party_politician_link_path(@political_party)
+      respond_to do |format|
+        format.html
+        format.js
+      end
     else
       render :new
     end
   end
 
   def destroy
+    # binding.pry
+
+    @politician_id = params[:politician]
+    @politician = Politician.find(@politician_id.to_i)
+
     @political_party = PoliticalParty.find(params[:political_party_id])
     @politician_link = PoliticianLink.find(params[:id])
+
     authorize @politician_link
     @politician_link.destroy
-    redirect_to new_political_party_politician_link_path(@political_party)
+    # redirect_to new_political_party_politician_link_path(@political_party)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private

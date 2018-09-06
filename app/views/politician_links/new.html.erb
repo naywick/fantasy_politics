@@ -38,6 +38,19 @@
             <% end %>
                 <% politician.cl_photo %>
 
+
+
+          <% if @num_of_politicians >= 8 %>
+          <%= link_to political_party_path(@political_party) do %>
+
+          <div class="alert-party">
+            <p>Your Party is Full! Click to view your party <%= @political_party.name %></p>
+          </div>
+          <% end %>
+          <% end %>
+      <% @politicians.each do |politician| %>
+        <div id="politician<%= politician.id%>">
+          <%= render "politician.html.erb", politician: politician %>
               <div class="politician-image" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 90%), url(<%= cl_image_path politician.cl_photo %>);"></div>
               <% if politician.party == "SNP" %>
                 <h2 class="first snp"><%= politician.first_name %></h2>
