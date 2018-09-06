@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/my_leagues', to: 'leagues#my_leagues'
   get '/politician_scores', to: 'politician_scores#index'
   get '/rage_page', to: 'pages#rage_page'
+  get '/instructions', to: 'pages#instructions'
 
   require "sidekiq/web"
     authenticate :user, lambda { |u| u.admin } do

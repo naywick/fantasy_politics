@@ -34,8 +34,13 @@
                 <% end %>
               </li>
               <li>
+                <%= link_to instructions_path do %>
+                  <i class="fas fa-dice-three"></i><%= t(".profile", default: "Rules") %>
+                <% end %>
+              </li>
+              <li>
                 <%= link_to destroy_user_session_path, method: :delete, class: '#' do %>
-                  <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                 <i class="fas fa-sign-out-alt"></i><%= t(".sign_out", default: "Log out") %>
                 <% end %>
 
               </li>
