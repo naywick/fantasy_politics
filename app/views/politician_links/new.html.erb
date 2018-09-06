@@ -11,13 +11,14 @@
         placeholder: "Search for a politician"
       %>
     <% end %>
-    <% if @num_of_politicians >= 8 %>
+    <div class="party-full-banner" data-ben="<%= @num_of_politicians %>" style="<%= @num_of_politicians >= 8 ? `display: block;` : `display: none;` %>">
       <%= link_to political_party_path(@political_party) do %>
         <div class="alert-party">
           <p>Your Party is Full! Click to view your party <%= @political_party.name %></p>
         </div>
       <% end %>
-    <% end %>
+    </div>
+
     <% @politicians.each do |politician| %>
       <div id="politician<%=politician.id %>">
         <%= render "politician.html.erb", politician: politician %>

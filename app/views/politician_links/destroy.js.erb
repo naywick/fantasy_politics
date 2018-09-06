@@ -11,3 +11,13 @@ $('.back').on('click', function (event) {
   let className = event.currentTarget.parentNode.className.split(" ")[1]
   $(`.${className}`).toggleClass('flipped');
 });
+
+document.querySelector(".party-full-banner").dataset.ben = `<%= @num_of_politicians %>`
+
+
+
+if (document.querySelector(".party-full-banner").dataset.ben >= 7) {
+  document.querySelector(".party-full-banner").style.display = "block";
+} else {
+  document.querySelector(".party-full-banner").style.display = "none";
+}
