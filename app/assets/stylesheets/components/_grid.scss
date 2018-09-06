@@ -19,7 +19,6 @@
   grid-gap: 10px;
   padding: 10px;
   border: 2px solid #616161;
-  border-radius: 8px;
 }
 .grid-container1 > div {
   text-align: center;
@@ -49,9 +48,8 @@ article,
 footer {
   background: rgba(0,0,0,0.1);
   padding: 1em;
-  border-radius: 8px;
-    left: 0%;
-    top: -1%;
+  left: 0%;
+  top: -1%;
 }
 
 footer{
@@ -150,7 +148,9 @@ header{
 .party-members{
   text-align: left;
   color: #DB5461;
-  font-size: 18px;
+  font-size: 22px;
+  margin-top: 25px;
+  margin-bottom: 6px;
   line-height: 19px;
   font-weight: lighter;
 }
@@ -163,6 +163,7 @@ header{
   text-align: left;
   font-weight: lighter;
   line-height: 51px;
+  opacity: 0.7;
 }
 
 .parties-count{
