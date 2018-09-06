@@ -8,6 +8,13 @@ AlgoliaSearch.configuration = {
   index_name: 'fantasy_politics'
 }
 
+$(document).change(function() {
+  if (document.querySelector(".party-full-banner").dataset.ben >= 8) {
+  document.querySelector(".party-full-banner").style.display = "block";
+} else {
+  document.querySelector(".party-full-banner").style.display = "none";
+}
+});
 
 // alert timeOut function
   document.addEventListener("DOMContentLoaded", () => {
