@@ -170,7 +170,7 @@ politician.remote_photo_url = url
 politician.save!
 
 url = "https://res.cloudinary.com/dodobzdpn/image/upload/v1535715354/Fantasy%20Politics/Douglas%20Carswell.jpg"
-politician = Politician.new(rank: "Other", party: "UKIP", first_name: "Douglas", last_name: "Carswell")
+politician = Politician.new(rank: "Other", party: "UKIP", first_name: "Douglas", last_name: "Carswell", about: "John Douglas Wilson Carswell is a former British Member of Parliament who in 2014 became the first elected MP for the UK Independence Party, representing Clacton. From March 2017, he sat as an independent.")
 politician.remote_photo_url = url
 politician.save!
 
@@ -215,7 +215,7 @@ politician.remote_photo_url = url
 politician.save!
 
 url = "https://res.cloudinary.com/dodobzdpn/image/upload/v1535715325/Fantasy%20Politics/Mike%20Hookem.jpg"
-politician = Politician.new(rank: "Other", party: "UKIP", first_name: "Mike", last_name: "Hookem")
+politician = Politician.new(rank: "Other", party: "UKIP", first_name: "Mike", last_name: "Hookem", about: "Michael Hookem is a Member of the European Parliament for the Yorkshire and the Humber region for the UK Independence Party.")
 politician.remote_photo_url = url
 politician.save!
 
@@ -240,7 +240,7 @@ politician.remote_photo_url = url
 politician.save!
 
 url = "https://res.cloudinary.com/dodobzdpn/image/upload/v1535715385/Fantasy%20Politics/Mark_Reckless_AM__2827889492560_29.jpg"
-politician = Politician.new(rank: "Other", party: "UKIP", first_name: "Mark", last_name: "Reckless")
+politician = Politician.new(rank: "Other", party: "Conservative", first_name: "Mark", last_name: "Reckless", about: "Michael Hookem was a Member of the Conservative party before defecting to UKIP in 2014. He then defected from UKIP to the Conservative Group in the Welsh Assembly in 2017." )
 politician.remote_photo_url = url
 politician.save!
 
