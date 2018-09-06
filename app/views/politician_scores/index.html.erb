@@ -22,7 +22,7 @@
   <div class="tab-pane fade active in" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="container">
       <p>Media activity over the past 24hours</p>
-      <%= bar_chart PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map {|ps|  [ps.politician.name, ps.mentions]} %>
+      <%= bar_chart PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map {|ps|  [ps.politician.name, ps.mentions]}, colors: ["skyblue", "#67E191"] %>
     </div>
   </div>
 
