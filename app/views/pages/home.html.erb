@@ -1,4 +1,4 @@
-<div class="banner flexbox-column homepage-container">
+<div class="banner flexbox-column">
   <h1>FANTASY POLITICS</h1>
   <% if user_signed_in? %>
     <p>Be a political player</p>
@@ -54,7 +54,8 @@
             </div>
             <div class="custom-form-group modal-custom-form-group">
               <%= f.input :photo,
-                          label: "Photo upload"%>
+                          label: "Photo upload",
+                          label_html: { class: "login-form-label" } %>
               <%= f.input :photo_cache, as: :hidden %>
             </div>
 

@@ -5,7 +5,7 @@
   border: none;
   border-radius: 4px;
   box-shadow: 0 7px #943942;
-  transition: .3s;
+  transition: .02s;
   // margin: 25px 0px !important;
 }
 .main-button:hover {
@@ -17,8 +17,8 @@
 
 .main-button:active {
   background-color: #b44550;
-  box-shadow: 0 3px #943942;
-  transform: translateY(4px);
+  box-shadow: 0 2px #943942;
+  transform: translateY(5px);
 }
 
 a:hover {
