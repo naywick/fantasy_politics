@@ -18,72 +18,9 @@
     <% end %>
 
     <% @politicians.each do |politician| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card-container ">
-          <div class="card card<%=politician.id%>">
-            <% if politician.party == "Labour" %>
-              <div class="front" style="background-color: #d14253">
-            <% elsif politician.party == "Conservative" %>
-              <div class="front" style="background-color: #3c508c">
-            <% elsif politician.party == "Lib Dem" %>
-              <div class="front" style="background-color: #ef9240">
-            <% elsif politician.party == "SNP" %>
-              <div class="front" style="background-color: #f2f274">
-            <% elsif politician.party == "UKIP" %>
-              <div class="front" style="background-color: #88498f">
-            <% elsif politician.party == "Green" %>
-              <div class="front" style="background-color: #5db166">
-            <% else %>
-              <div class="front" style="background-color: #949396">
-            <% end %>
-                <% politician.cl_photo %>
-
-
-
-          <% if @num_of_politicians >= 8 %>
-          <%= link_to political_party_path(@political_party) do %>
-
-          <div class="alert-party">
-            <p>Your Party is Full! Click to view your party <%= @political_party.name %></p>
-          </div>
-          <% end %>
-          <% end %>
-      <% @politicians.each do |politician| %>
-        <div id="politician<%= politician.id%>">
-          <%= render "politician.html.erb", politician: politician %>
-              <div class="politician-image" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 90%), url(<%= cl_image_path politician.cl_photo %>);"></div>
-              <% if politician.party == "SNP" %>
-                <h2 class="first snp"><%= politician.first_name %></h2>
-                <h2 class="last snp"><%= politician.last_name %></h2>
-              <% else %>
-                <h2 class="first"><%= politician.first_name %></h2>
-                <h2 class="last"><%= politician.last_name %></h2>
-              <% end %>
-              <% pl = @political_party.politician_links.find {|pl| pl.politician_id == politician.id} %>
-              <%# if @current_user.political_parties.last.politicians.include? politician %>
-              <% if @political_party.politicians.include? politician %>
-                <%= link_to  political_party_politician_link_path(@political_party, pl), method: :delete do %>
-                  <i class="fas fa-minus minus"></i>
-                <% end %>
-                <% else %>
-                  <%= link_to(political_party_politician_links_path(@political_party, politician_link: {politician_id: politician.id, political_party_id: @political_party.id}), method: :post) do %>
-                    <% if politician.party == "Green" %>
-                      <i class="fas fa-plus add" id="caroline-add"></i>
-                    <% else %>
-                      <i class="fas fa-plus add"></i>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              </div>
-                <div class="back">
-                  <h2>About</h2>
-                  <p>
-                    <%= politician.about %>
-                  </p>
-                </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
+      <div id="politician<%=politician.id %>">
+        <%= render "politician.html.erb", politician: politician %>
+      </div>
+    <% end %>
   </div>
 </div>
