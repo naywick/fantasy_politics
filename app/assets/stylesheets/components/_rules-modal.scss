@@ -1,6 +1,37 @@
 #myModalRules {
   padding: 0;
+  margin-top: 40px;
   h3 {
     color: rgba(255,255,255,0.85);
   }
+}
+
+.modal-party {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-parties {
+  margin: 24px 70px;
+}
+
+.modal-rules {
+  margin: 0px 35px 40px 35px;
+  font-size: 17px;
+  text-align: justify;
+}
+
+.my-rules-modal-content {
+  background-color: $app-gray;
+  border-radius: 5px;
+  height: 600px;
+  width: 450px;
+}
+
+.modal-bold {
+  color: $app-green;
+}
+
+#modal-rules-button {
+  margin-left: 132px;
 }
