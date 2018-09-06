@@ -1,27 +1,30 @@
-<div class="grid3">
-  <header>
-    <h2>Hello <%= current_user.username.capitalize%></h2>
-  </header>
+<h2>Hello <%= current_user.username.capitalize%></h2>
 
-  <aside class="sidebar-left">
-  <div class="user-profile-photo" style= "background-image: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.8) 90%), url(<%= cl_image_path current_user.cl_photo %>);">
+
+<div class="grid-container1">
+  <div class="item1">
   </div>
-  </aside>
 
-  <article>
-     <div class="allign-left">
-      You've created
+  <div class="item2"><div class="user-profile-photo" style= "background-image: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.6) 90%), url(<%= cl_image_path current_user.cl_photo %>);">
+    </div>
+  </div>
+  <div class="item3">
+    <div class="allign-left">
+      <p>You've created
       <%  a = current_user.political_parties.count %>
       <%= a %>
         <% if  a <= 1%>
          party.
         <% else %>
           parties.
-        <% end %>
+        <% end %></p>
+        <% counter = 0 %>
       <%  current_user.political_parties.each do |party| %>
         <p>
+          <% counter += 1 %>
           <%= link_to political_party_path(party) do %>
-          <%= party.name %>
+          <%= counter %>.
+          <%= party.name.upcase %>
           <% end %>
         </p>
       <% end %>
@@ -42,19 +45,14 @@
             <% end %>
           <% end %>
         <% end %>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  </article>
-
-  <aside class="sidebar-right">
-    <div class="cover-background">
-    <p>Your email address:</p>
-      <p><%= current_user.email %>
-    </p>
-    </div>
-  </aside>
-
-  <footer>
-
-  </footer>
+  <div class="item4">
+  </div>
+  <div class="item5">
+    <p class="allign-left">Your email address:
+    <%= current_user.email %></p>
+  </div>
 </div>
+

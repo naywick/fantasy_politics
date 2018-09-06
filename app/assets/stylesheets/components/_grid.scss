@@ -1,3 +1,32 @@
+.item1 { grid-area: header; }
+.item2 {
+  grid-area: menu;
+  min-height: 300px;
+}
+.item3 {
+  grid-area: main;
+  line-height: 38px;
+}
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container1 {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+  grid-gap: 10px;
+  padding: 10px;
+  border: 2px solid #616161;
+  border-radius: 8px;
+}
+.grid-container1 > div {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 24px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -43,7 +72,7 @@ body {
 .allign-left{
   text-align: left;
   font-weight: lighter;
-  line-height:28px;
+  line-height: 28px;
 }
 
 .grid > * {
