@@ -20,26 +20,34 @@
 
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade active in" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <div class="container">
       <p>Media activity over the past 24hours</p>
-      <%= bar_chart PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map {|ps|  [ps.politician.name, ps.mentions]} %>
-    </div>
+      <%= bar_chart PoliticianScore.where.not(mentions: 0).order(mentions: :desc).map {|ps|  [ps.politician.name, ps.mentions]}, colors: ["skyblue", "#67E191"] %>
   </div>
 
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-   <div class="container">
-     <p><strong>Top ten politicians:</strong></p>
-     <% top_politicians = [] %>
-     <% Politician.all.sort_by{|i| -i.score}.each do |politician| %>
-       <% top_politicians << politician  %>
-     <% end %>
-     <% counter = 0 %>
-     <% top_politicians.first(10).each do |politician| %>
-      <p><%counter +=1 %>
-        <%= counter %>.
-      <%= politician.name %>: <%= politician.score %> points</p>
-     <% end %>
-   </div>
+    <p><strong>Top ten politicians:</strong></p>
+       <% top_politicians = [] %>
+      <table>
+        <tr>
+          <th>Position</th>
+          <th>Name</th>
+          <th>Score</th>
+          <th>News</th>
+        </tr>
+       <% Politician.all.sort_by{|i| -i.score}.each do |politician| %>
+         <% top_politicians << politician  %>
+         <% end %>
+         <% counter = 0 %>
+         <tr>
+         <% top_politicians.first(10).each do |politician| %>
+          <%counter +=1 %>
+          <td><%= counter %>.</td>
+          <td><%= politician.name %></td>
+          <td><%= politician.score %> points.</td>
+          <td><%= link_to "View", "https://www.google.com/search?tbm=nws&q=#{politician.name}", :target => "_blank" %></td>
+          </tr>
+        <% end %>
+      </table>
   </div>
 </div>
 
