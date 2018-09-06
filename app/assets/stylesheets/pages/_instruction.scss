@@ -1,22 +1,41 @@
 .instruction-container{
 display: flex;
 justify-content: space-around;
+margin-top: 30px;
 }
 .first-div{
   min-width: 300px;
   padding: 10px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 15px;
+  width: auto;
+
+
 }
 .second-div{
   min-width: 200px;
   padding: 10px;
   font-weight: lighter;
+   margin: 10px;
 }
 .text-allign-center{
 text-align: center;
 font-weight: lighter;
 color: #DB5461;
 font-size: 24px;
+margin: 0 0 10px;
 }
+
+.text-allign-center-small{
+text-align: center;
+font-weight: lighter;
+color: #DB5461;
+font-size: 18px;
+margin: 0 0 10px;
+}
+
+
 .text-blue{
   text-align: center;
 font-weight: lighter;
@@ -40,3 +59,14 @@ color: #88498f;
 .greens{
 color: #5db166;
 }
+.instructions{
+  margin-top: 50px;
+  margin-bottom:50px;
+  text-align:center;
+  border: 1px solid #F4F4F4;
+  padding: 20px;
+  p{
+    margin: 0 0 0;
+  }
+}
+
