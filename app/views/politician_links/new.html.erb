@@ -1,8 +1,9 @@
 <div class="cards-body">
   <div class="row">
-    <button type="button" class="main-button home-button" data-toggle="modal" data-target="#myModalRules">Info</button>
-    <h2>Choose your members for  <%= link_to @political_party.name, political_party_path(@political_party) %></h2>
-
+    <h2 class="new-party-header">Choose your members for  <%= link_to @political_party.name, political_party_path(@political_party) %></h2>
+    <div class="info-button">
+      <button type="button" class="main-button home-button" id="info-button-new" data-toggle="modal" data-target="#myModalRules">Info</button>
+    </div>
     <%= form_tag new_political_party_politician_link_path(@political_party), :id => 'search-bar', method: :get do %>
       <%= text_field_tag :query,
         params[:query],
