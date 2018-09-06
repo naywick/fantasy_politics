@@ -72,12 +72,20 @@
               <%= link_to "Politicians' Scores", politician_scores_path, class: "navbar-wagon-item navbar-wagon-link" %>
             </li>
             <li>
+              <%= link_to 'Rage Page', rage_page_path, class: "navbar-wagon-item navbar-wagon-link #{'active' if params[:action] == 'rage_page'}" %>
+            </li>
+            <li>
+              <%= link_to instructions_path do %>
+                <i class="fas fa-dice-three"></i><%= t(".profile", default: " Rules") %>
+              <% end %>
+            </li>
+            <li>
               <%= link_to user_path(current_user) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
             <li><%= link_to destroy_user_session_path, method: :delete, class: '#' do %>
-              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: " Log out") %>
             <% end %>
             </li>
 
