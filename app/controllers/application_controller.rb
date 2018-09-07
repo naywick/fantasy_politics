@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
   def after_sign_in_path_for(resource_or_scope)
-   current_user
+   political_parties_path
   end
 
   def after_sign_up_path_for(resource_or_scope)
