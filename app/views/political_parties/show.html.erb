@@ -13,7 +13,7 @@
         <h4>Leagues</h4>
 
             <% if @political_party.leagues == [] %>
-              <p>No leagues yet 😢</p>
+              <p>No leagues yet</p>
             <div class="button-flex">
               <%= link_to "Create a league", new_league_path, class: "main-button party-league-button" %>
               <%= link_to "Join a league", leagues_path, class: "main-button party-league-button" %>
