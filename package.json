@@ -7,7 +7,7 @@
     "chart.js": "^2.7.2",
     "chartkick": "^3.0.1",
     "highcharts": "^6.1.2",
-    "jquery": "^3.3.1"
+    "jquery": "^3.5.0"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
