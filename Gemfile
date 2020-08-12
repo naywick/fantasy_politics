@@ -34,7 +34,7 @@ gem 'whenever', :require => false
 
 
 source 'https://rubygems.org' do
-  gem 'chartkick', '~> 1.4', '>= 1.4.1'
+  gem 'chartkick', '~> 3.4'
 end
 
 
